@@ -6,7 +6,7 @@ class Registration extends Component {
     render() { 
         return ( 
             <div>
-                <Breadcrumb />
+                <Breadcrumb pageName="Register" />
                 {/* Registratin start */}
                 <div className="main-content-wrapper">
                     <div className="page-inner section-padding">

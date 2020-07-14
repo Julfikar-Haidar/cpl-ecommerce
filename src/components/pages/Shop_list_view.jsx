@@ -6,7 +6,7 @@ class Shop_list_view extends Component {
     render() {
         return (
             <div>
-                <Breadcrumb />
+                <Breadcrumb pageName="Shop List" />
                 <div className="main-content-wrapper">
                     <div className="shop-area section-padding">
                         <div className="container">

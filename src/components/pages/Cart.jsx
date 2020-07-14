@@ -6,7 +6,7 @@ class Cart extends Component {
     render() {
         return (
             <div>
-                <Breadcrumb />
+                <Breadcrumb pageName="Cart" />
                 <div className="main-content-wrapper">
                     <div className="cart-area ptb--60">
                         <div className="container">

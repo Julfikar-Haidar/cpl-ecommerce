@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
-class Breadcumb extends Component {
-    state = {  }
-    render() { 
-        return (
-            <div>
-                {/* Breadcumb area Start */}
-                <div class="breadcumb-area bg--black ptb--100">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <ul class="breadcumb">
-                                    <li class="zeref-breadcumb"><a class="zeref-breadcumb-link" href="index.html">Home</a></li>
-                                    <li class="zeref-breadcumb"><a class="zeref-breadcumb-link current" href="login.html">Login</a></li>
-                                </ul>
-                            </div>
+function Breadcrumb({pageName,subCategory}){
+    return (
+        <div>
+            {/* Breadcumb area Start */}
+            <div className="breadcumb-area bg--black ptb--100">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <ul className="breadcumb">
+                                <li className="zeref-breadcumb"><Link className="zeref-breadcumb-link" to="/">Home</Link></li> 
+                                <li className="zeref-breadcumb"><Link className="zeref-breadcumb-link current" to="./login">{pageName}</Link></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                {/* Breadcumb area End */}
             </div>
-        );
-    }
+            {/* Breadcumb area End */}
+        </div>
+    );
+   
 }
  
-export default Breadcumb;
+export default Breadcrumb;
