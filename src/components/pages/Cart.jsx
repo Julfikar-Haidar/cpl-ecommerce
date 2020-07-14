@@ -15,7 +15,7 @@ class Cart extends Component {
                                     <div className="row">
                                         <div className="col-12">
                                             {/* <!-- Cart Area Start --> */}
-                                    <form action="#" className="form form--cart">
+                                            <form action="#" className="form form--cart">
                                                 <div className="cart-table table-content table-responsive">
                                                     <table className="table">
                                                         <thead>
