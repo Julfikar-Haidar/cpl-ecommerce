@@ -1,7 +1,54 @@
 import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
-
+import axios from 'axios';
 class Registration extends Component {
+    constructor(props) {
+        super(props);
+        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    
+        this.state = {
+          name: '',
+          email: '',
+          password: '',
+          
+        }
+      }
+      onChangeName(e) {
+        this.setState({
+          name: e.target.value
+        });
+      }
+      onChangeEmail(e) {
+        this.setState({
+          email: e.target.value
+        })  
+      }
+      onChangePassword(e) {
+        this.setState({
+          password: e.target.value
+        })  
+      }
+    
+    
+      onSubmit(e) {
+        e.preventDefault();
+        const obj = {
+          name: this.state.name,
+          email: this.state.email,
+          password: this.state.password
+        };
+        axios.post('http://localhost:3000/users', obj)
+            .then(res => console.log(res.data));
+        
+        this.setState({
+          name: '',
+          email: '',
+          password: ''
+        })
+      }
     state = {  }
     render() { 
         return ( 
@@ -16,22 +63,28 @@ class Registration extends Component {
                                     <div className="form-box">
                                         <h1 className="text-center">Register</h1>
                                         <p className="text-center">Please sign up using account detail bellow.</p>
-                                        <form className="form" action="#">
+                                        <form className="form" action="#" onSubmit={this.onSubmit}>
                                             <div className="zeref-form-group row align-items-center">
                                                 <div className="col-md-12 col-lg-12 col-12">
                                                     <input type="text" name="username" className="zeref-input-form" placeholder="Username"
+                                                    value={this.state.name}
+                                                    onChange={this.onChangeName}
                                                     />
                                                 </div>
                                             </div>
                                             <div className="zeref-form-group row align-items-center">
                                                 <div className="col-md-12 col-lg-12 col-12">
                                                     <input type="email" name="login_email" id="login_email" className="zeref-input-form" placeholder="Email"
+                                                    value={this.state.email}
+                                                    onChange={this.onChangeEmail}
                                                     />
                                                 </div>
                                             </div>
                                             <div className="zeref-form-group row align-items-center">
                                                 <div className="col-md-12 col-lg-12 col-12">
                                                     <input type="password" name="login_password" id="login_password" className="zeref-input-form" placeholder="Password"
+                                                    value={this.state.password}
+                                                    onChange={this.onChangePassword}
                                                     />
                                                     <button className="password-btn" type="button">Show</button>
                                                 </div>
