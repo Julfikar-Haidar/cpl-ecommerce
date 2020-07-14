@@ -6,7 +6,7 @@ class Login extends Component {
     render() { 
         return ( 
             <div>
-                <Breadcrumb/>
+                <Breadcrumb pageName="Login" />
                 {/* Main content wrapper start */}
 
                 <div class="main-content-wrapper">

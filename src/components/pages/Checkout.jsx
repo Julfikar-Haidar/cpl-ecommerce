@@ -6,7 +6,7 @@ class Checkout extends Component {
     render() {
         return (
             <div>
-                <Breadcrumb/>
+                <Breadcrumb pageName="Checkout" />
                 <div className="main-content-wrapper">
                     <div className="checkout-area">
                         <div className="container">

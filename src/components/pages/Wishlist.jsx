@@ -6,7 +6,7 @@ class Wishlist extends Component {
     render() {
         return (
             <div>
-                <Breadcrumb />
+                <Breadcrumb  pageName="Wishlist" />
                 <div className="main-content-wrapper">
                     <div className="wishlist-wrapper ptb--60">
                         <div className="container">
