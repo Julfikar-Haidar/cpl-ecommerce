@@ -13,14 +13,15 @@ class Shop_list_view extends Component {
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(res => res.json())
-            .then(json => {
+            .then(jul => {
                 this.setState({
                     isLoaded: true,
-                    items: json
+                    items: jul
                 })
                 
             })
     }
+    
 
     render() {
         var { isLoaded, items } = this.state;
@@ -45,23 +46,23 @@ class Shop_list_view extends Component {
                                                 <ul className="search-filter-list">
                                                     <li className="custom-checkbox">
                                                         <input type="checkbox" name="bookandboardgame" id="bookandboardgame" className="zeref-checkbox" />
-                                                        <label for="bookandboardgame" className="zeref-checkbox-label">Dresses</label>
+                                                        <label htmlFor="bookandboardgame" className="zeref-checkbox-label">Dresses</label>
                                                     </li>
                                                     <li className="custom-checkbox">
                                                         <input type="checkbox" name="babydols" id="1" className="zeref-checkbox" />
-                                                        <label for="1" className="zeref-checkbox-label">Accessories</label>
+                                                        <label htmlFor="1" className="zeref-checkbox-label">Accessories</label>
                                                     </li>
                                                     <li className="custom-checkbox">
                                                         <input type="checkbox" name="babydols" id="2" className="zeref-checkbox" />
-                                                        <label for="2" className="zeref-checkbox-label">Handbag</label>
+                                                        <label htmlFor="2" className="zeref-checkbox-label">Handbag</label>
                                                     </li>
                                                     <li className="custom-checkbox">
                                                         <input type="checkbox" name="babydols" id="3" className="zeref-checkbox" />
-                                                        <label for="3" className="zeref-checkbox-label">Watches</label>
+                                                        <label htmlFor="3" className="zeref-checkbox-label">Watches</label>
                                                     </li>
                                                     <li className="custom-checkbox">
                                                         <input type="checkbox" name="babydols" id="4" className="zeref-checkbox" />
-                                                        <label for="4" className="zeref-checkbox-label">Jewelery</label>
+                                                        <label htmlFor="4" className="zeref-checkbox-label">Jewelery</label>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -75,23 +76,23 @@ class Shop_list_view extends Component {
                                                 <ul className="search-filter-list">
                                                     <li className="custom-checkbox">
                                                         <input type="checkbox" name="bookandboardgame" id="cat" className="zeref-checkbox" />
-                                                        <label for="cat" className="zeref-checkbox-label">Nike</label>
+                                                        <label htmlFor="cat" className="zeref-checkbox-label">Nike</label>
                                                     </li>
                                                     <li className="custom-checkbox">
                                                         <input type="checkbox" name="babydols" id="5" className="zeref-checkbox" />
-                                                        <label for="5" className="zeref-checkbox-label">zeref</label>
+                                                        <label htmlFor="5" className="zeref-checkbox-label">zeref</label>
                                                     </li>
                                                     <li className="custom-checkbox">
                                                         <input type="checkbox" name="babydols" id="6" className="zeref-checkbox" />
-                                                        <label for="6" className="zeref-checkbox-label">Lorem</label>
+                                                        <label htmlFor="6" className="zeref-checkbox-label">Lorem</label>
                                                     </li>
                                                     <li className="custom-checkbox">
                                                         <input type="checkbox" name="babydols" id="7" className="zeref-checkbox" />
-                                                        <label for="7" className="zeref-checkbox-label">Ipsum</label>
+                                                        <label htmlFor="7" className="zeref-checkbox-label">Ipsum</label>
                                                     </li>
                                                     <li className="custom-checkbox">
                                                         <input type="checkbox" name="babydols" id="8" className="zeref-checkbox" />
-                                                        <label for="8" className="zeref-checkbox-label">Dolet</label>
+                                                        <label htmlFor="8" className="zeref-checkbox-label">Dolet</label>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -106,15 +107,15 @@ class Shop_list_view extends Component {
                                                 <ul className="search-filter-list">
                                                     <li className="custom-radio">
                                                         <input type="radio" name="price" id="sixtentoeighteen" className="zeref-radio-input" />
-                                                        <label for="sixtentoeighteen" className="zeref-radio-label"><span></span> $10.00 - $15.00 (5) </label>
+                                                        <label htmlFor="sixtentoeighteen" className="zeref-radio-label"><span></span> $10.00 - $15.00 (5) </label>
                                                     </li>
                                                     <li className="custom-radio">
                                                         <input type="radio" name="price" id="twentyfivetothirtytwo" className="zeref-radio-input" />
-                                                        <label for="twentyfivetothirtytwo" className="zeref-radio-label"><span></span> $16.00 - $25.00 (22)</label>
+                                                        <label htmlFor="twentyfivetothirtytwo" className="zeref-radio-label"><span></span> $16.00 - $25.00 (22)</label>
                                                     </li>
                                                     <li className="custom-radio">
                                                         <input type="radio" name="price" id="fiftytofiftythree" className="zeref-radio-input" />
-                                                        <label for="fiftytofiftythree" className="zeref-radio-label"><span></span> $26.00 - $35.00 (53)</label>
+                                                        <label htmlFor="fiftytofiftythree" className="zeref-radio-label"><span></span> $26.00 - $35.00 (53)</label>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -510,7 +511,32 @@ class Shop_list_view extends Component {
                                                         {/* paste here start */}
                                                     <ul>
                                                         {items.map((value, index) => {
-                                                            return <li key={index}>{value.name}</li>
+                                                            return (
+                                                                <div>
+                                                                    <div className="product-box product-box--list variable-product" key="index">
+                                                                        <div className="row">
+                                                                            <div className="col-md-4">
+                                                                                <div className="zeref-box-image">
+                                                                                    <img src="assets/img/fashion/product/3.jpg" alt="product image" className="primary_image" />
+                                                                                    <img src="assets/img/fashion/product/4.jpg" alt="product image" className="secondary_image" />
+                                                                                    <a href="#" data-toggle="modal" data-target="#productModal" className="quick-view"> <i className="fa fa-eye"></i> </a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div className="col-md-8">
+                                                                                <div className="zeref-box-desc">
+                                                                                    <a href="single-product.html" className="zeref-box-title">{value.name}</a>
+                                                                                    <p className="zeref-box-price">
+                                                                                        <span className="sale-price">$15.00</span>
+                                                                                        <span className="regular-price">$23.00</span>
+                                                                                    </p>
+                                                                                    <p className="zeref-box-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis distinctio, recusandae sed, dolore perspiciatis, eaque ex ad itaque esse odio ab magni! Impedit molestias dicta aliquid ipsum accusantium repellendus aut!</p>
+                                                                                    <a href="cart.html" className="btn add-to-cart btn-style-2"><i className="fa fa-shopping-cart"></i></a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            )
                                                         })}
                                                     </ul>
                                                     {/* paste end */}
