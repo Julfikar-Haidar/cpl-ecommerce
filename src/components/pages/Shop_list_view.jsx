@@ -2,8 +2,29 @@ import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
 
 class Shop_list_view extends Component {
-    state = {}
+    constructor(props) {
+        super(props)
+        this.state = {
+            items: [],
+            isLoaded: false
+        }
+    }
+
+    componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    isLoaded: true,
+                    items: json
+                })
+                
+            })
+    }
+
     render() {
+        var { isLoaded, items } = this.state;
+        console.log(items);
         return (
             <div>
                 <Breadcrumb />
@@ -486,139 +507,14 @@ class Shop_list_view extends Component {
                                                 </div>
                                                 <div className="tab-pane show active" id="list">
                                                     <div className="product-list-view">
-                                                        <div className="product-box product-box--list variable-product">
-                                                            <div className="row">
-                                                                <div className="col-md-4">
-                                                                    <div className="zeref-box-image">
-                                                                        <img src="assets/img/fashion/product/3.jpg" alt="product image" className="primary_image" />
-                                                                        <img src="assets/img/fashion/product/4.jpg" alt="product image" className="secondary_image" />
-                                                                        <a href="#" data-toggle="modal" data-target="#productModal" className="quick-view"> <i className="fa fa-eye"></i> </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-8">
-                                                                    <div className="zeref-box-desc">
-                                                                        <a href="single-product.html" className="zeref-box-title">Blue Shirt</a>
-                                                                        <p className="zeref-box-price">
-                                                                            <span className="sale-price">$15.00</span>
-                                                                            <span className="regular-price">$23.00</span>
-                                                                        </p>
-                                                                        <p className="zeref-box-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis distinctio, recusandae sed, dolore perspiciatis, eaque ex ad itaque esse odio ab magni! Impedit molestias dicta aliquid ipsum accusantium repellendus aut!</p>
-                                                                        <a href="cart.html" className="btn add-to-cart btn-style-2"><i className="fa fa-shopping-cart"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="product-box product-box--list variable-product">
-                                                            <div className="row">
-                                                                <div className="col-md-4">
-                                                                    <div className="zeref-box-image">
-                                                                        <img src="assets/img/fashion/product/5.jpg" alt="product image" className="primary_image" />
-                                                                        <img src="assets/img/fashion/product/6.jpg" alt="product image" className="secondary_image" />
-                                                                        <a href="#" data-toggle="modal" data-target="#productModal" className="quick-view"> <i className="fa fa-eye"></i> </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-8">
-                                                                    <div className="zeref-box-desc">
-                                                                        <a href="single-product.html" className="zeref-box-title">Blue Shirt</a>
-                                                                        <p className="zeref-box-price">
-                                                                            <span className="sale-price">$15.00</span>
-                                                                            <span className="regular-price">$23.00</span>
-                                                                        </p>
-                                                                        <p className="zeref-box-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis distinctio, recusandae sed, dolore perspiciatis, eaque ex ad itaque esse odio ab magni! Impedit molestias dicta aliquid ipsum accusantium repellendus aut!</p>
-                                                                        <a href="cart.html" className="btn add-to-cart btn-style-2"><i className="fa fa-shopping-cart"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="product-box product-box--list variable-product">
-                                                            <div className="row">
-                                                                <div className="col-md-4">
-                                                                    <div className="zeref-box-image">
-                                                                        <img src="assets/img/fashion/product/7.jpg" alt="product image" className="primary_image" />
-                                                                        <img src="assets/img/fashion/product/8.jpg" alt="product image" className="secondary_image" />
-                                                                        <a href="#" data-toggle="modal" data-target="#productModal" className="quick-view"> <i className="fa fa-eye"></i> </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-8">
-                                                                    <div className="zeref-box-desc">
-                                                                        <a href="single-product.html" className="zeref-box-title">Blue Shirt</a>
-                                                                        <p className="zeref-box-price">
-                                                                            <span className="sale-price">$15.00</span>
-                                                                            <span className="regular-price">$23.00</span>
-                                                                        </p>
-                                                                        <p className="zeref-box-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis distinctio, recusandae sed, dolore perspiciatis, eaque ex ad itaque esse odio ab magni! Impedit molestias dicta aliquid ipsum accusantium repellendus aut!</p>
-                                                                        <a href="cart.html" className="btn add-to-cart btn-style-2"><i className="fa fa-shopping-cart"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="product-box product-box--list variable-product">
-                                                            <div className="row">
-                                                                <div className="col-md-4">
-                                                                    <div className="zeref-box-image">
-                                                                        <img src="assets/img/fashion/product/9.jpg" alt="product image" className="primary_image" />
-                                                                        <img src="assets/img/fashion/product/10.jpg" alt="product image" className="secondary_image" />
-                                                                        <a href="#" data-toggle="modal" data-target="#productModal" className="quick-view"> <i className="fa fa-eye"></i> </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-8">
-                                                                    <div className="zeref-box-desc">
-                                                                        <a href="single-product.html" className="zeref-box-title">Blue Shirt</a>
-                                                                        <p className="zeref-box-price">
-                                                                            <span className="sale-price">$15.00</span>
-                                                                            <span className="regular-price">$23.00</span>
-                                                                        </p>
-                                                                        <p className="zeref-box-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis distinctio, recusandae sed, dolore perspiciatis, eaque ex ad itaque esse odio ab magni! Impedit molestias dicta aliquid ipsum accusantium repellendus aut!</p>
-                                                                        <a href="cart.html" className="btn add-to-cart btn-style-2"><i className="fa fa-shopping-cart"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="product-box product-box--list variable-product">
-                                                            <div className="row">
-                                                                <div className="col-md-4">
-                                                                    <div className="zeref-box-image">
-                                                                        <img src="assets/img/fashion/product/11.jpg" alt="product image" className="primary_image" />
-                                                                        <img src="assets/img/fashion/product/12.jpg" alt="product image" className="secondary_image" />
-                                                                        <a href="#" data-toggle="modal" data-target="#productModal" className="quick-view"> <i className="fa fa-eye"></i> </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-8">
-                                                                    <div className="zeref-box-desc">
-                                                                        <a href="single-product.html" className="zeref-box-title">Blue Shirt</a>
-                                                                        <p className="zeref-box-price">
-                                                                            <span className="sale-price">$15.00</span>
-                                                                            <span className="regular-price">$23.00</span>
-                                                                        </p>
-                                                                        <p className="zeref-box-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis distinctio, recusandae sed, dolore perspiciatis, eaque ex ad itaque esse odio ab magni! Impedit molestias dicta aliquid ipsum accusantium repellendus aut!</p>
-                                                                        <a href="cart.html" className="btn add-to-cart btn-style-2"><i className="fa fa-shopping-cart"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div className="product-box product-box--list variable-product">
-                                                            <div className="row">
-                                                                <div className="col-md-4">
-                                                                    <div className="zeref-box-image">
-                                                                        <img src="assets/img/fashion/product/13.jpg" alt="product image" className="primary_image" />
-                                                                        <img src="assets/img/fashion/product/14.jpg" alt="product image" className="secondary_image" />
-                                                                        <a href="#" data-toggle="modal" data-target="#productModal" className="quick-view"> <i className="fa fa-eye"></i> </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="col-md-8">
-                                                                    <div className="zeref-box-desc">
-                                                                        <a href="single-product.html" className="zeref-box-title">Blue Shirt</a>
-                                                                        <p className="zeref-box-price">
-                                                                            <span className="sale-price">$15.00</span>
-                                                                            <span className="regular-price">$23.00</span>
-                                                                        </p>
-                                                                        <p className="zeref-box-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis distinctio, recusandae sed, dolore perspiciatis, eaque ex ad itaque esse odio ab magni! Impedit molestias dicta aliquid ipsum accusantium repellendus aut!</p>
-                                                                        <a href="cart.html" className="btn add-to-cart btn-style-2"><i className="fa fa-shopping-cart"></i></a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        {/* paste here start */}
+                                                    <ul>
+                                                        {items.map((value, index) => {
+                                                            return <li key={index}>{value.name}</li>
+                                                        })}
+                                                    </ul>
+                                                    {/* paste end */}
+                                                       </div>
                                                 </div>
                                             </div>
                                             <div className="row mb-md--30">
