@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Breadcrumb from '../layouts/Breadcrumb'
+import Breadcrumb from '../layouts/Breadcrumb';
+import {Link} from 'react-router-dom';
+
 
 class Login extends Component {
     state = {  }
@@ -36,7 +38,7 @@ class Login extends Component {
                                                 </div>
                                             </div>
                                         </form>
-                                        <a class="create-account-link" href="register.html">New Here? Create an account</a>
+                                        <Link className="create-account-link" to="/register">New Here? Create an account</Link>
                                     </div>
                                 </div>
                             </div>
