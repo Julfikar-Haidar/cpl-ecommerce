@@ -6074,3 +6074,22 @@ Blog Pagination
   color: #DB5C00;
   border-color: rgba(237, 237, 237, 0.7);
 }
+/* Registration success modal */
+.success-close {
+  float: right;
+  padding: 1rem;
+  margin: -1rem -1rem -1rem auto;
+  border: 0;
+  background-color: transparent;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+}
+.user-success-message {
+  padding: 15px;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}

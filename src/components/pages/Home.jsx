@@ -1,5 +1,20 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {posts: []};
+      }
+      componentDidMount(){
+        axios.get('https://jsonplaceholder.typicode.com/users')
+          .then(response => {
+            this.setState({ posts: response.data });
+            console.log(response.data)
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      }
     state = {  }
     render() { 
         return ( 
@@ -187,7 +202,10 @@ class Home extends Component {
                                             {/* Women Product Area Start */}
                                             <div className="row">
                                                 <div className="zeref-tproduct-carousel zeref-tproduct-carousel-area owl-carousel js-tanding-product-1">
-                                                    {/* Product Box Start */}
+                                                    {/* Product Box Start */}      
+                                                    {
+                                                        this.state.posts.map((item,i)=> 
+                                                    
                                                     <div className="col-lg-12 col-sm-12">
                                                         <div className="product-grid5">
                                                             <div className="product-image5">
@@ -203,356 +221,18 @@ class Home extends Component {
                                                                 <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
                                                             </div>
                                                             <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
+                                                                <h3 className="title"><a href="#">{i}{item.name}</a></h3>
                                                                 <div className="price">$11.00 - $15.00</div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {/* Product Box End */}
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/3.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/4.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* Product Box End */}
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/5.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/6.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* Product Box End */}
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/7.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/8.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* Product Box End */}
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/9.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/10.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* Product Box End */}
+                                                        )    
+                                                }
                                                 </div>
                                             </div>
                                             {/* Women Product Area End */}
                                         </div>
-                                        <div className="tab-pane zeref-tab-pane" id="avocodas" role="tabpanel" aria-labelledby="avocodas-tab">
-                                            {/* Man Product Area Start */}
 
-                                            <div className="row">
-                                                <div className="zeref-tproduct-carousel zeref-tproduct-carousel-area owl-carousel js-tanding-product-1">
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="# ">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/1.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/2.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="# " className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="# ">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Product Box End */}
-                                                    {/* Product Box Start */}
-
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/3.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/4.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* Product Box End */}
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/5.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/6.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="# " className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* Product Box End */}
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/7.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/8.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* Product Box End */}
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/9.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/10.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* Product Box End */}
-
-
-                                                </div>
-                                            </div>
-                                            {/* Man Product Area End */}
-
-                                        </div>
-                                        <div className="tab-pane zeref-tab-pane" id="avocodas-2" role="tabpanel" aria-labelledby="avocodas-2-tab">
-
-                                            {/* Kids Product Area Start */}
-                                            <div className="row">
-                                                <div className="zeref-tproduct-carousel zeref-tproduct-carousel-area owl-carousel js-tanding-product-1">
-                                                    {/*  Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/1.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/2.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Product Box End */}
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/3.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/4.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="# " className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="# ">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Product Box End */}
-
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/5.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/6.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="# /" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="# " className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="# ">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* Product Box End */}
-
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/7.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/8.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="# /" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="# " className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="#">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    {/* Product Box End */}
-
-                                                    {/* Product Box Start */}
-                                                    <div className="col-lg-12 col-sm-12">
-                                                        <div className="product-grid5">
-                                                            <div className="product-image5">
-                                                                <a href="#">
-                                                                    <img className="pic-1" alt="product image" src="assets/img/fashion/product/9.jpg" />
-                                                                    <img className="pic-2" alt="product image" src="assets/img/fashion/product/10.jpg" />
-                                                                </a>
-                                                                <ul className="social">
-                                                                    <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                    <li><a href="" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                    <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                </ul>
-                                                                <a href="# " className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                            </div>
-                                                            <div className="product-content">
-                                                                <h3 className="title"><a href="# ">Women's tops</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Product Box End */}
-
-                                                </div>
-                                            </div>
-                                            {/* Kids Product Area End */}
-
-
-                                        </div>
                                     </div>
 
                                     {/* Product Tab Content End */}

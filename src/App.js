@@ -8,6 +8,7 @@ import Wishlist from './components/pages/Wishlist';
 import Checkout from './components/pages/Checkout';
 import Cart from './components/pages/Cart';
 import Shop_list_view from './components/pages/Shop_list_view';
+import SingleProduct from './components/pages/single-product';
 
 import {
   BrowserRouter as Router,
@@ -28,6 +29,7 @@ function App() {
         <Route path="/checkout" component={Checkout}/>
         <Route path="/cart" component={Cart}/>
         <Route path="/shop-list" component={Shop_list_view}/>
+        <Route path="/single-product" component={SingleProduct}/>
       </Switch>
 
       <Footer/>
