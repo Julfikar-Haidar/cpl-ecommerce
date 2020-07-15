@@ -524,7 +524,7 @@ class Shop_list_view extends Component {
                                                                             </div>
                                                                             <div className="col-md-8">
                                                                                 <div className="zeref-box-desc">
-                                                                                    <a href="single-product.html" className="zeref-box-title">{value.name}</a>
+                                                                                    <a href="#" className="zeref-box-title">{value.name}</a>
                                                                                     <p className="zeref-box-price">
                                                                                         <span className="sale-price">$15.00</span>
                                                                                         <span className="regular-price">$23.00</span>

@@ -204,7 +204,7 @@ class Home extends Component {
                                                 <div className="zeref-tproduct-carousel zeref-tproduct-carousel-area owl-carousel js-tanding-product-1">
                                                     {/* Product Box Start */}      
                                                     {
-                                                        this.state.posts.map((item,i)=> 
+                                                        this.state.posts.map((item,index)=>
                                                     
                                                     <div className="col-lg-12 col-sm-12">
                                                         <div className="product-grid5">
@@ -221,7 +221,7 @@ class Home extends Component {
                                                                 <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
                                                             </div>
                                                             <div className="product-content">
-                                                                <h3 className="title"><a href="#">{i}{item.name}</a></h3>
+                                                                <h3 className="title"><a href="#">{item.name}</a></h3>
                                                                 <div className="price">$11.00 - $15.00</div>
                                                             </div>
                                                         </div>
