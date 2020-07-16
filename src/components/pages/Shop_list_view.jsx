@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
-
+import { Link } from 'react-router-dom';
 class Shop_list_view extends Component {
     constructor(props) {
         super(props)
@@ -11,12 +11,12 @@ class Shop_list_view extends Component {
     }
 
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch('https://nodejs-backend-apis.herokuapp.com/api/product')
             .then(res => res.json())
             .then(jul => {
                 this.setState({
                     isLoaded: true,
-                    items: jul
+                    items: jul.data
                 })
                 
             })
@@ -524,9 +524,10 @@ class Shop_list_view extends Component {
                                                                             </div>
                                                                             <div className="col-md-8">
                                                                                 <div className="zeref-box-desc">
-                                                                                    <a href="#" className="zeref-box-title">{value.name}</a>
+                                                                                    {/* <a href="/single-product {index}" className="zeref-box-title">{value.name}</a> */}
+                                                                                    <Link to={"/single-product/"+index} className="zeref-box-title">{value.name}</Link>
                                                                                     <p className="zeref-box-price">
-                                                                                        <span className="sale-price">$15.00</span>
+                                                                                        <span className="sale-price">{value.price}TK</span>
                                                                                         <span className="regular-price">$23.00</span>
                                                                                     </p>
                                                                                     <p className="zeref-box-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis distinctio, recusandae sed, dolore perspiciatis, eaque ex ad itaque esse odio ab magni! Impedit molestias dicta aliquid ipsum accusantium repellendus aut!</p>

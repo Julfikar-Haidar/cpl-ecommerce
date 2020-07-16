@@ -43,7 +43,7 @@ class Footer extends Component {
                                                 <li><a href="#">Wishlist </a></li>
                                                 <li><a href="#">My Cart</a></li>
                                                 <li><a href="#">Checkout </a></li>
-                                                <li><a href="#">register </a></li>
+                                                
                                             </ul>
                                         </div>
                                     </div>
@@ -56,10 +56,10 @@ class Footer extends Component {
                                     <div className="footer-widget">
                                         <h3 className="widget-title footer-widget-title">Get in touch</h3>
                                         <div className="address-widget footer-address-widget">
-                                            <p><i className="fa fa-map-marker"></i> #183 Scelerisque Road 10. <br />Luxemburg. Alice</p>
-                                            <p><i className="fa fa-phone"></i> +001 2233 456</p>
-                                            <p><i className="fa fa-envelope"></i> <a href="mailo:demo@themeglass.com">demo@yahoo.com</a></p>
-                                            <p><i className="fa fa-skype"></i> <a href="# ">zeref12445</a></p>
+                                            <p><i className="fa fa-map-marker"></i>Moirpur DOHS Road no.10 <br />Building no.724</p>
+                                            <p><i className="fa fa-phone"></i> 01752411182</p>
+                                            <p><i className="fa fa-envelope"></i> <a href="mailo:demo@themeglass.com">cloudproductionbd@gmail.com</a></p>
+                                            {/* <p><i className="fa fa-skype"></i> <a href="# ">zeref12445</a></p> */}
                                         </div>
                                     </div>
                                 </div>
@@ -73,10 +73,10 @@ class Footer extends Component {
                                             <p>we always ready for the support in the working days.</p>
                                             <ul>
                                                 <li>
-                                                    mon - fri <span>9.00 - 5.00 pm</span>
+                                                    mon - fri <span>8.00 - 5.00 pm</span>
                                                 </li>
                                                 <li>
-                                                    saturday <span>9.00 - 2.00 pm</span>
+                                                    saturday <span>closed</span>
                                                 </li>
                                                 <li>
                                                     sunday <span>closed</span>
