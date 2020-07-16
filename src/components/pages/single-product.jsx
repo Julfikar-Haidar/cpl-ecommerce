@@ -60,16 +60,16 @@ class SingleProduct extends Component {
                                             </div>
                                             <p class="product-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit perspiciatis voluptatibus adipisci rerum cum in cumque ratione, rem quaerat, eum fugit saepe itaque provident velit placeat beatae accusantium repellat vitae tempora? Asperiores rem laborum fuga dolore at tempora aut nisi, cumque modi et eius nam consectetur delectus doloremque libero corporis reprehenderit, eos a eveniet qui ducimus alias inventore ullam cupiditate! Modi, facere! Delectus iste adipisci facere rem. Alias ducimus numquam commodi quasi labore perspiciatis dolorum architecto ab? Doloribus assumenda dignissimos omnis ad et dolore. Recusandae eos iure nam blanditiis cum cupiditate exercitationem repellat perferendis? Dolor, eos iure? Aliquam, doloribus et.</p>
                                             <p><b>Availability:</b> In stock</p>
-                                            <p><b>Condition:</b> New Product</p>
+                                            {/* <p><b>Condition:</b> New Product</p> */}
                                             <div class="product-varients">
-                                                <div class="zeref-product-size pb--20">
+                                                {/* <div class="zeref-product-size pb--20">
                                                     <span class="zeref-product-label"><b>Size: </b></span>
                                                     <select class="zeref-product-select">
                                                         <option value="1">S</option>
                                                         <option value="2">M</option>
                                                         <option value="3">L</option>
                                                     </select>
-                                                </div>
+                                                </div> */}
                                             </div>
                                             <div class="product-action-wrapper pb--20">
                                                 <span class="zeref-product-label"><b>Quantity: </b></span>

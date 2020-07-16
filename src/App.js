@@ -29,7 +29,7 @@ function App() {
         <Route path="/checkout" component={Checkout}/>
         <Route path="/cart" component={Cart}/>
         <Route path="/shop-list" component={Shop_list_view}/>
-        <Route path="/single-product" component={SingleProduct}/>
+        <Route path="/single-product/:id" component={SingleProduct}/>
       </Switch>
 
       <Footer/>

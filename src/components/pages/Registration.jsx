@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
 import axios from 'axios';
 import Modal from 'react-bootstrap4-modal';
-
-
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
