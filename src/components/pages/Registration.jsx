@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
 import axios from 'axios';
 import Modal from 'react-bootstrap4-modal';
-
-
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
 
 
 const validateForm = ({ errors, ...rest }) => {
-  let valid =  true;
+  let valid = true;
 
   // validate form errors being empty
   Object.values(errors).forEach(val => {
@@ -24,21 +22,32 @@ const validateForm = ({ errors, ...rest }) => {
 
   return valid;
 };
+
 class Registration extends Component {
 
+  error_msg = {
+    fontSize: 12,
+    color: 'red'
+  }
   constructor(props) {
     super(props);
 
 
     this.state = {
       username: null,
-      email: null,
       password: null,
+      email: null,
+      firstName: null,
+      lastName: null,
       modal: '',
+      form_empty: '',
+
       errors: {
         username: '',
-        email: '',
         password: '',
+        email: '',
+        firstName: '',
+        lastName: '',
       }
     }
   }
@@ -56,22 +65,39 @@ class Registration extends Component {
             ? 'Username must be at least 5 characters long!'
             : '';
         break;
+      
       case 'email':
         errors.email =
           validEmailRegex.test(value)
             ? ''
             : 'Email is not valid!';
         break;
+      
       case 'password':
         errors.password =
           value.length < 8
             ? 'Password must be at least 8 characters long!'
             : '';
         break;
-
+      
+      case 'firstName':
+        errors.firstName =
+          value.length < 5
+            ? 'First Name must be at least 5 characters long!'
+            : '';
+        break;
+      
+      case 'lastName':
+        errors.lastName =
+          value.length < 5
+            ? 'Last Name must be at least 5 characters long!'
+            : '';
+        break;
+      
       default:
         break;
     }
+  
 
     this.setState({ errors, [name]: value });
   }
@@ -82,50 +108,33 @@ class Registration extends Component {
     if (validateForm(this.state)) {
       console.info('Valid Form successfully')
       console.info(this.state)
+      const obj = {
+        username: this.state.username,
+        firstName: this.state.firstName,
+        lasttName: this.state.lasttName,
+        email: this.state.email,
+        password: this.state.password
+      };
+
+      axios.post('https://nodejs-backend-apis.herokuapp.com/api/register', obj)
+        .then(res => console.log(res.data));
+      
       this.setState({
         modal: 'success'
       })
 
     } else {
       console.error('Invalid Form')
+    
+      // alert("Please fill up  the field.")
+      this.setState({
+        form_empty: "Invalid form please input value"
+      })
+      
     }
   }
 
 
-  // onChangeName(e) {
-  //   this.setState({
-  //     username: e.target.value
-  //   });
-  // }
-  // onChangeEmail(e) {
-  //   this.setState({
-  //     email: e.target.value
-  //   })
-  // }
-  // onChangePassword(e) {
-  //   this.setState({
-  //     password: e.target.value
-  //   })
-  // }
-
-
-  // onSubmit(e) {
-  //   e.preventDefault();
-  //   const obj = {
-  //     username: this.state.username,
-  //     email: this.state.email,
-  //     password: this.state.password
-  //   };
-  //   axios.post('http://localhost:3000/users', obj)
-  //     .then(res => console.log(res.data));
-
-  //   this.setState({
-  //     username: '',
-  //     email: '',
-  //     password: ''
-  //   })
-  // }
-  // state = {}
 
   closeModal() {
     this.setState({
@@ -135,7 +144,7 @@ class Registration extends Component {
   }
 
   render() {
-    const { errors } = this.state;
+    const { errors ,form_empty} = this.state;
 
     return (
 
@@ -150,6 +159,7 @@ class Registration extends Component {
                   <div className="form-box">
                     <h1 className="text-center">Register</h1>
                     <p className="text-center">Please sign up using account detail bellow.</p>
+                    <p className="text-center" style={this.error_msg}>{form_empty}</p>
                     <form className="form" onSubmit={this.handleSubmit}>
                       <div className="zeref-form-group row align-items-center">
                         <div className="col-md-12 col-lg-12 col-12">
@@ -158,28 +168,48 @@ class Registration extends Component {
                             onChange={this.handleChange}
                           />
                           {errors.username.length > 0 &&
-                            <span className='error'>{errors.username}</span>}
+                            <span className='error' style={this.error_msg}>{errors.username}</span>}
                         </div>
                       </div>
                       <div className="zeref-form-group row align-items-center">
                         <div className="col-md-12 col-lg-12 col-12">
-                          <input type="text" name="email" id="login_email" className="zeref-input-form" placeholder="Email"
+                          <input type="text" name="firstName" className="zeref-input-form" placeholder="FirstName"
+
+                            onChange={this.handleChange}
+                          />
+                          {errors.firstName.length > 0 &&
+                            <span className='error error_msg' style={this.error_msg}>{errors.firstName}</span>}
+                        </div>
+                      </div>
+                      <div className="zeref-form-group row align-items-center">
+                        <div className="col-md-12 col-lg-12 col-12">
+                          <input type="text" name="lastName" className="zeref-input-form" placeholder="LastName"
+
+                            onChange={this.handleChange}
+                          />
+                          {errors.lastName.length > 0 &&
+                            <span className='error error_msg' style={this.error_msg}>{errors.lastName}</span>}
+                        </div>
+                      </div>
+                      <div className="zeref-form-group row align-items-center">
+                        <div className="col-md-12 col-lg-12 col-12">
+                          <input type="text" name="email" id="login_email" className="zeref-input-form" placeholder="Email*"
 
                             onChange={this.handleChange}
                           />
                           {errors.email.length > 0 &&
-                            <span className='error error_color'>{errors.email}</span>}
+                            <span className='error error_msg' style={this.error_msg}>{errors.email} </span>}
                         </div>
                       </div>
                       <div className="zeref-form-group row align-items-center">
                         <div className="col-md-12 col-lg-12 col-12">
-                          <input type="password" name="password" id="login_password" className="zeref-input-form" placeholder="Password"
+                          <input type="password" name="password" id="login_password" className="zeref-input-form" placeholder="Password*"
 
                             onChange={this.handleChange}
                           />
                           <button className="password-btn" type="button">Show</button>
                           {errors.password.length > 0 &&
-                            <span className='error'>{errors.password}</span>}
+                            <span className='error error_msg' style={this.error_msg}>{errors.password}</span>}
                         </div>
                       </div>
 

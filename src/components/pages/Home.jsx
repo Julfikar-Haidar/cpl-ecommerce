@@ -3,18 +3,20 @@ import axios from 'axios'
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {posts: []};
+        this.state = {products: []};
       }
+
       componentDidMount(){
-        axios.get('https://jsonplaceholder.typicode.com/users')
+        axios.get('https://nodejs-backend-apis.herokuapp.com/api/product')
           .then(response => {
-            this.setState({ posts: response.data });
-            console.log(response.data)
+            this.setState({ products: response.data.data });
+            console.log(response.data.data)
           })
           .catch(function (error) {
             console.log(error);
           })
       }
+      
     state = {  }
     render() { 
         return ( 
@@ -201,10 +203,11 @@ class Home extends Component {
                                         <div className="tab-pane zeref-tab-pane show active" id="apples" role="tabpanel" aria-labelledby="apples-tab">
                                             {/* Women Product Area Start */}
                                             <div className="row">
+                                               
                                                 <div className="zeref-tproduct-carousel zeref-tproduct-carousel-area owl-carousel js-tanding-product-1">
                                                     {/* Product Box Start */}      
                                                     {
-                                                        this.state.posts.map((item,i)=> 
+                                                        this.state.products.map((item,index)=>
                                                     
                                                     <div className="col-lg-12 col-sm-12">
                                                         <div className="product-grid5">
@@ -221,16 +224,16 @@ class Home extends Component {
                                                                 <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
                                                             </div>
                                                             <div className="product-content">
-                                                                <h3 className="title"><a href="#">{i}{item.name}</a></h3>
-                                                                <div className="price">$11.00 - $15.00</div>
+                                                                <h3 className="title"><a href="#">{item.name}</a></h3>
+                                                                <div className="price">{item.price}TK</div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                         )    
-                                                }
+                                                  }
                                                 </div>
                                             </div>
-                                            {/* Women Product Area End */}
+                                            
                                         </div>
 
                                     </div>
