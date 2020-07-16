@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Breadcrumb from '../layouts/Breadcrumb'
+import Breadcrumb from '../layouts/Breadcrumb';
+import ShopSidebar from '../layouts/Shop-sidebar';
 import { Link } from 'react-router-dom';
 class Shop_list_view extends Component {
     constructor(props) {
@@ -29,162 +30,14 @@ class Shop_list_view extends Component {
         return (
             <div>
                 <Breadcrumb pageName="Shop List" />
+               
                 <div className="main-content-wrapper">
                     <div className="shop-area section-padding">
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-3 order-lg-1 order-2">
-                                    {/* <!-- Sidebar Start --> */}
-                                    <aside className="sidebar shop-sidebar">
-                                        <div className="search-filter">
-
-                                            {/* <!-- Category Search filter Start --> */}
-                                            <div className="filter-box mb--30">
-                                                <div className="filter-title">
-                                                    <h2>Filter by categories</h2>
-                                                </div>
-                                                <ul className="search-filter-list">
-                                                    <li className="custom-checkbox">
-                                                        <input type="checkbox" name="bookandboardgame" id="bookandboardgame" className="zeref-checkbox" />
-                                                        <label htmlFor="bookandboardgame" className="zeref-checkbox-label">Dresses</label>
-                                                    </li>
-                                                    <li className="custom-checkbox">
-                                                        <input type="checkbox" name="babydols" id="1" className="zeref-checkbox" />
-                                                        <label htmlFor="1" className="zeref-checkbox-label">Accessories</label>
-                                                    </li>
-                                                    <li className="custom-checkbox">
-                                                        <input type="checkbox" name="babydols" id="2" className="zeref-checkbox" />
-                                                        <label htmlFor="2" className="zeref-checkbox-label">Handbag</label>
-                                                    </li>
-                                                    <li className="custom-checkbox">
-                                                        <input type="checkbox" name="babydols" id="3" className="zeref-checkbox" />
-                                                        <label htmlFor="3" className="zeref-checkbox-label">Watches</label>
-                                                    </li>
-                                                    <li className="custom-checkbox">
-                                                        <input type="checkbox" name="babydols" id="4" className="zeref-checkbox" />
-                                                        <label htmlFor="4" className="zeref-checkbox-label">Jewelery</label>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            {/* <!-- Category Search filter End --> */}
-
-                                            {/* <!-- Brand Search filter Start --> */}
-                                    <div className="filter-box mb--30">
-                                                <div className="filter-title">
-                                                    <h2>Filter by brand</h2>
-                                                </div>
-                                                <ul className="search-filter-list">
-                                                    <li className="custom-checkbox">
-                                                        <input type="checkbox" name="bookandboardgame" id="cat" className="zeref-checkbox" />
-                                                        <label htmlFor="cat" className="zeref-checkbox-label">Nike</label>
-                                                    </li>
-                                                    <li className="custom-checkbox">
-                                                        <input type="checkbox" name="babydols" id="5" className="zeref-checkbox" />
-                                                        <label htmlFor="5" className="zeref-checkbox-label">zeref</label>
-                                                    </li>
-                                                    <li className="custom-checkbox">
-                                                        <input type="checkbox" name="babydols" id="6" className="zeref-checkbox" />
-                                                        <label htmlFor="6" className="zeref-checkbox-label">Lorem</label>
-                                                    </li>
-                                                    <li className="custom-checkbox">
-                                                        <input type="checkbox" name="babydols" id="7" className="zeref-checkbox" />
-                                                        <label htmlFor="7" className="zeref-checkbox-label">Ipsum</label>
-                                                    </li>
-                                                    <li className="custom-checkbox">
-                                                        <input type="checkbox" name="babydols" id="8" className="zeref-checkbox" />
-                                                        <label htmlFor="8" className="zeref-checkbox-label">Dolet</label>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            {/* <!-- Category Search filter End --> */}
-
-                                            {/* <!-- Price Search filter Start --> */}
-
-                                            <div className="filter-box mb--30">
-                                                <div className="filter-title">
-                                                    <h2>Filter by price</h2>
-                                                </div>
-                                                <ul className="search-filter-list">
-                                                    <li className="custom-radio">
-                                                        <input type="radio" name="price" id="sixtentoeighteen" className="zeref-radio-input" />
-                                                        <label htmlFor="sixtentoeighteen" className="zeref-radio-label"><span></span> $10.00 - $15.00 (5) </label>
-                                                    </li>
-                                                    <li className="custom-radio">
-                                                        <input type="radio" name="price" id="twentyfivetothirtytwo" className="zeref-radio-input" />
-                                                        <label htmlFor="twentyfivetothirtytwo" className="zeref-radio-label"><span></span> $16.00 - $25.00 (22)</label>
-                                                    </li>
-                                                    <li className="custom-radio">
-                                                        <input type="radio" name="price" id="fiftytofiftythree" className="zeref-radio-input" />
-                                                        <label htmlFor="fiftytofiftythree" className="zeref-radio-label"><span></span> $26.00 - $35.00 (53)</label>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            {/* <!-- Price Search filter End --> */}
-
-                                            {/* <!-- Size Search filter Start --> */}
-                                    <div className="filter-box mb--30">
-                                                <div className="filter-title">
-                                                    <h2>Tags</h2>
-                                                </div>
-                                                <ul className="tag-list">
-                                                    <li><a href="#">Man</a></li>
-                                                    <li><a href="#">Women</a></li>
-                                                    <li><a href="#">Accessories</a></li>
-                                                    <li><a href="#">Shoes</a></li>
-                                                    <li><a href="#">Children</a></li>
-                                                    <li><a href="#">Toys</a></li>
-                                                    <li><a href="#">Games</a></li>
-                                                </ul>
-                                            </div>
-                                            {/* <!-- Size Search filter End --> */}
-
-                                            {/* <!-- Recent Post Widget Start --> */}
-                                    <div className="recent-post-widget filter-box">
-                                                <div className="filter-title">
-                                                    <h2>Best Product</h2>
-                                                </div>
-                                                <div className="single-recent-post">
-                                                    <a href="#" className="single-post-thumb">
-                                                        <img src="assets/img/blog/1.jpg" alt="Blog Thumb" />
-                                                    </a>
-                                                    <div className="single-post-content">
-                                                        <a href="#" className="single-post-title">Awesome Dress</a>
-                                                        <a href="#" className="single-post-date">12 February, 2020</a>
-                                                    </div>
-                                                </div>
-                                                <div className="single-recent-post">
-                                                    <a href="#" className="single-post-thumb">
-                                                        <img src="assets/img/blog/2.jpg" alt="Blog Thumb" />
-                                                    </a>
-                                                    <div className="single-post-content">
-                                                        <a href="#" className="single-post-title">Awesome Dress</a>
-                                                        <a href="#" className="single-post-date">12 February, 2020</a>
-                                                    </div>
-                                                </div>
-                                                <div className="single-recent-post">
-                                                    <a href="#" className="single-post-thumb">
-                                                        <img src="assets/img/blog/3.jpg" alt="Blog Thumb" />
-                                                    </a>
-                                                    <div className="single-post-content">
-                                                        <a href="#" className="single-post-title">Awesome Dress</a>
-                                                        <a href="#" className="single-post-date">12 February, 2020</a>
-                                                    </div>
-                                                </div>
-                                                <div className="single-recent-post">
-                                                    <a href="#" className="single-post-thumb">
-                                                        <img src="assets/img/blog/4.jpg" alt="Blog Thumb" />
-                                                    </a>
-                                                    <div className="single-post-content">
-                                                        <a href="#" className="single-post-title">Awesome Dress</a>
-                                                        <a href="#" className="single-post-date">12 February, 2020</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {/* <!-- Recent Post Widget End --> */}
-                                        </div>
-                                    </aside>
-                                    {/* <!-- Sidebar End --> */}
-                        </div>
+                                <ShopSidebar />
+                                </div>
                                 <div className="col-lg-9 order-lg-2 order-1">
                                     <div className="shop-toolbar d-flex flex-md-row flex-column justify-content-between align-items-md-center">
                                         <div className="zeref-shop-grid-list">
