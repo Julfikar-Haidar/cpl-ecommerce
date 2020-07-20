@@ -11,35 +11,37 @@ class Sidebar extends Component {
                         <i className="fa fa-close"></i>
                     </div>
                     <div className="list-unstyled components">
-                        <p>Language</p>
-                        <ul className="collapse list-unstyled">
-                            <li>
-                                <a href="# /"><img src="assets/img/language/english.png" alt="" /> English</a>
-                            </li>
-                            <li>
-                                <a href="# /"><img src="assets/img/language/es.png" alt="" /> Spanish</a>
-                            </li>
-                            <li>
-                                <a href="# /"><img src="assets/img/language/2.png" alt="" /> French</a>
-                            </li>
+                        {/*
+                            <p>Language</p>
+                            <ul className="collapse list-unstyled">
+                                <li>
+                                    <a href="# /"><img src="assets/img/language/english.png" alt="" /> English</a>
+                                </li>
+                                <li>
+                                    <a href="# /"><img src="assets/img/language/es.png" alt="" /> Spanish</a>
+                                </li>
+                                <li>
+                                    <a href="# /"><img src="assets/img/language/2.png" alt="" /> French</a>
+                                </li>
 
-                        </ul>
+                            </ul>
+                        */}
                         <p>My Account</p>
                         <ul className="collapse list-unstyled">
                             <li>
-                                <a href="cart.html">My Cart</a>
+                                <a href="#">My Cart</a>
                             </li>
                             <li>
-                                <a href="wishlist.html">My Wishlist</a>
+                                <a href="#">My Wishlist</a>
                             </li>
                             <li>
-                                <a href="checkout.html">Checkout</a>
+                                <a href="#">Checkout</a>
                             </li>
                             <li>
-                                <a href="login.html">Sign Up</a>
+                                <a href="#">Register</a>
                             </li>
                             <li>
-                                <a href="register.html">Sign In</a>
+                                <a href="#">Login</a>
                             </li>
                         </ul>
                     </div>
