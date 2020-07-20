@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './components/pages/Home'
 import Header from './components/layouts/Header'
 import Footer from './components/layouts/Footer'
+import Sidebar from './components/layouts/Sidebar'
 import Registration from './components/pages/Registration'
 import Login from './components/pages/Login'
 import Wishlist from './components/pages/Wishlist';
@@ -21,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Sidebar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />

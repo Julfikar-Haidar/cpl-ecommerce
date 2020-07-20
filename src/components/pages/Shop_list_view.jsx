@@ -318,7 +318,7 @@ class Shop_list_view extends Component {
                                                                             <li className="fa fa-star"></li>
                                                                         </ul>
                                                                         <div className="price">$15.00
-                                                                <span>$20.00</span>
+                                                                        <span>$20.00</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -350,7 +350,7 @@ class Shop_list_view extends Component {
                                                                             <li className="fa fa-star"></li>
                                                                         </ul>
                                                                         <div className="price">$15.00
-                                                                <span>$20.00</span>
+                                                                        <span>$20.00</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -363,7 +363,7 @@ class Shop_list_view extends Component {
                                                     <div className="product-list-view">
                                                         {/* paste here start */}
                                                     <ul>
-                                                        {items.map((value, index) => {
+                                                        {items.map((product, index) => {
                                                             return (
                                                                 <div>
                                                                     <div className="product-box product-box--list variable-product" key="index">
@@ -378,10 +378,10 @@ class Shop_list_view extends Component {
                                                                             <div className="col-md-8">
                                                                                 <div className="zeref-box-desc">
                                                                                     {/* <a href="/single-product {index}" className="zeref-box-title">{value.name}</a> */}
-                                                                                    <Link to={"/single-product/"+index} className="zeref-box-title">{value.name}</Link>
+                                                                                    <Link to={"/single-product/"+product.id} className="zeref-box-title">{product.name}</Link>
                                                                                     <p className="zeref-box-price">
-                                                                                        <span className="sale-price">{value.price}TK</span>
-                                                                                        <span className="regular-price">$23.00</span>
+                                                                                        <span className="sale-price">{product.price}TK</span>
+                                                                                        <span className="regular-price">{product.price}</span>
                                                                                     </p>
                                                                                     <p className="zeref-box-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis distinctio, recusandae sed, dolore perspiciatis, eaque ex ad itaque esse odio ab magni! Impedit molestias dicta aliquid ipsum accusantium repellendus aut!</p>
                                                                                     <a href="cart.html" className="btn add-to-cart btn-style-2"><i className="fa fa-shopping-cart"></i></a>

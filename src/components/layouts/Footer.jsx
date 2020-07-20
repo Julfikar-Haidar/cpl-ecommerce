@@ -56,7 +56,7 @@ class Footer extends Component {
                                     <div className="footer-widget">
                                         <h3 className="widget-title footer-widget-title">Get in touch</h3>
                                         <div className="address-widget footer-address-widget">
-                                            <p><i className="fa fa-map-marker"></i>Moirpur DOHS Road no.10 <br />Building no.724</p>
+                                            <p><i className="fa fa-map-marker"></i>Mirpur DOHS Road no.10 <br />House No.724</p>
                                             <p><i className="fa fa-phone"></i> 01752411182</p>
                                             <p><i className="fa fa-envelope"></i> <a href="mailo:demo@themeglass.com">cloudproductionbd@gmail.com</a></p>
                                             {/* <p><i className="fa fa-skype"></i> <a href="# ">zeref12445</a></p> */}

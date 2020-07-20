@@ -1,9 +1,38 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,withRouter } from 'react-router-dom';
 
 class Header extends Component {
-    state = {  }
+    constructor(props) {
+        super(props);
+        this.logout = this.logout.bind(this);
+    }
+    // logout method will clear the session storage,localstorage and push to login page.
+    logout() {
+        sessionStorage.clear();
+        localStorage.clear();
+        this.props.history.push('/login');
+    }
     render() { 
+        
+        let authenticationMenu
+
+        if (!window.localStorage.getItem('token')) {
+            authenticationMenu =<React.Fragment>
+                                    <li className="zeref-mainmenu-itm">
+                                        <Link to="/login" className="zeref-mainmenu-link">Login</Link>
+                                    </li>
+                                    <li className="zeref-mainmenu-itm">
+                                        <Link to="/register" className="zeref-mainmenu-link">Register</Link>
+                                    </li>
+                                </React.Fragment>
+
+                            } else {
+                                authenticationMenu = <React.Fragment>
+                                    <li className="zeref-mainmenu-itm">
+                                        <Link className="zeref-mainmenu-link" onClick={this.logout}>Logout</Link>
+                                    </li>
+                                </React.Fragment>
+                            }
         return ( 
             <div>
                 {/* Header area Start */}
@@ -44,15 +73,9 @@ class Header extends Component {
                                                         
                                                     </ul>
                                                 </li>
-                                                <li className="zeref-mainmenu-itm">
-                                                    <Link to="/login" className="zeref-mainmenu-link">Login</Link>
-                                                </li>
-                                                <li className="zeref-mainmenu-itm">
-                                                    <Link to="/register" className="zeref-mainmenu-link">Register</Link>
-                                                </li>
-
+                                                {authenticationMenu}
                                             </ul>
-                                            {/* Mainmenu End */}
+                                            {/*Mainmenu End */}
                                         </nav>
                                     </div>
                                 </div>
@@ -116,4 +139,4 @@ class Header extends Component {
     }
 }
  
-export default Header;
+export default withRouter(Header);

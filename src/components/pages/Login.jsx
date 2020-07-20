@@ -6,22 +6,22 @@ import axios from 'axios';
 
 const validEmailRegex = RegExp(
     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-);
-const validateForm = ({ errors, ...rest }) => {
+  );
+  const validateForm = ({ errors, ...rest }) => {
     let valid = true;
-
+  
     // validate form errors being empty
     Object.values(errors).forEach(val => {
-        val.length > 0 && (valid = false);
+      val.length > 0 && (valid = false);
     });
-
+  
     // validate the form was filled out
     Object.values(rest).forEach(val => {
-        val === '' && (valid = false);
+      val === null && (valid = false);
     });
-
+  
     return valid;
-};
+  };
 
 class Login extends Component {
     /* Style for validation error message */
@@ -34,14 +34,13 @@ class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: '',
-            password: '',
+            email: null,
+            password: null,
             form_empty: '',
             modal: '',
             errors: {
                 email: '',
                 password: ''
-
             }
 
         }
@@ -76,38 +75,29 @@ class Login extends Component {
         this.setState({ errors, [name]: value });
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = (event,history) => {
 
         event.preventDefault();
 
         if (validateForm(this.state)) {
             console.info('Login Successfully!')
             console.info(this.state)
+
             const obj = {
                 email: this.state.email,
                 password: this.state.password
             };
+            console.log('testobj',obj);
 
-            axios
-                .post(
-                    "https://nodejs-backend-apis.herokuapp.com/api/login",
-                    {
-                        obj
-                    },
-                    { withCredentials: true }
-                )
-                .then(response => {
-                    if (response.data.logged_in) {
-                        this.props.handleSuccessfulAuth(response.data);
-                    }
-                })
+            axios.post('https://nodejs-backend-apis.herokuapp.com/api/login', obj)
+                .then(res => 
+                    
+                    window.localStorage.setItem('token', res.data.data.token)
+                );
+
                 this.setState({
-                    modal: 'success'
-                })
-                .catch(error => {
-                    console.log("login error", error);
-                });
-
+                modal: 'success'
+            })
 
         } else {
             console.error('Invalid Form')
@@ -122,12 +112,11 @@ class Login extends Component {
         this.setState({
           modal: ''
         })
-        this.props.history.push('/home');
+        this.props.history.push('/');
     }
     /* Close modal method end */
     render() {
         const { errors , form_empty } = this.state;
-
         return (
             <div>
                 <Breadcrumb pageName="Login" />
@@ -141,7 +130,7 @@ class Login extends Component {
                                         <h1 className="text-center">Login</h1>
                                         <p className="text-center">Please login using account detail bellow.</p>
                                         <p className="text-center" style={this.error_msg}>{form_empty}</p>
-                                        <form className="form" action="#" onSubmit={this.handleSubmit}>
+                                        <form className="form" onSubmit={this.handleSubmit}>
                                             <div className="zeref-form-group row align-items-center">
                                                 <div className="col-md-12 col-lg-12 col-12">
                                                     <input type="email" name="email" id="login_email" className="zeref-input-form" placeholder="Email"
