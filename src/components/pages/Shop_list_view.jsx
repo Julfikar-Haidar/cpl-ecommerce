@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb';
+import Shop_list_grid from '../layouts/Shop_list_grid';
 import ShopSidebar from '../layouts/Shop-sidebar';
 import { Link } from 'react-router-dom';
 class Shop_list_view extends Component {
@@ -28,9 +29,7 @@ class Shop_list_view extends Component {
         var { isLoaded, items } = this.state;
         console.log(items);
         return (
-            <div>
-                <Breadcrumb pageName="Shop List" />
-               
+            <div><Breadcrumb pageName="Shop List" />   
                 <div className="main-content-wrapper">
                     <div className="shop-area section-padding">
                         <div className="container">
@@ -72,102 +71,6 @@ class Shop_list_view extends Component {
                                                             <div className="product-grid7 mb--30">
                                                                 <div className="product-image7">
                                                                     <a href="#">
-                                                                        <img className="pic-1" alt="product image" src="assets/img/fashion/product/1.jpg" />
-                                                                        <img className="pic-2" alt="product image" src="assets/img/fashion/product/2.jpg" />
-                                                                    </a>
-                                                                    <ul className="social">
-                                                                        <li><a href="#" data-toggle="modal" data-target="#productModal"> <i className="fa fa-eye"></i> </a></li>
-                                                                        <li><a href="wishlist.html"><i className="fa fa-heart"></i> </a></li>
-                                                                        <li><a href="cart.html"><i className="fa fa-shopping-cart"></i> </a></li>
-                                                                        <li><a href="single-product.html"><i className="fa fa-link"></i> </a></li>
-                                                                    </ul>
-                                                                    <span className="product-new-label">New</span>
-                                                                </div>
-                                                                <div className="product-content">
-                                                                    <h3 className="title"><a href="#">Girls Tops</a></h3>
-                                                                    <ul className="rating">
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                    </ul>
-                                                                    <div className="price">$15.00
-                                                                <span>$20.00</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            {/* <!-- Product Box End --> */}
-                                                        </div>
-                                                        <div className="col-xl-4 col-md-6">
-                                                            {/* <!-- Product Box Start --> */}
-                                                            <div className="product-grid7 mb--30">
-                                                                <div className="product-image7">
-                                                                    <a href="#">
-                                                                        <img className="pic-1" alt="product image" src="assets/img/fashion/product/3.jpg" />
-                                                                        <img className="pic-2" alt="product image" src="assets/img/fashion/product/4.jpg" />
-                                                                    </a>
-                                                                    <ul className="social">
-                                                                        <li><a href="#" data-toggle="modal" data-target="#productModal"> <i className="fa fa-eye"></i> </a></li>
-                                                                        <li><a href="wishlist.html"><i className="fa fa-heart"></i> </a></li>
-                                                                        <li><a href="cart.html"><i className="fa fa-shopping-cart"></i> </a></li>
-                                                                        <li><a href="single-product.html"><i className="fa fa-link"></i> </a></li>
-                                                                    </ul>
-                                                                    <span className="product-new-label">New</span>
-                                                                </div>
-                                                                <div className="product-content">
-                                                                    <h3 className="title"><a href="#">Girls Tops</a></h3>
-                                                                    <ul className="rating">
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                    </ul>
-                                                                    <div className="price">$15.00
-                                                                <span>$20.00</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            {/* <!-- Product Box End --> */}
-                                                        </div>
-                                                        <div className="col-xl-4 col-md-6">
-                                                            {/* <!-- Product Box Start --> */}
-                                                            <div className="product-grid7 mb--30">
-                                                                <div className="product-image7">
-                                                                    <a href="#">
-                                                                        <img className="pic-1" alt="product image" src="assets/img/fashion/product/5.jpg" />
-                                                                        <img className="pic-2" alt="product image" src="assets/img/fashion/product/6.jpg" />
-                                                                    </a>
-                                                                    <ul className="social">
-                                                                        <li><a href="#" data-toggle="modal" data-target="#productModal"> <i className="fa fa-eye"></i> </a></li>
-                                                                        <li><a href="wishlist.html"><i className="fa fa-heart"></i> </a></li>
-                                                                        <li><a href="cart.html"><i className="fa fa-shopping-cart"></i> </a></li>
-                                                                        <li><a href="single-product.html"><i className="fa fa-link"></i> </a></li>
-                                                                    </ul>
-                                                                    <span className="product-new-label">New</span>
-                                                                </div>
-                                                                <div className="product-content">
-                                                                    <h3 className="title"><a href="#">Girls Tops</a></h3>
-                                                                    <ul className="rating">
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                        <li className="fa fa-star"></li>
-                                                                    </ul>
-                                                                    <div className="price">$15.00
-                                                                <span>$20.00</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            {/* <!-- Product Box End --> */}
-                                                        </div>
-                                                        <div className="col-xl-4 col-md-6">
-                                                            {/* <!-- Product Box Start --> */}
-                                                            <div className="product-grid7 mb--30">
-                                                                <div className="product-image7">
-                                                                    <a href="#">
                                                                         <img className="pic-1" alt="product image" src="assets/img/fashion/product/7.jpg"/>
                                                                             <img className="pic-2" alt="product image" src="assets/img/fashion/product/8.jpg" />
                                                             </a>
@@ -190,167 +93,6 @@ class Shop_list_view extends Component {
                                                                         </ul>
                                                                         <div className="price">$15.00
                                                                 <span>$20.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                {/* <!-- Product Box End --> */}
-                                                            </div>
-                                                            <div className="col-xl-4 col-md-6">
-                                                                {/* <!-- Product Box Start --> */}
-                                                                <div className="product-grid7 mb--30">
-                                                                    <div className="product-image7">
-                                                                        <a href="#">
-                                                                            <img className="pic-1" alt="product image" src="assets/img/fashion/product/9.jpg" />
-                                                                            <img className="pic-2" alt="product image" src="assets/img/fashion/product/10.jpg" />
-                                                                        </a>
-                                                                        <ul className="social">
-                                                                            <li><a href="#" data-toggle="modal" data-target="#productModal"> <i className="fa fa-eye"></i> </a></li>
-                                                                            <li><a href="wishlist.html"><i className="fa fa-heart"></i> </a></li>
-                                                                            <li><a href="cart.html"><i className="fa fa-shopping-cart"></i> </a></li>
-                                                                            <li><a href="single-product.html"><i className="fa fa-link"></i> </a></li>
-                                                                        </ul>
-                                                                        <span className="product-new-label">New</span>
-                                                                    </div>
-                                                                    <div className="product-content">
-                                                                        <h3 className="title"><a href="#">Girls Tops</a></h3>
-                                                                        <ul className="rating">
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                        </ul>
-                                                                        <div className="price">$15.00
-                                                                <span>$20.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                {/* <!-- Product Box End --> */}
-                                                            </div>
-                                                            <div className="col-xl-4 col-md-6">
-                                                                {/* <!-- Product Box Start --> */}
-                                                                <div className="product-grid7 mb--30">
-                                                                    <div className="product-image7">
-                                                                        <a href="#">
-                                                                            <img className="pic-1" alt="product image" src="assets/img/fashion/product/11.jpg" />
-                                                                            <img className="pic-2" alt="product image" src="assets/img/fashion/product/12.jpg" />
-                                                                        </a>
-                                                                        <ul className="social">
-                                                                            <li><a href="#" data-toggle="modal" data-target="#productModal"> <i className="fa fa-eye"></i> </a></li>
-                                                                            <li><a href="wishlist.html"><i className="fa fa-heart"></i> </a></li>
-                                                                            <li><a href="cart.html"><i className="fa fa-shopping-cart"></i> </a></li>
-                                                                            <li><a href="single-product.html"><i className="fa fa-link"></i> </a></li>
-                                                                        </ul>
-                                                                        <span className="product-new-label">New</span>
-                                                                    </div>
-                                                                    <div className="product-content">
-                                                                        <h3 className="title"><a href="#">Girls Tops</a></h3>
-                                                                        <ul className="rating">
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                        </ul>
-                                                                        <div className="price">$15.00
-                                                                <span>$20.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                {/* <!-- Product Box End --> */}
-                                                            </div>
-                                                            <div className="col-xl-4 col-md-6">
-
-                                                                {/* <!-- Product Box Start --> */}
-                                                                <div className="product-grid7 mb--30">
-                                                                    <div className="product-image7">
-                                                                        <a href="#">
-                                                                            <img className="pic-1" alt="product image" src="assets/img/fashion/product/13.jpg" />
-                                                                            <img className="pic-2" alt="product image" src="assets/img/fashion/product/14.jpg" />
-                                                                        </a>
-                                                                        <ul className="social">
-                                                                            <li><a href="#" data-toggle="modal" data-target="#productModal"> <i className="fa fa-eye"></i> </a></li>
-                                                                            <li><a href="wishlist.html"><i className="fa fa-heart"></i> </a></li>
-                                                                            <li><a href="cart.html"><i className="fa fa-shopping-cart"></i> </a></li>
-                                                                            <li><a href="single-product.html"><i className="fa fa-link"></i> </a></li>
-                                                                        </ul>
-                                                                        <span className="product-new-label">New</span>
-                                                                    </div>
-                                                                    <div className="product-content">
-                                                                        <h3 className="title"><a href="#">Girls Tops</a></h3>
-                                                                        <ul className="rating">
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                        </ul>
-                                                                        <div className="price">$15.00
-                                                                <span>$20.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                {/* <!-- Product Box End --> */}
-                                                            </div>
-                                                            <div className="col-xl-4 col-md-6">
-                                                                {/* <!-- Product Box Start --> */}
-                                                                <div className="product-grid7 mb--30">
-                                                                    <div className="product-image7">
-                                                                        <a href="#">
-                                                                            <img className="pic-1" alt="product image" src="assets/img/fashion/product/15.jpg" />
-                                                                            <img className="pic-2" alt="product image" src="assets/img/fashion/product/16.jpg" />
-                                                                        </a>
-                                                                        <ul className="social">
-                                                                            <li><a href="#" data-toggle="modal" data-target="#productModal"> <i className="fa fa-eye"></i> </a></li>
-                                                                            <li><a href="wishlist.html"><i className="fa fa-heart"></i> </a></li>
-                                                                            <li><a href="cart.html"><i className="fa fa-shopping-cart"></i> </a></li>
-                                                                            <li><a href="single-product.html"><i className="fa fa-link"></i> </a></li>
-                                                                        </ul>
-                                                                        <span className="product-new-label">New</span>
-                                                                    </div>
-                                                                    <div className="product-content">
-                                                                        <h3 className="title"><a href="#">Girls Tops</a></h3>
-                                                                        <ul className="rating">
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                        </ul>
-                                                                        <div className="price">$15.00
-                                                                        <span>$20.00</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                {/* <!-- Product Box End --> */}
-                                                            </div>
-                                                            <div className="col-xl-4 col-md-6">
-                                                                {/* <!-- Product Box Start --> */}
-                                                                <div className="product-grid7 mb--30">
-                                                                    <div className="product-image7">
-                                                                        <a href="#">
-                                                                            <img className="pic-1" alt="product image" src="assets/img/fashion/product/1.jpg" />
-                                                                            <img className="pic-2" alt="product image" src="assets/img/fashion/product/2.jpg" />
-                                                                        </a>
-                                                                        <ul className="social">
-                                                                            <li><a href="#" data-toggle="modal" data-target="#productModal"> <i className="fa fa-eye"></i> </a></li>
-                                                                            <li><a href="wishlist.html"><i className="fa fa-heart"></i> </a></li>
-                                                                            <li><a href="cart.html"><i className="fa fa-shopping-cart"></i> </a></li>
-                                                                            <li><a href="single-product.html"><i className="fa fa-link"></i> </a></li>
-                                                                        </ul>
-                                                                        <span className="product-new-label">New</span>
-                                                                    </div>
-                                                                    <div className="product-content">
-                                                                        <h3 className="title"><a href="#">Girls Tops</a></h3>
-                                                                        <ul className="rating">
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                            <li className="fa fa-star"></li>
-                                                                        </ul>
-                                                                        <div className="price">$15.00
-                                                                        <span>$20.00</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -383,7 +125,7 @@ class Shop_list_view extends Component {
                                                                                         <span className="sale-price">{product.price}TK</span>
                                                                                         <span className="regular-price">{product.price}</span>
                                                                                     </p>
-                                                                                    <p className="zeref-box-descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium veritatis distinctio, recusandae sed, dolore perspiciatis, eaque ex ad itaque esse odio ab magni! Impedit molestias dicta aliquid ipsum accusantium repellendus aut!</p>
+                                                                                    <p className="zeref-box-descript">{product.description}</p>
                                                                                     <a href="cart.html" className="btn add-to-cart btn-style-2"><i className="fa fa-shopping-cart"></i></a>
                                                                                 </div>
                                                                             </div>
@@ -415,6 +157,7 @@ class Shop_list_view extends Component {
                         </div>
                     </div>
                 </div>
+           
           );
     }
 }
