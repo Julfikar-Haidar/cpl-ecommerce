@@ -14,7 +14,7 @@ class Shop_list_grid extends Component {
                 console.log(response.data.data)
             })
             .catch(function (error) {
-                console.log(error);
+                console.log (error);
             })
     }
     render() {
@@ -44,7 +44,7 @@ class Shop_list_grid extends Component {
                             <li className="fa fa-star"></li>
                             <li className="fa fa-star"></li>
                         </ul>
-                        <div className="price">{item.price}TK
+                        <div className="price"> {item.price}TK
                             <span>$20.00</span>
                         </div>
                     </div>
