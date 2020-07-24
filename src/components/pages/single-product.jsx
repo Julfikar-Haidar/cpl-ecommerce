@@ -4,31 +4,71 @@ import axios from 'axios'
 class SingleProduct extends Component {
     constructor(props) {
         super(props);
-        this.state = {product: []};
-      }
+        // this.StockCheck = this.StockCheck.bind(this);
+        
+        this.state = {
+            product: [],
+            count: 0
+        };
 
-      componentDidMount(){
-        axios.get('https://nodejs-backend-apis.herokuapp.com/api/product/'+this.props.match.params.id)
-          .then(response => {
-            this.setState({ product: response.data.data });
-            console.log(response.data.data)
-            console.log(this.state.product.name)
-            
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
-      }
+    }
+
+    componentDidMount() {
+        axios.get('https://nodejs-backend-apis.herokuapp.com/api/product/' + this.props.match.params.id)
+            .then(response => {
+                this.setState({ product: response.data.data });
+                console.log(response.data.data)
+                console.log(this.state.product.quantity)
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
+
+    increment() {
+
+        if (this.state.count < this.state.product.quantity) {
+            this.setState({
+                count: this.state.count + 1
+            })
+            console.log(this.state.count)
+        }
+
+    }
+
+    decrement() {
+        if (this.state.count > 0) {
+            this.setState({
+                count: this.state.count - 1
+            })
+            console.log(this.state.count)
+
+        }
+    }
+
+
+    // StockCheck() {
+    //     if(this.state.product.quantity>0){
+    //         console.log("stock In")
+    //     }
+    //     else{
+    //         console.log("stockout")
+    //     }
+    // }
+
+
     state = {}
     render() {
-        console.log(this.props)
-        
+        // console.log(this.props)
+
         return (
             <div>
                 <Breadcrumb pageName="Single Product" />
                 <div class="main-content-wrapper">
                     <div class="single-products-area section-padding">
-                    {/* Single Product Start */}
+                        {/* Single Product Start */}
                         <section class="single-product pb--40">
                             <div class="container">
                                 <div class="row">
@@ -73,13 +113,13 @@ class SingleProduct extends Component {
                                     <div class="col-lg-7">
                                         {/* Single Product Content Start */}
                                         {/* {this.state.product.map((item)=> */}
-                                        <div class="single-product-content"> 
+                                        <div class="single-product-content">
                                             <h3 class="product-title">{this.state.product.name}</h3>
                                             <div class="product-price">
                                                 <span class="sale-price">{this.state.product.price}TK</span>
                                             </div>
                                             <p class="product-desc">{this.state.product.description}</p>
-                                            <p><b>Availability:</b> In stock</p>
+                                            <p><b>Availability:</b> In stock </p>
                                             {/* <p><b>Condition:</b> New Product</p> */}
                                             <div class="product-varients">
                                                 {/* <div class="zeref-product-size pb--20">
@@ -94,10 +134,13 @@ class SingleProduct extends Component {
                                             <div class="product-action-wrapper pb--20">
                                                 <span class="zeref-product-label"><b>Quantity: </b></span>
                                                 <div class="quantity">
-                                                    <input type="number" class="quantity-input" name="qty" value="1" />
-                                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div><div class="inc qtybutton"><i class="fa fa-angle-up"></i></div></div>
+                                                    <input type="number" max={this.state.product.quantity} min={this.state.count} class="quantity-input" name="qty" value={this.state.count} />
+                                                    <div class="dec qtybutton "  onClick={() => this.decrement()}><i class="fa fa-angle-down"></i></div>
+                                                    <div class="inc qtybutton" onClick={() => this.increment()} ><i class="fa fa-angle-up"></i></div>
+                                                </div>                   
                                             </div>
-                                            <a href="#" class="btn">Add to cart</a> 
+                                            <a href="#" class="btn">Add to cart</a>
+
                                             <div class="social-share pt--20">
                                                 <span>Share:</span>
                                                 <ul class="social ml--30">
@@ -114,7 +157,7 @@ class SingleProduct extends Component {
                                 </div>
                             </div>
                         </section>
-                    {/* Single Product End */}
+                        {/* Single Product End */}
                     </div>
                 </div>
             </div>
