@@ -5758,15 +5758,16 @@ Custom Checkbox
 }
 
 .zeref-checkbox-label:before {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 0;
-  width: 1.5rem;
-  height: 1.5rem;
-  border: 1px solid #606060;
-  font-family: fontAwesome;
-  color: #2c2e3d;
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid #606060;
+    font-family: 'Font Awesome\ 5 Free';
+    font-weight: 900;
+    color: #2c2e3d;
 }
 
 .zeref-checkbox {
@@ -6095,4 +6096,3 @@ Blog Pagination
 }
 
 /* custom css for error message in registration page */
-

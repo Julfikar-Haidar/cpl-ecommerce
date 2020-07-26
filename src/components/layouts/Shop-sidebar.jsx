@@ -17,23 +17,39 @@ class ShopSidebar extends Component {
                             <ul className="search-filter-list">
                                 <li className="custom-checkbox">
                                     <input type="checkbox" name="bookandboardgame" id="bookandboardgame" className="zeref-checkbox" />
-                                    <label htmlFor="bookandboardgame" className="zeref-checkbox-label">Dresses</label>
+                                    <label htmlFor="bookandboardgame" className="zeref-checkbox-label">Electronics</label>
                                 </li>
                                 <li className="custom-checkbox">
                                     <input type="checkbox" name="babydols" id="1" className="zeref-checkbox" />
-                                    <label htmlFor="1" className="zeref-checkbox-label">Accessories</label>
+                                    <label htmlFor="1" className="zeref-checkbox-label">Gadgets</label>
                                 </li>
                                 <li className="custom-checkbox">
                                     <input type="checkbox" name="babydols" id="2" className="zeref-checkbox" />
-                                    <label htmlFor="2" className="zeref-checkbox-label">Handbag</label>
+                                    <label htmlFor="2" className="zeref-checkbox-label">Industrial</label>
                                 </li>
                                 <li className="custom-checkbox">
                                     <input type="checkbox" name="babydols" id="3" className="zeref-checkbox" />
-                                    <label htmlFor="3" className="zeref-checkbox-label">Watches</label>
+                                    <label htmlFor="3" className="zeref-checkbox-label">Games</label>
                                 </li>
                                 <li className="custom-checkbox">
                                     <input type="checkbox" name="babydols" id="4" className="zeref-checkbox" />
-                                    <label htmlFor="4" className="zeref-checkbox-label">Jewelery</label>
+                                    <label htmlFor="4" className="zeref-checkbox-label">Beauty</label>
+                                </li>
+                                <li className="custom-checkbox">
+                                    <input type="checkbox" name="babydols" id="5" className="zeref-checkbox" />
+                                    <label htmlFor="5" className="zeref-checkbox-label">Smartphones</label>
+                                </li>
+                                <li className="custom-checkbox">
+                                    <input type="checkbox" name="babydols" id="6" className="zeref-checkbox" />
+                                    <label htmlFor="6" className="zeref-checkbox-label">Automotive</label>
+                                </li>
+                                <li className="custom-checkbox">
+                                    <input type="checkbox" name="babydols" id="7" className="zeref-checkbox" />
+                                    <label htmlFor="7" className="zeref-checkbox-label">Music</label>
+                                </li>
+                                <li className="custom-checkbox">
+                                    <input type="checkbox" name="babydols" id="8" className="zeref-checkbox" />
+                                    <label htmlFor="8" className="zeref-checkbox-label">Tools</label>
                                 </li>
                             </ul>
                         </div>

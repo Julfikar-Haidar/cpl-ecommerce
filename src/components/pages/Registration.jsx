@@ -207,7 +207,7 @@ class Registration extends Component {
 
                             onChange={this.handleChange}
                           />
-                          <button className="password-btn" type="button">Show</button>
+                          {/* <button className="password-btn" type="button">Show</button> */}
                           {errors.password.length > 0 &&
                             <span className='error error_msg' style={this.error_msg}>{errors.password}</span>}
                         </div>
