@@ -145,12 +145,12 @@ class Login extends Component {
                                                         onChange={this.handleChange} />
                                                         {errors.password.length > 0 &&
                                                         <span className='error' style={this.error_msg}>{errors.password}</span>}
-                                                    <button className="password-btn" type="button">Show</button>
+                                                    {/* <button className="password-btn" type="button">Show</button> */}
                                                 </div>
                                             </div>
                                             <div className="zeref-form-group row align-items-center">
                                                 <div className="col-lg-12 col-12 text-center">
-                                                    <a href="#" className="forgot-pass">Forgot your password?</a>
+                                                    {/* <a href="#" className="forgot-pass">Forgot your password?</a> */}
                                                     <button type="submit" className="btn btn--large btn-style-3">Sign in</button>
                                                 </div>
                                             </div>
