@@ -1,40 +1,61 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class ShopSidebar extends Component {
-    state = {}
+    constructor(props) {
+        super(props)
+        this.state = {
+            items: []
+            // isLoaded: false
+            
+
+        }
+    }
+    componentDidMount(){
+        fetch('https://nodejs-backend-apis.herokuapp.com/api/product')
+        .then(res => res.json())
+        .then(response => {
+            this.setState({
+                // isLoaded: true,
+                items: response.data
+            });
+            console.log('console',response.data);
+
+            
+        })
+       
+       
+    }
+   
+ 
     render() {
+        var { items } = this.state;
+        // var items = this.state;
+        console.log('check items',items);
+      
         return ( 
             <div>
-            {/* <!-- Sidebar Start --> */}
+                {/* <!-- Sidebar Start --> */}
                 <aside className="sidebar shop-sidebar">
                     <div className="search-filter">
-
                         {/* <!-- Category Search filter Start --> */}
                         <div className="filter-box mb--30">
                             <div className="filter-title">
                                 <h2>Filter by categories</h2>
                             </div>
                             <ul className="search-filter-list">
-                                <li className="custom-checkbox">
+                            {items.map((product, index) => {
+                                return(
+
+                                    <React.Fragment>
+                                    <li className="custom-checkbox">
                                     <input type="checkbox" name="bookandboardgame" id="bookandboardgame" className="zeref-checkbox" />
-                                    <label htmlFor="bookandboardgame" className="zeref-checkbox-label">Dresses</label>
+                                    <label htmlFor="bookandboardgame" className="zeref-checkbox-label">{product.category}</label>
                                 </li>
-                                <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="1" className="zeref-checkbox" />
-                                    <label htmlFor="1" className="zeref-checkbox-label">Accessories</label>
-                                </li>
-                                <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="2" className="zeref-checkbox" />
-                                    <label htmlFor="2" className="zeref-checkbox-label">Handbag</label>
-                                </li>
-                                <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="3" className="zeref-checkbox" />
-                                    <label htmlFor="3" className="zeref-checkbox-label">Watches</label>
-                                </li>
-                                <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="4" className="zeref-checkbox" />
-                                    <label htmlFor="4" className="zeref-checkbox-label">Jewelery</label>
-                                </li>
+                                    
+                                    </React.Fragment>
+                                    )
+                                })}
                             </ul>
                         </div>
                         {/* <!-- Category Search filter End --> */}

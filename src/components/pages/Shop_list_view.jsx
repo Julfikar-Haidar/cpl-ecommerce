@@ -23,8 +23,6 @@ class Shop_list_view extends Component {
                 
             })
     }
-    
-
     render() {
         var { isLoaded, items } = this.state;
         console.log(items);
@@ -35,7 +33,7 @@ class Shop_list_view extends Component {
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-3 order-lg-1 order-2">
-                                <ShopSidebar />
+                                    <ShopSidebar />
                                 </div>
                                 <div className="col-lg-9 order-lg-2 order-1">
                                     <div className="shop-toolbar d-flex flex-md-row flex-column justify-content-between align-items-md-center">

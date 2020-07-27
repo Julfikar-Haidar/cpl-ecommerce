@@ -2,25 +2,30 @@ import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
 import axios from 'axios'
 class SingleProduct extends Component {
+    
     constructor(props) {
         super(props);
-        this.state = {product: []};
-      }
+        this.state = {
+            product: ''
+        };
+    }
 
-      componentDidMount(){
+    componentDidMount(){
         axios.get('https://nodejs-backend-apis.herokuapp.com/api/product/'+this.props.match.params.id)
-          .then(response => {
-            this.setState({ product: response.data.data });
-            console.log(response.data.data)
-            
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
-      }
-    state = {}
+            .then(response => {
+                this.setState({
+                    product: response.data.data
+                });
+                console.log(response.data.data);
+
+            })
+            .catch(error => {
+                console.log('Error: ', error);
+            })
+    }
+    
     render() {
-        console.log(this.props.match.params.id)
+        console.log('product id',this.props.match.params.id)
         
         return (
             <div>
@@ -73,11 +78,11 @@ class SingleProduct extends Component {
                                         {/* Single Product Content Start */}
                                         {/* {this.state.products.map((item,index)=> */}
                                         <div class="single-product-content"> 
-                                            <h3 class="product-title">Lorem ipsum solets</h3>
+                                            <h3 class="product-title">{this.state.product.name}</h3>
                                             <div class="product-price">
-                                                <span class="sale-price">123tk</span>
+                                                <span class="sale-price">{this.state.product.price}</span>
                                             </div>
-                                            <p class="product-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit perspiciatis voluptatibus adipisci rerum cum in cumque ratione, rem quaerat, eum fugit saepe itaque provident velit placeat beatae accusantium repellat vitae tempora? Asperiores rem laborum fuga dolore at tempora aut nisi, cumque modi et eius nam consectetur delectus doloremque libero corporis reprehenderit, eos a eveniet qui ducimus alias inventore ullam cupiditate! Modi, facere! Delectus iste adipisci facere rem. Alias ducimus numquam commodi quasi labore perspiciatis dolorum architecto ab? Doloribus assumenda dignissimos omnis ad et dolore. Recusandae eos iure nam blanditiis cum cupiditate exercitationem repellat perferendis? Dolor, eos iure? Aliquam, doloribus et.</p>
+                                            <p class="product-desc">{this.state.product.description}</p>
                                             <p><b>Availability:</b> In stock</p>
                                             {/* <p><b>Condition:</b> New Product</p> */}
                                             <div class="product-varients">
