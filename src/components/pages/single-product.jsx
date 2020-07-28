@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
+import Modal from 'react-bootstrap4-modal';
 import axios from 'axios'
 class SingleProduct extends Component {
     constructor(props) {
         super(props);
         // this.StockCheck = this.StockCheck.bind(this);
-        
+
         this.state = {
             product: [],
-            count: 0
+            modal: '',
+            count: 22900
         };
 
     }
@@ -35,6 +37,12 @@ class SingleProduct extends Component {
             })
             console.log(this.state.count)
         }
+        else {
+            this.setState({
+                modal: 'Stock Out'
+            })
+
+        }
 
     }
 
@@ -44,19 +52,19 @@ class SingleProduct extends Component {
                 count: this.state.count - 1
             })
             console.log(this.state.count)
-
         }
     }
 
+    /* Close modal method start */
+    closeModal() {
+        this.setState({
+            modal: ''
+        })
+        this.props.history.push('/');
+    }
+    /* Close modal method end */
 
-    // StockCheck() {
-    //     if(this.state.product.quantity>0){
-    //         console.log("stock In")
-    //     }
-    //     else{
-    //         console.log("stockout")
-    //     }
-    // }
+
 
 
     state = {}
@@ -135,9 +143,9 @@ class SingleProduct extends Component {
                                                 <span class="zeref-product-label"><b>Quantity: </b></span>
                                                 <div class="quantity">
                                                     <input type="number" max={this.state.product.quantity} min={this.state.count} class="quantity-input" name="qty" value={this.state.count} />
-                                                    <div class="dec qtybutton "  onClick={() => this.decrement()}><i class="fa fa-angle-down"></i></div>
+                                                    <div class="dec qtybutton " onClick={() => this.decrement()}><i class="fa fa-angle-down"></i></div>
                                                     <div class="inc qtybutton" onClick={() => this.increment()} ><i class="fa fa-angle-up"></i></div>
-                                                </div>                   
+                                                </div>
                                             </div>
                                             <a href="#" class="btn">Add to cart</a>
 
@@ -158,6 +166,16 @@ class SingleProduct extends Component {
                             </div>
                         </section>
                         {/* Single Product End */}
+                        {/* Login successfull Modal Start*/}
+                        <Modal className="register-success-modal" visible={this.state.modal === 'Stock out' ? true : false}>
+                            <div className="alert alert-success user-success-message">
+                                <strong>Product Stock Out</strong>
+                                <button type="button" className="close success-close" data-dismiss="modal" aria-label="Close" onClick={() => this.closeModal()}>
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </Modal>
+                        {/* Login successfull Modal End */}
                     </div>
                 </div>
             </div>
