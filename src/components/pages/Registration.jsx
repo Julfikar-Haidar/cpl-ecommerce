@@ -82,15 +82,15 @@ class Registration extends Component {
       
       case 'firstName':
         errors.firstName =
-          value.length < 5
-            ? 'First Name must be at least 5 characters long!'
+          value.length < 3 || value.length > 8
+            ? 'First Name must be between 3 to 8 characters!'
             : '';
         break;
       
       case 'lastName':
         errors.lastName =
-          value.length < 5
-            ? 'Last Name must be at least 5 characters long!'
+          value.length < 4 || value.length > 8
+            ? 'Last Name must be between 4 to 6 characters!'
             : '';
         break;
       
@@ -207,7 +207,7 @@ class Registration extends Component {
 
                             onChange={this.handleChange}
                           />
-                          <button className="password-btn" type="button">Show</button>
+                          {/* <button className="password-btn" type="button">Show</button> */}
                           {errors.password.length > 0 &&
                             <span className='error error_msg' style={this.error_msg}>{errors.password}</span>}
                         </div>
