@@ -98,7 +98,7 @@ class Shop_list_view extends Component {
                                                                             <div className="col-md-4">
                                                                                 <div className="zeref-box-image">
                                                                                     <img
-                                                                                        src="assets/img/fashion/product/3.jpg"
+                                                                                        src= {product.imageUrl}
                                                                                         alt="product image"
                                                                                         className="primary_image"/>
                                                                                     <img
