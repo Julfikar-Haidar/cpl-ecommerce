@@ -10,7 +10,7 @@ class SingleProduct extends Component {
         this.state = {
             product: [],
             modal: '',
-            count: 22900
+            count:0
         };
 
     }
@@ -24,7 +24,7 @@ class SingleProduct extends Component {
 
             })
             .catch(function (error) {
-                console.log(error);
+                console.log (error);
             })
     }
 
@@ -39,7 +39,7 @@ class SingleProduct extends Component {
         }
         else {
             this.setState({
-                modal: 'Stock Out'
+                modal: 'StockOut'
             })
 
         }
@@ -60,11 +60,13 @@ class SingleProduct extends Component {
         this.setState({
             modal: ''
         })
-        this.props.history.push('/');
+        this.props.history.push('/shop-list');
     }
     /* Close modal method end */
 
+// stockCheck(){
 
+// }
 
 
     state = {}
@@ -167,9 +169,9 @@ class SingleProduct extends Component {
                         </section>
                         {/* Single Product End */}
                         {/* Login successfull Modal Start*/}
-                        <Modal className="register-success-modal" visible={this.state.modal === 'Stock out' ? true : false}>
+                        <Modal className="register-success-modal" visible={this.state.modal === 'StockOut' ? true : false}>
                             <div className="alert alert-success user-success-message">
-                                <strong>Product Stock Out</strong>
+                                            <strong>Available Quantity For '{this.state.product.name}' : {this.state.product.quantity}</strong>
                                 <button type="button" className="close success-close" data-dismiss="modal" aria-label="Close" onClick={() => this.closeModal()}>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
