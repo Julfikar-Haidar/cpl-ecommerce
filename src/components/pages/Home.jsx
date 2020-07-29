@@ -4,7 +4,8 @@ import Banner from '../layouts/Banner'
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {products: []};
+        this.state = { products: [] };
+        
       }
 
       componentDidMount(){
@@ -17,9 +18,11 @@ class Home extends Component {
             console.log(error);
           })
       }
-      
+    
     state = {  }
     render() { 
+        const { products} = this.state
+        console.log('all product here',products);
         return ( 
             <div>
                 {/* Main Wrapper Start */}
@@ -65,7 +68,7 @@ class Home extends Component {
                                                     {/* Product Box Start */}      
                                                     {
                                                         this.state.products.map((item,index)=>
-                                                    
+                                                        
                                                     <div className="col-lg-12 col-sm-12">
                                                         <div className="product-grid5">
                                                             <div className="product-image5">
