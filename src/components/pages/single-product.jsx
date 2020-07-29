@@ -10,7 +10,7 @@ class SingleProduct extends Component {
         this.state = {
             product: [],
             modal: '',
-            count: 0
+            count:0
         };
 
     }
@@ -24,7 +24,7 @@ class SingleProduct extends Component {
 
             })
             .catch(function (error) {
-                console.log(error);
+                console.log (error);
             })
     }
 
@@ -64,7 +64,9 @@ class SingleProduct extends Component {
     }
     /* Close modal method end */
 
+// stockCheck(){
 
+// }
 
 
     state = {}
