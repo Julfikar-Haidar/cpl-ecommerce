@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
 
 class Cart extends Component {
-    state = {}
+    state = {
+        // cart
+            product: localStorage.getItem('myProduct'),
+    }
     render() {
+
+        console.log(this.state.product)
         return (
             <div>
                 <Breadcrumb pageName="Cart" />
@@ -15,6 +20,8 @@ class Cart extends Component {
                                     <div className="row">
                                         <div className="col-12">
                                             {/* <!-- Cart Area Start --> */}
+
+                                            {/*{this.state.product.map((pro, index) => (*/}
                                             <form action="#" className="form form--cart">
                                                 <div className="cart-table table-content table-responsive">
                                                     <table className="table">
@@ -61,6 +68,8 @@ class Cart extends Component {
                                             </table>
                                         </div>
                                     </form>
+                                                 {/*))}*/}
+
                                                 {/* <!-- Cart Area End -->   */}
                                 </div>
                                         </div>

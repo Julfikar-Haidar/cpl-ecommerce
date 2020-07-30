@@ -18,7 +18,20 @@ class Home extends Component {
             console.log(error);
           })
       }
-    
+
+    cartAdd(item) {
+        let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
+
+         productlist.push(item)
+         localStorage.setItem('myProduct', JSON.stringify(productlist))
+           // if(product){
+           //     alert('hi')
+           // }else {
+           //    productlist.push(item)
+           //     localStorage.setItem('myProduct', JSON.stringify(productlist))
+           // }
+    }
+
     state = {  }
     render() { 
         const { products} = this.state
@@ -81,7 +94,7 @@ class Home extends Component {
                                                                     <li><a href="# /" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
                                                                     <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
                                                                 </ul>
-                                                                <a href="#" className="select-options"><i className="fa fa-shopping-cart"></i> Add to cart</a>
+                                                                <a href="#" className="select-options" onClick={()=>this.cartAdd(item)}><i className="fa fa-shopping-cart"></i> Add to cart</a>
                                                             </div>
                                                             <div className="product-content">
                                                                 <h3 className="title"><a href="#">{item.name}</a></h3>
