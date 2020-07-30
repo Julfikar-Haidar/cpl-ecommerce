@@ -123,7 +123,7 @@ class Header extends Component {
                                                 </li>
 
                                                 <li className="zeref-mainmenu-itm menu-item-has-children">
-                                                    <Link to="/shop-list" className="zeref-mainmenu-link">Shop
+                                                    <Link to="/shop-list" className="zeref-mainmenu-link">Product
                                                         List</Link>
                                                 </li>
 
