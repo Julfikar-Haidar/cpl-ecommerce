@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import axios from 'axios';
+const $ = window.$;
 
 class Header extends Component {
     constructor(props) {
@@ -18,6 +19,24 @@ class Header extends Component {
 		};
 
 		this.cancel = '';
+    }
+    componentDidMount() {
+        /**********************
+	    *Cart Dropdown
+	    ***********************/ 
+	
+	function cartDrpdownExpand(){
+		$('#cartDropdown').on('click', function(e){
+			e.preventDefault();
+			$(this).siblings('.cart-dropdown').slideToggle('slow');
+		});
+		$('#cart-close').on('click', function(e){
+			e.preventDefault();
+			$('.cart-dropdown').slideUp('slow');
+		})
+	}
+	cartDrpdownExpand();
+
     }
 
     // logout method will clear the session storage,localstorage and push to login page.
@@ -179,10 +198,10 @@ class Header extends Component {
                                                         </li>
                                                     </ul>
                                                     <div className="header-cart-btn">
-                                                        <a href="cart.html"
-                                                           className="btn btn-checkout btn-style-3">Cart</a>
-                                                        <a href="checkout.html"
-                                                           className="btn btn-checkout btn-style-3">Checkout</a>
+                                                        <Link to="/cart"
+                                                           className="btn btn-checkout btn-style-3">Cart</Link>
+                                                        <Link to="/checkout"
+                                                           className="btn btn-checkout btn-style-3">Checkout</Link>
                                                     </div>
 
                                                 </div>

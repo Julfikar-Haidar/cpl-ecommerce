@@ -16,6 +16,9 @@ class Home extends Component {
           .catch(function (error) {
             console.log(error);
           })
+
+
+          
       }
       
     state = {  }
@@ -62,11 +65,12 @@ class Home extends Component {
                                             <div className="row">
                                                
                                                 <div className="zeref-tproduct-carousel zeref-tproduct-carousel-area owl-carousel js-tanding-product-1">
-                                                    {/* Product Box Start */}      
+                                                    {/* Product Box Start */}  
+                                                    <div className="col-lg-12 col-sm-12">    
                                                     {
                                                         this.state.products.map((item,index)=>
                                                     
-                                                    <div className="col-lg-12 col-sm-12">
+                                                   
                                                         <div className="product-grid5">
                                                             <div className="product-image5">
                                                                 <a href="# /">
@@ -85,9 +89,10 @@ class Home extends Component {
                                                                 <div className="price">{item.price}TK</div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    
                                                         )    
                                                   }
+                                                  </div>
                                                 </div>
                                             </div>
                                             

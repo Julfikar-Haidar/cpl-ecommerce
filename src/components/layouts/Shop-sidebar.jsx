@@ -44,10 +44,7 @@ class ShopSidebar extends Component {
                                 <h2>Filter by categories</h2>
                             </div>
                             <ul className="search-filter-list">
-                            {items.map((product, index) => {
-                                return(
-
-                                    <React.Fragment>
+                          
                                     <li className="custom-checkbox">
                                     <input type="checkbox" name="bookandboardgame" id="bookandboardgame" className="zeref-checkbox" />
                                     <label htmlFor="bookandboardgame" className="zeref-checkbox-label">Electronics</label>
@@ -85,9 +82,7 @@ class ShopSidebar extends Component {
                                     <label htmlFor="8" className="zeref-checkbox-label">Tools</label>
                                 </li>
                                     
-                                    </React.Fragment>
-                                    )
-                                })}
+                                   
                             </ul>
                         </div>
                         {/* <!-- Category Search filter End --> */}

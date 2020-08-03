@@ -28,6 +28,7 @@ class Shop_list_view extends Component {
 
     render() {
         var {isLoaded, items} = this.state;
+        const imageName = '/assets/img/fashion/product/1.jpg';
         console.log(items);
         return (
             <div><Breadcrumb pageName="Shop List"/>
@@ -78,10 +79,7 @@ class Shop_list_view extends Component {
                                         <div className="tab-content" id="myTabContent-2">
                                             <div className="tab-pane" id="grid">
                                                 <div className="product-grid-view">
-
-                                                            <Shop_list_grid/>
-
-
+                                                    <Shop_list_grid/>
                                                 </div>
                                             </div>
                                             <div className="tab-pane show active" id="list">
