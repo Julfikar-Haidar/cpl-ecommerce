@@ -2,13 +2,29 @@ import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
 
 class Cart extends Component {
-    state = {
-        // cart
-            product: localStorage.getItem('myProduct'),
+    constructor(props) {
+        super(props);
+        this.state = { 
+
+            products: [] 
+
+        }
+        
+      }
+    componentDidMount(){
+        console.log('11 line print');
+        const productCollect = JSON.parse(window.localStorage.getItem('myProduct'))
+        console.log('13', productCollect);
+        this.setState = ({
+            products: productCollect
+           
+        })
+        
     }
+
     render() {
 
-        console.log(this.state.product)
+        console.log(this.state.products)
         return (
             <div>
                 <Breadcrumb pageName="Cart" />
@@ -21,7 +37,7 @@ class Cart extends Component {
                                         <div className="col-12">
                                             {/* <!-- Cart Area Start --> */}
 
-                                            {/*{this.state.product.map((pro, index) => (*/}
+                                            {this.state.products.map((pro, index) => (
                                             <form action="#" className="form form--cart">
                                                 <div className="cart-table table-content table-responsive">
                                                     <table className="table">
@@ -68,9 +84,9 @@ class Cart extends Component {
                                             </table>
                                         </div>
                                     </form>
-                                                 {/*))}*/}
+                                                 ))}
 
-                                                {/* <!-- Cart Area End -->   */}
+                                                 {/* <!-- Cart Area End -->   */}
                                 </div>
                                         </div>
                                     </div>

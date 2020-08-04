@@ -17,6 +17,10 @@ class Home extends Component {
           .catch(function (error) {
             console.log(error);
           })
+
+        //   console.log('20 line print');
+        //   const product = JSON.parse(window.localStorage.getItem('myProduct'))
+        //   console.log('22',product);
       }
 
     cartAdd(item) {
@@ -32,10 +36,12 @@ class Home extends Component {
            // }
     }
 
+   
+
     state = {  }
     render() { 
         const { products} = this.state
-        console.log('all product here',products);
+        // console.log('all product here',products);
         return ( 
             <div>
                 {/* Main Wrapper Start */}
