@@ -59,8 +59,10 @@ class SingleProduct extends Component {
     cartAdd(item) {
         let productlist =JSON.parse(localStorage.getItem('cartitem')) || []
 
-         productlist.push(item)
+         productlist.push(item,this.state.count)
+        //  productlist.push(this.state.count)
          localStorage.setItem('cartitem', JSON.stringify(productlist))
+         console.log(this.state.count)
     }
 
     /* Close modal method start */
