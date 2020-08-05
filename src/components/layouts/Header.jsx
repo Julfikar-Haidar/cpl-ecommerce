@@ -15,6 +15,8 @@ class Header extends Component {
             totalResults: 0,
             totalPages: 0,
             currentPageNo: 0,
+            // cart
+            cartProduct: []
 
         };
 
@@ -83,10 +85,21 @@ class Header extends Component {
         }
     };
 
+    componentDidMount() {
+        console.log('11 line print');
+        const productCollect = JSON.parse(window.localStorage.getItem('myProduct'))
+        console.log('22', productCollect);
+        this.setState({
+            cartProduct: productCollect.length
+
+        })
+
+    }
+
     render() {
 
-
-        const {query} = this.state;
+        const {query,cartProduct} = this.state;
+        console.log('102',cartProduct);
         let authenticationMenu
 
         if (!window.localStorage.getItem('token')) {
@@ -163,7 +176,9 @@ class Header extends Component {
                                         <div className="header-cart header-area-cart">
                                             <a className="zeref-cart-toggle" id="cartDropdown">
                                                 <i className="fa fa-shopping-cart header-shop-icon"></i>
-                                                <sup className="cart-badge">0</sup>
+                                                <sup className="cart-badge">
+                                                    {cartProduct}
+                                                </sup>
                                             </a>
                                                 <div className="cart-dropdown">
                                                     <div
