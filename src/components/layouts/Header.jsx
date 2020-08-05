@@ -165,10 +165,6 @@ class Header extends Component {
                                                 <i className="fa fa-shopping-cart header-shop-icon"></i>
                                                 <sup className="cart-badge">0</sup>
                                             </a>
-
-
-
-
                                                 <div className="cart-dropdown">
                                                     <div
                                                         className="header-cart-content">
