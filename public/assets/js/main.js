@@ -309,9 +309,9 @@
 
 	
 
-	// /**********************
-	// *Cart Dropdown
-	// ***********************/ 
+	/**********************
+	*Cart Dropdown
+	***********************/ 
 	
 	// function cartDrpdownExpand(){
 	// 	$('#cartDropdown').on('click', function(e){
