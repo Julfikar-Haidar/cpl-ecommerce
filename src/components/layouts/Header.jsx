@@ -9,16 +9,17 @@ class Header extends Component {
         this.logout = this.logout.bind(this);
 
         this.state = {
-			query: '',
-			results: {},
-			loading: false,
-			message: '',
-			totalResults: 0,
-			totalPages: 0,
-			currentPageNo: 0,
-		};
+            query: '',
+            results: {},
+            loading: false,
+            message: '',
+            totalResults: 0,
+            totalPages: 0,
+            currentPageNo: 0,
 
-		this.cancel = '';
+        };
+
+        this.cancel = '';
     }
     componentDidMount() {
         /**********************
@@ -39,66 +40,72 @@ class Header extends Component {
 
     }
 
+    //product get in localstorage
+
+
     // logout method will clear the session storage,localstorage and push to login page.
     logout() {
         sessionStorage.clear();
         localStorage.clear();
         this.props.history.push('/login');
     }
+
     // search result method start
-    fetchSearchResults = ( updatedPageNo = '', query ) => {
-		const pageNumber = updatedPageNo ? `&page=${updatedPageNo}` : '';
-		const searchUrl = `https://nodejs-backend-apis.herokuapp.com/api/product=${query}${pageNumber}`;
+    fetchSearchResults = (updatedPageNo = '', query) => {
+        const pageNumber = updatedPageNo ? `&page=${updatedPageNo}` : '';
+        const searchUrl = `https://nodejs-backend-apis.herokuapp.com/api/product=${query}${pageNumber}`;
 
-		if( this.cancel ) {
-			this.cancel.cancel();
-		}
+        if (this.cancel) {
+            this.cancel.cancel();
+        }
 
-		this.cancel = axios.CancelToken.source();
+        this.cancel = axios.CancelToken.source();
 
-		axios.get( searchUrl, {
-			cancelToken: this.cancel.token
-		} )
-			.then( res => {
-				const total = res.data.total;
-				const totalPagesCount = this.getPageCount( total, 20 );
-				const resultNotFoundMsg = ! res.data.hits.length
-										? 'There are no more search results. Please try a new search'
-										: '';
-				this.setState( {
-					results: res.data.hits,
-					message: resultNotFoundMsg,
-					totalResults: total,
-					totalPages: totalPagesCount,
-					currentPageNo: updatedPageNo,
-					loading: false
-				} )
-			} )
-			.catch( error => {
-				if ( axios.isCancel(error) || error ) {
-					this.setState({
-						loading: false,
-						message: 'Failed to fetch the data. Please check network'
-					})
-				}
-			} )
-	};
+        axios.get(searchUrl, {
+            cancelToken: this.cancel.token
+        })
+            .then(res => {
+                const total = res.data.total;
+                const totalPagesCount = this.getPageCount(total, 20);
+                const resultNotFoundMsg = !res.data.hits.length
+                    ? 'There are no more search results. Please try a new search'
+                    : '';
+                this.setState({
+                    results: res.data.hits,
+                    message: resultNotFoundMsg,
+                    totalResults: total,
+                    totalPages: totalPagesCount,
+                    currentPageNo: updatedPageNo,
+                    loading: false
+                })
+            })
+            .catch(error => {
+                if (axios.isCancel(error) || error) {
+                    this.setState({
+                        loading: false,
+                        message: 'Failed to fetch the data. Please check network'
+                    })
+                }
+            })
+    };
 
     // search method start
-    handleOnInputChange = ( event ) => {
-		const query = event.target.value;
+    handleOnInputChange = (event) => {
+        const query = event.target.value;
         console.log(query)
-		if ( ! query ) {
-			this.setState( { query, results: {}, message: '', totalPages: 0, totalResults: 0 } );
-		} else {
-			this.setState( { query, loading: true, message: '' }, () => {
-				this.fetchSearchResults( 1, query );
-			} );
-		}
-	};
+        if (!query) {
+            this.setState({query, results: {}, message: '', totalPages: 0, totalResults: 0});
+        } else {
+            this.setState({query, loading: true, message: ''}, () => {
+                this.fetchSearchResults(1, query);
+            });
+        }
+    };
 
     render() {
-        const { query} = this.state;
+
+
+        const {query} = this.state;
         let authenticationMenu
 
         if (!window.localStorage.getItem('token')) {
@@ -142,7 +149,7 @@ class Header extends Component {
                                                 </li>
 
                                                 <li className="zeref-mainmenu-itm menu-item-has-children">
-                                                    <Link to="/shop-list" className="zeref-mainmenu-link">Shop
+                                                    <Link to="/shop-list" className="zeref-mainmenu-link">Product
                                                         List</Link>
                                                 </li>
 
@@ -177,36 +184,44 @@ class Header extends Component {
                                                 <i className="fa fa-shopping-cart header-shop-icon"></i>
                                                 <sup className="cart-badge">0</sup>
                                             </a>
-                                            <div className="cart-dropdown">
-                                                <div
-                                                    className="header-cart-content">
-                                                    <a className="header-cart-close-btn" id="cart-close" href="#"><i
-                                                        className="fa fa-times"></i></a>
-                                                    <div className="header-cart-item">
-                                                        <div className="hcart-image">
-                                                            <img src="assets/img/fashion/product/3.jpg" alt="product"/>
+
+
+
+
+                                                <div className="cart-dropdown">
+                                                    <div
+                                                        className="header-cart-content">
+                                                        <a className="header-cart-close-btn" id="cart-close" href="#"><i
+                                                            className="fa fa-times"></i></a>
+                                                        <div className="header-cart-item">
+                                                            <div className="hcart-image">
+                                                                <img src="assets/img/fashion/product/3.jpg"
+                                                                     alt="product"/>
+                                                            </div>
+                                                            <div className="hcart-content">
+                                                                <h4><a href="single-product.html">Man dress</a></h4>
+                                                                <p>1 X &dollar;100</p>
+                                                            </div>
                                                         </div>
-                                                        <div className="hcart-content">
-                                                            <h4><a href="single-product.html">Man dress</a></h4>
-                                                            <p>1 X &dollar;100</p>
-                                                        </div>
-                                                    </div>
-                                                    <ul className="header-cart-list">
-                                                        <li className="header-cart-single">
-                                                            <span className="header-cart-single--title">Subtotal</span>
-                                                            <span className="cart-amount">$100.00</span>
-                                                        </li>
-                                                    </ul>
-                                                    <div className="header-cart-btn">
+                                                        <ul className="header-cart-list">
+                                                            <li className="header-cart-single">
+                                                                <span
+                                                                    className="header-cart-single--title">Subtotal</span>
+                                                                <span className="cart-amount">$100.00</span>
+                                                            </li>
+                                                        </ul>
+                                                        <div className="header-cart-btn">
                                                         <Link to="/cart"
                                                            className="btn btn-checkout btn-style-3">Cart</Link>
                                                         <Link to="/checkout"
                                                            className="btn btn-checkout btn-style-3">Checkout</Link>
                                                     </div>
 
+                                                    </div>
                                                 </div>
-                                            </div>
+
                                         </div>
+
                                         {/* Header Cart End */}
                                         <a id="sidebarCollapse">
                                             <i className="fa fa-user"></i>
@@ -216,7 +231,7 @@ class Header extends Component {
                                                    name="search"
                                                    className="head-search"
                                                    placeholder="Search..."
-                                                   value={ query }
+                                                   value={query}
                                                    onChange={this.handleOnInputChange}
                                             />
                                         </form>

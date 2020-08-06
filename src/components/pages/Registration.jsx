@@ -61,8 +61,8 @@ class Registration extends Component {
     switch (name) {
       case 'username':
         errors.username =
-          value.length < 5
-            ? 'Username must be at least 5 characters long!'
+          value.length < 3 || value.length > 8
+            ? 'Username must be between to 3 to 8 characters!'
             : '';
         break;
       

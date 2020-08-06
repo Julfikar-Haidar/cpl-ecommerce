@@ -71,19 +71,19 @@ class Ban extends Component {
                                                 <h2 className="zeref-catnav-title" id="js-cat-nav-title"><i className="fa fa-bars"></i> <span>Categories</span></h2>
                                                 <ul className="zeref-catnav-menu display-none-md" id="js-cat-nav">
                                                     <li className="zeref-category-nav-items has-children">
-                                                        <a href="shop.html">Women</a>
+                                                        <a href="shop.html">Electronics</a>
                                                         <div className="category-submenu">
                                                             <div className="zeref-category-submenu">
-                                                                <h3 className="zeref-category-submenu-title">Clothing</h3>
+                                                                <h3 className="zeref-category-submenu-title">Electronics </h3>
                                                                 <ul>
-                                                                    <li><a href="shop.html">Western Wear</a></li>
-                                                                    <li><a href="shop.html">Night Wear</a></li>
-                                                                    <li><a href="shop.html">Ethnic Wear</a></li>
-                                                                    <li><a href="shop.html">Designer Wear</a></li>
+                                                                    <li><a href="shop.html">TV & Video</a></li>
+                                                                    <li><a href="shop.html">Audio & Home Theater</a></li>
+                                                                    <li><a href="shop.html">Computers</a></li>
+                                                                    <li><a href="shop.html">Camera & Photo</a></li>
                                                                 </ul>
                                                             </div>
                                                             <div className="zeref-category-submenu">
-                                                                <h3 className="zeref-category-submenu-title">Jwellery</h3>
+                                                                <h3 className="zeref-category-submenu-title">Gadgets</h3>
                                                                 <ul>
                                                                     <li><a href="shop.html">Bracelets</a></li>
                                                                     <li><a href="shop.html">Necklaces &amp; Pendent</a></li>
@@ -94,7 +94,7 @@ class Ban extends Component {
                                                         </div>
                                                     </li>
                                                     <li className="zeref-category-nav-items has-children">
-                                                        <a href="shop.html">Man</a>
+                                                        <a href="shop.html">Industrial</a>
                                                         <div className="category-submenu">
                                                             <div className="zeref-category-submenu">
                                                                 <h3 className="zeref-category-submenu-title">Clothing</h3>
@@ -106,7 +106,7 @@ class Ban extends Component {
                                                                 </ul>
                                                             </div>
                                                             <div className="zeref-category-submenu">
-                                                                <h3 className="zeref-category-submenu-title">Shoes</h3>
+                                                                <h3 className="zeref-category-submenu-title">Games</h3>
                                                                 <ul>
                                                                     <li><a href="shop.html">Sport Shoes</a></li>
                                                                     <li><a href="shop.html">Casual Shoes</a></li>
@@ -117,7 +117,7 @@ class Ban extends Component {
                                                         </div>
                                                     </li>
                                                     <li className="zeref-category-nav-items has-children">
-                                                        <a href="shop.html">Electronics</a>
+                                                        <a href="shop.html">Smartphones</a>
                                                         <div className="category-submenu">
                                                             <div className="zeref-category-submenu">
                                                                 <h3 className="zeref-category-submenu-title">Category 01</h3>
@@ -140,10 +140,10 @@ class Ban extends Component {
                                                         </div>
                                                     </li>
                                                     <li className="zeref-category-nav-items">
-                                                        <a href="shop.html">Furniture</a>
+                                                        <a href="shop.html">Automotive</a>
                                                     </li>
                                                     <li className="zeref-category-nav-items">
-                                                        <a href="shop.html">Accessories</a>
+                                                        <a href="shop.html">Tools</a>
                                                     </li>
                                                     <li className="zeref-category-nav-items">
                                                         <a href="shop.html">Baby &amp; Kids</a>
@@ -152,7 +152,7 @@ class Ban extends Component {
                                                         <a href="shop.html">Games</a>
                                                     </li>
                                                     <li className="zeref-category-nav-items hidden-menu-item">
-                                                        <a href="shop.html">Health & Beauty</a>
+                                                        <a href="shop.html">Music</a>
                                                     </li>
                                                     <li className="zeref-category-nav-items">
                                                         <a href="shop.html" className="js-expand-hidden-menu"> More Categories</a>
