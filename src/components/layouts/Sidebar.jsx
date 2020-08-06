@@ -11,21 +11,6 @@ class Sidebar extends Component {
                         <i className="fa fa-close"></i>
                     </div>
                     <div className="list-unstyled components">
-                        {/*
-                            <p>Language</p>
-                            <ul className="collapse list-unstyled">
-                                <li>
-                                    <a href="# /"><img src="assets/img/language/english.png" alt="" /> English</a>
-                                </li>
-                                <li>
-                                    <a href="# /"><img src="assets/img/language/es.png" alt="" /> Spanish</a>
-                                </li>
-                                <li>
-                                    <a href="# /"><img src="assets/img/language/2.png" alt="" /> French</a>
-                                </li>
-
-                            </ul>
-                        */}
                         <p>My Account</p>
                         <ul className="collapse list-unstyled">
                             <li>

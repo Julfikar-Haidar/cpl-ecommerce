@@ -1,17 +1,64 @@
 import React, { Component } from 'react';
+const $ = window.$;
 
 var divStyle = {
     backgroundImage: "url(" + "https://dummyimage.com/840x500/e81733/fff" + ")",
     WebkitTransition: 'all', // note the capital 'W' here
     msTransition: 'all' // 'ms' is the only lowercase vendor prefix
-};
+}
+
 
 class Ban extends Component {
-    state = {  }
+
+    componentDidMount() {
+        /**********************
+        *Slider Activation
+        ***********************/
+        var homeSlider = $('#homepage-slider');
+
+        homeSlider.owlCarousel({
+            items: 1,
+            smartSpeed: 1000,
+            loop:true,
+            nav: true,
+            dots: true,
+            autoplay: false,
+            autoplayTimeout: 3000,
+            navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">']
+        });
+
+        homeSlider.on('translate.owl.carousel', function(){
+            var animation = $('[data-animation]');
+            animation.each(function(){
+                var anim_name = $(this).data('animation');
+                $(this).removeClass('animated ' + anim_name).css('opacity', '0');
+            });
+        });
+
+        $('[data-delay]').each(function(){
+            var anim_del = $(this).data('delay');
+            $(this).css('animation-delay', anim_del);
+        });
+
+
+        $('[data-duration]').each(function(){
+            var anim_dur = $(this).data('duration');
+            $(this).css('animation-duration', anim_dur);
+        });
+
+        homeSlider.on('translated.owl.carousel', function(){
+            var layer = homeSlider.find('.owl-item.active').find('[data-animation]');
+            layer.each(function(){
+                var anim_name = $(this).data('animation');
+                $(this).addClass('animated ' + anim_name).css('opacity', '1');
+            });
+        });
+       
+
+    }
     render() { 
         return ( 
             <div>
-                
                 <div className="banner-area">
                     <div className="container">
                         <div className="row">
@@ -133,7 +180,6 @@ class Ban extends Component {
                                                 </div>
                                                 {/* Single Slider End */}
                                                 {/* Single Slider Start */}
-
                                                 <div className="single-slider " style={divStyle}>
                                                     <div className="container">
                                                         <div className="row">

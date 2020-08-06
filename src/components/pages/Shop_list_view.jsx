@@ -28,6 +28,7 @@ class Shop_list_view extends Component {
 
     render() {
         var {isLoaded, items} = this.state;
+        const imageName = '/assets/img/fashion/product/1.jpg';
         console.log(items);
         return (
             <div><Breadcrumb pageName="Product List"/>
@@ -47,8 +48,8 @@ class Shop_list_view extends Component {
                                                     <a data-toggle="tab" href="#grid"><i className="fa fa-th"></i></a>
                                                 </li>
                                                 <li>
-                                                    <a className="active" data-toggle="tab" href="#list"><i
-                                                        className="fa fa-list"></i></a>
+                                                    <a className="active" data-toggle="tab" href="#list">
+                                                    <i className="fa fa-list"></i></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -78,10 +79,7 @@ class Shop_list_view extends Component {
                                         <div className="tab-content" id="myTabContent-2">
                                             <div className="tab-pane" id="grid">
                                                 <div className="product-grid-view">
-
-                                                            <Shop_list_grid/>
-
-
+                                                    <Shop_list_grid/>
                                                 </div>
                                             </div>
                                             <div className="tab-pane show active" id="list">
@@ -124,7 +122,7 @@ class Shop_list_view extends Component {
                                                                                             className="regular-price">{product.price}</span>
                                                                                     </p>
                                                                                     <p className="zeref-box-descript">{product.description}</p>
-                                                                                    <a href="cart.html"
+                                                                                        <a href="cart.html"
                                                                                        className="btn add-to-cart btn-style-2"><i
                                                                                         className="fa fa-shopping-cart"></i></a>
                                                                                 </div>

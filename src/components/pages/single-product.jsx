@@ -3,6 +3,7 @@ import Breadcrumb from '../layouts/Breadcrumb'
 import Modal from 'react-bootstrap4-modal';
 import axios from 'axios'
 class SingleProduct extends Component {
+    
     constructor(props) {
         super(props);
         // this.StockCheck = this.StockCheck.bind(this);

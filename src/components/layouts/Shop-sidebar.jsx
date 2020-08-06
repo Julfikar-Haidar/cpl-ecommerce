@@ -1,21 +1,51 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class ShopSidebar extends Component {
-    state = {}
+    constructor(props) {
+        super(props)
+        this.state = {
+            items: []
+            // isLoaded: false
+            
+
+        }
+    }
+    componentDidMount(){
+        fetch('https://nodejs-backend-apis.herokuapp.com/api/product')
+        .then(res => res.json())
+        .then(response => {
+            this.setState({
+                // isLoaded: true,
+                items: response.data
+            });
+            console.log('console',response.data);
+
+            
+        })
+       
+       
+    }
+   
+ 
     render() {
+        var { items } = this.state;
+        // var items = this.state;
+        console.log('check items',items);
+      
         return ( 
             <div>
-            {/* <!-- Sidebar Start --> */}
+                {/* <!-- Sidebar Start --> */}
                 <aside className="sidebar shop-sidebar">
                     <div className="search-filter">
-
                         {/* <!-- Category Search filter Start --> */}
                         <div className="filter-box mb--30">
                             <div className="filter-title">
                                 <h2>Filter by categories</h2>
                             </div>
                             <ul className="search-filter-list">
-                                <li className="custom-checkbox">
+                          
+                                    <li className="custom-checkbox">
                                     <input type="checkbox" name="bookandboardgame" id="bookandboardgame" className="zeref-checkbox" />
                                     <label htmlFor="bookandboardgame" className="zeref-checkbox-label">Electronics</label>
                                 </li>
@@ -51,6 +81,8 @@ class ShopSidebar extends Component {
                                     <input type="checkbox" name="babydols" id="8" className="zeref-checkbox" />
                                     <label htmlFor="8" className="zeref-checkbox-label">Tools</label>
                                 </li>
+                                    
+                                   
                             </ul>
                         </div>
                         {/* <!-- Category Search filter End --> */}
