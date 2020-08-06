@@ -11,7 +11,7 @@ class SingleProduct extends Component {
         this.state = {
             product: [],
             modal: '',
-            count:0
+            count:0 
         };
 
     }
@@ -28,6 +28,7 @@ class SingleProduct extends Component {
                 console.log (error);
             })
     }
+    
 
 
     increment() {
@@ -56,6 +57,15 @@ class SingleProduct extends Component {
         }
     }
 
+    cartAdd(item) {
+        let productlist =JSON.parse(localStorage.getItem('cartitem')) || []
+
+         productlist.push(item,this.state.count)
+        //  productlist.push(this.state.count)
+         localStorage.setItem('cartitem', JSON.stringify(productlist))
+         console.log(this.state.count)
+    }
+
     /* Close modal method start */
     closeModal() {
         this.setState({
@@ -67,7 +77,8 @@ class SingleProduct extends Component {
 
 // stockCheck(){
 
-// }
+// }  
+
 
 
     state = {}
@@ -150,7 +161,7 @@ class SingleProduct extends Component {
                                                     <div class="inc qtybutton" onClick={() => this.increment()} ><i class="fa fa-angle-up"></i></div>
                                                 </div>
                                             </div>
-                                            <a href="#" class="btn">Add to cart</a>
+                                            <a href="#" class="btn" onClick={()=>this.cartAdd(this.state.product)}>Add to cart</a>
 
                                             <div class="social-share pt--20">
                                                 <span>Share:</span>
