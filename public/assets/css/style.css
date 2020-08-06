@@ -6094,5 +6094,9 @@ Blog Pagination
   background-color: #d4edda;
   border-color: #c3e6cb;
 }
+.cart-counter {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+  top: calc(110px + 30%);
+}
 
 /* custom css for error message in registration page */

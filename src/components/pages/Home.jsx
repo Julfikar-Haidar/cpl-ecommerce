@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Banner from '../layouts/Banner'
+import Cartcounter from '../layouts/Cart-counter'
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -51,7 +52,7 @@ class Home extends Component {
 
                 {/* Page Content */}
                 {/* Banner area Start */}
-                
+                <Cartcounter />
                 <Banner/>
                 
                 {/* Banner area End */}
@@ -69,7 +70,6 @@ class Home extends Component {
                         </div>
                         <div className="row">
                             <div className="col-12">
-
                                 <div className="product-tab product-tab--3 content-grey-color">
                                     {/* Product Tab Head Start */}
                                     <div className="nav nav-pills zeref-product-tab" id="pills-tab" role="tablist">
@@ -79,21 +79,16 @@ class Home extends Component {
                                     </div>
                                     {/* Product Tab Head End */}
                                     {/* Product Tab Content Start */}
-
-
-
                                     <div className="tab-content zeref-ptab-content" id="pills-tabContent">
                                         <div className="tab-pane zeref-tab-pane show active" id="apples" role="tabpanel" aria-labelledby="apples-tab">
                                             {/* Women Product Area Start */}
                                             <div className="row">
-                                               
                                                 <div className="zeref-tproduct-carousel zeref-tproduct-carousel-area owl-carousel js-tanding-product-1">
                                                     {/* Product Box Start */}  
                                                     <div className="col-lg-12 col-sm-12">    
                                                     {
                                                         this.state.products.map((item,index)=>
                                                     
-                                                   
                                                         <div className="product-grid5">
                                                             <div className="product-image5">
                                                                 <a href="# /">

@@ -28,17 +28,17 @@ class Header extends Component {
 	    *Cart Dropdown
 	    ***********************/ 
 	
-	function cartDrpdownExpand(){
-		$('#cartDropdown').on('click', function(e){
-			e.preventDefault();
-			$(this).siblings('.cart-dropdown').slideToggle('slow');
-		});
-		$('#cart-close').on('click', function(e){
-			e.preventDefault();
-			$('.cart-dropdown').slideUp('slow');
-		})
-	}
-	cartDrpdownExpand();
+        function cartDrpdownExpand(){
+            $('#cartDropdown').on('click', function(e){
+                e.preventDefault();
+                $(this).siblings('.cart-dropdown').slideToggle('slow');
+            });
+            $('#cart-close').on('click', function(e){
+                e.preventDefault();
+                $('.cart-dropdown').slideUp('slow');
+            })
+        }
+        cartDrpdownExpand();
 
     }
 
