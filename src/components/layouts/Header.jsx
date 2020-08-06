@@ -118,7 +118,7 @@ class Header extends Component {
     render() {
 
         const {query,cartProduct} = this.state;
-        console.log('102',cartProduct);
+        
         let authenticationMenu
 
         if (!window.localStorage.getItem('token')) {
@@ -192,7 +192,7 @@ class Header extends Component {
                                 <div className="col-lg-4 col-md-9 col-sm-8 col-7">
                                     <div className="zeref-header-bottom-right justify-content-md-end">
                                         {/* Header Cart Start */}
-                                        <div className="header-cart header-area-cart">
+                                        {/* <div className="header-cart header-area-cart">
                                             <a className="zeref-cart-toggle" id="cartDropdown">
                                                 <i className="fa fa-shopping-cart header-shop-icon"></i>
                                                 <sup className="cart-badge">
@@ -231,7 +231,7 @@ class Header extends Component {
                                                     </div>
                                                 </div>
 
-                                        </div>
+                                        </div> */}
 
                                         {/* Header Cart End */}
                                         <a id="sidebarCollapse">

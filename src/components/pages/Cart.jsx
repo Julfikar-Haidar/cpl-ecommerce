@@ -11,11 +11,11 @@ class Cart extends Component {
         }
 
     }
-    
+
     componentDidMount() {
-        console.log('11 line print');
+        // console.log('11 line print');
         const productCollect = JSON.parse(window.localStorage.getItem('myProduct'))
-        console.log('22', productCollect);
+        // console.log('22', productCollect);
         this.setState({
             cartProduct: productCollect
 
@@ -56,14 +56,14 @@ class Cart extends Component {
 
                                                             <tbody>
 
-                                                                {cartProduct.map((pro, index) => (
+                                                                {cartProduct.map((product_item, index) => (
 
                                                                     <tr>
                                                                         <td>
                                                                             <a href="single-product.html"><img src="assets/img/fashion/product/1.jpg" alt="product" /></a>
                                                                         </td>
-                                                                        <td className="cart-product-price"><h3><a href="#">Red Bag</a></h3></td>
-                                                                        <td><strong>$16.00</strong></td>
+                                                                        <td className="cart-product-price"><h3><a href="#">{product_item.name}</a></h3></td>
+                                                                <td><strong>${product_item.price}</strong></td>
                                                                         <td>
                                                                             <div className="quantity">
                                                                                 <input type="number" className="quantity-input" name="qty" id="qty1" value="1" />

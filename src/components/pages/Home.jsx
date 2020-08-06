@@ -7,7 +7,8 @@ class Home extends Component {
         super(props);
         this.state = { 
             products: [],
-            productListCount: 0
+            productListCount: 0,
+            amount: 0
         };
         
       }
@@ -31,10 +32,12 @@ class Home extends Component {
          productlist.push(item)
          console.log("productlist",productlist.length, typeof(productlist.length));
          this.setState({
-            productListCount: productlist.length
+            productListCount: productlist.length,
+            amount: productlist.price
            
          })
          console.log('data conyhbt',this.state.productListCount)
+         console.log(' product price',this.state.amount)
          localStorage.setItem('myProduct', JSON.stringify(productlist))
          
         
@@ -43,16 +46,16 @@ class Home extends Component {
    
 
     render() { 
-        let { products,productListCount} = this.state
+        let { products,productListCount,amount} = this.state
         // console.log('productListCount',productListCount);
-        // console.log('all product here',products);
+        console.log('product amount',amount);
         return ( 
             <div>
                 {/* Main Wrapper Start */}
 
                 {/* Page Content */}
                 {/* Banner area Start */}
-                <Cartcounter />
+                <Cartcounter productListCount={productListCount} />
                 <Banner/>
                 
                 {/* Banner area End */}
@@ -64,7 +67,7 @@ class Home extends Component {
                             <div className="col-12">
                                 <div className="section-title text-center mb-50">
                                     <h2>New Collections <i className="fa fa-shopping-cart"></i></h2>
-        <h1>Cart count {productListCount}</h1>
+                                    <h1>Cart count {productListCount}</h1>
                                 </div>
                             </div>
                         </div>
