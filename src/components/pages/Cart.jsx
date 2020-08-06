@@ -11,6 +11,7 @@ class Cart extends Component {
         }
 
     }
+    
     componentDidMount() {
         console.log('11 line print');
         const productCollect = JSON.parse(window.localStorage.getItem('myProduct'))

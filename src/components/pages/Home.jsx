@@ -5,7 +5,10 @@ import Cartcounter from '../layouts/Cart-counter'
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = { products: [] };
+        this.state = { 
+            products: [],
+            productListCount: 0
+        };
         
       }
 
@@ -19,29 +22,29 @@ class Home extends Component {
             console.log(error);
           })
 
-        //   console.log('20 line print');
-        //   const product = JSON.parse(window.localStorage.getItem('myProduct'))
-        //   console.log('22',product);
+      
       }
 
-    cartAdd(item) {
+    cartAdd=(item)=>{
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
 
          productlist.push(item)
+         console.log("productlist",productlist.length, typeof(productlist.length));
+         this.setState({
+            productListCount: productlist.length
+           
+         })
+         console.log('data conyhbt',this.state.productListCount)
          localStorage.setItem('myProduct', JSON.stringify(productlist))
-           // if(product){
-           //     alert('hi')
-           // }else {
-           //    productlist.push(item)
-           //     localStorage.setItem('myProduct', JSON.stringify(productlist))
-           // }
+         
+        
     }
 
    
 
-    state = {  }
     render() { 
-        const { products} = this.state
+        let { products,productListCount} = this.state
+        // console.log('productListCount',productListCount);
         // console.log('all product here',products);
         return ( 
             <div>
@@ -61,6 +64,7 @@ class Home extends Component {
                             <div className="col-12">
                                 <div className="section-title text-center mb-50">
                                     <h2>New Collections <i className="fa fa-shopping-cart"></i></h2>
+        <h1>Cart count {productListCount}</h1>
                                 </div>
                             </div>
                         </div>
