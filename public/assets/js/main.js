@@ -181,29 +181,29 @@
 	*Trending Product Carousel Activation
 	***********************/
 
-	$('.js-tanding-product-1').owlCarousel({
-		items: 3,
-	    loop:false,
-	    nav: true,
-	    dots: false,
-	    autoplay: false,
-	    autoplayTimeout: 5000,
-	    navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
-	    responsive:{
-	        0:{
-	            items:1,
-	        },
-	        480:{
-	            items:2,
-	        },
-	        600:{
-	            items:2,
-	        },
-	        992:{
-	            items:4,
-	        }
-    	}
-	});
+	// $('.js-tanding-product-1').owlCarousel({
+	// 	items: 3,
+	//     loop:false,
+	//     nav: true,
+	//     dots: false,
+	//     autoplay: false,
+	//     autoplayTimeout: 5000,
+	//     navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
+	//     responsive:{
+	//         0:{
+	//             items:1,
+	//         },
+	//         480:{
+	//             items:2,
+	//         },
+	//         600:{
+	//             items:2,
+	//         },
+	//         992:{
+	//             items:4,
+	//         }
+    // 	}
+	// });
 	/**********************
 	*Category Nav Activation
 	***********************/ 
@@ -372,13 +372,6 @@
 	        }
     	}
 	});
-
-
-	
-
-
-	
-
 
 	/**********************
 	*Product Thumb Carousel 2 Activation

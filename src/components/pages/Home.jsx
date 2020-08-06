@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Banner from '../layouts/Banner'
 import Cartcounter from '../layouts/Cart-counter'
+const $ = window.$;
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -22,6 +24,30 @@ class Home extends Component {
           .catch(function (error) {
             console.log(error);
           })
+
+          $('.js-tanding-product-1').owlCarousel({
+            items: 3,
+            loop:false,
+            nav: true,
+            dots: false,
+            autoplay: false,
+            autoplayTimeout: 5000,
+            navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
+            responsive:{
+                0:{
+                    items:1,
+                },
+                480:{
+                    items:2,
+                },
+                600:{
+                    items:2,
+                },
+                992:{
+                    items:4,
+                }
+            }
+        });
 
       
       }
@@ -88,6 +114,7 @@ class Home extends Component {
                                             <div className="row">
                                                 <div className="zeref-tproduct-carousel zeref-tproduct-carousel-area owl-carousel js-tanding-product-1">
                                                     {/* Product Box Start */}  
+                                                    <div className="row">
                                                     <div className="col-lg-12 col-sm-12">    
                                                     {
                                                         this.state.products.map((item,index)=>
@@ -112,7 +139,8 @@ class Home extends Component {
                                                         </div>
                                                     
                                                         )    
-                                                  }
+                                                    }
+                                                    </div>
                                                   </div>
                                                 </div>
                                             </div>
