@@ -8,6 +8,7 @@ var divStyle = {
 }
 
 
+
 class Ban extends Component {
 
     componentDidMount() {
