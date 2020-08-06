@@ -104,16 +104,16 @@ class Header extends Component {
         }
     };
 
-    componentDidMount() {
-        console.log('11 line print');
-        const productCollect = JSON.parse(window.localStorage.getItem('myProduct'))
-        console.log('22', productCollect);
-        this.setState({
-            cartProduct: productCollect.length
+    // componentDidMount() {
+    //     console.log('11 line print');
+    //     const productCollect = JSON.parse(window.localStorage.getItem('myProduct'))
+    //     console.log('22', productCollect);
+    //     this.setState({
+    //         cartProduct: productCollect.length
 
-        })
+    //     })
 
-    }
+    // }
 
     render() {
 
