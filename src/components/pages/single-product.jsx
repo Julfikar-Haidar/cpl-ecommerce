@@ -58,11 +58,11 @@ class SingleProduct extends Component {
     }
 
     cartAdd(item) {
-        let productlist =JSON.parse(localStorage.getItem('cartitem')) || []
+        let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
 
          productlist.push(item,this.state.count)
         //  productlist.push(this.state.count)
-         localStorage.setItem('cartitem', JSON.stringify(productlist))
+         localStorage.setItem('myProduct', JSON.stringify(productlist))
          console.log(this.state.count)
     }
 

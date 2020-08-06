@@ -5,7 +5,9 @@ import {Link} from 'react-router-dom';
 class Cartcounter extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+        
+         }
     }
     render() { 
         return (
@@ -14,10 +16,10 @@ class Cartcounter extends Component {
                     <div className="cart-counter-inner" style={{padding: 10}}>
                         <i className="fa fa-shopping-bag" style={{color: '#f5a623'}} aria-hidden="true"></i>
                         <p className="cart-item" style={{marginBottom:0,color: '#f5a623',
-                            fontWeight: 700}}>8 Items</p>
+                            fontWeight: 700}}>Items-{this.props.productListCount}</p>
                     </div>
                     <div className="cproduct-amount" style={{backgroundColor:'#fff'}}>
-                        <p style={{marginBottom:0}}>$2,870</p>
+        <p style={{marginBottom:0}}>$ 2,889</p>
                     </div>
                 </div>
             </React.Fragment>
