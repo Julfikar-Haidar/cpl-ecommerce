@@ -28,7 +28,7 @@ class Home extends Component {
 
     cartAdd=(item)=>{
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
-
+        
          productlist.push(item)
          console.log("productlist",productlist.length, typeof(productlist.length));
          this.setState({
