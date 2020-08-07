@@ -3,7 +3,7 @@ import Breadcrumb from '../layouts/Breadcrumb';
 import Shop_list_grid from '../layouts/Shop_list_grid';
 import ShopSidebar from '../layouts/Shop-sidebar';
 import {Link} from 'react-router-dom';
-
+import Cartcounter from '../layouts/Cart-counter'
 class Shop_list_view extends Component {
     constructor(props) {
         super(props)
@@ -32,6 +32,7 @@ class Shop_list_view extends Component {
         console.log(items);
         return (
             <div><Breadcrumb pageName="Product List"/>
+            <Cartcounter  />
                 <div className="main-content-wrapper">
                     <div className="shop-area section-padding">
                         <div className="container">

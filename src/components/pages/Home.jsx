@@ -74,7 +74,7 @@ class Home extends Component {
     render() { 
         let { products,productListCount,amount} = this.state
         // console.log('productListCount',productListCount);
-        console.log('product amount',amount);
+        
         return ( 
             <div>
                 {/* Main Wrapper Start */}
