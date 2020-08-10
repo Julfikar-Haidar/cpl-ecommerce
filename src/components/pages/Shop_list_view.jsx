@@ -96,7 +96,7 @@ class Shop_list_view extends Component {
                                                                             <div className="col-md-4">
                                                                                 <div className="zeref-box-image">
                                                                                     <img
-                                                                                        src= {product.imageUrl}
+                                                                                        src={product.imageUrl}
                                                                                         alt="product image"
                                                                                         className="primary_image"/>
                                                                                     <img
@@ -118,12 +118,10 @@ class Shop_list_view extends Component {
                                                                                     <p className="zeref-box-price">
                                                                                         <span
                                                                                             className="sale-price">{product.price}TK</span>
-                                                                                        <span
-                                                                                            className="regular-price">{product.price}</span>
+                                                                                        <span className="regular-price">{product.price}</span>
                                                                                     </p>
                                                                                     <p className="zeref-box-descript">{product.description}</p>
-                                                                                        <a href="cart.html"
-                                                                                       className="btn add-to-cart btn-style-2"><i
+                                                                                        <a href="cart.html" className="btn add-to-cart btn-style-2"><i
                                                                                         className="fa fa-shopping-cart"></i></a>
                                                                                 </div>
                                                                             </div>

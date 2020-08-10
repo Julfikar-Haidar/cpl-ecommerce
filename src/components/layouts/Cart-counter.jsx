@@ -19,7 +19,7 @@ class Cartcounter extends Component {
                             fontWeight: 700}}>Items-{this.props.productListCount}</p>
                     </div>
                     <div className="cproduct-amount" style={{backgroundColor:'#fff'}}>
-        <p style={{marginBottom:0}}>$ 2,889</p>
+                        <p style={{marginBottom:0}}>{this.props.amount}</p>
                     </div>
                 </div>
             </React.Fragment>

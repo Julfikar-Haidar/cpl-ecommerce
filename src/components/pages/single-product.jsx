@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
 import Modal from 'react-bootstrap4-modal';
 import axios from 'axios'
+// import Cartcounter from '../layouts/Cart-counter'
 class SingleProduct extends Component {
     
     constructor(props) {
@@ -11,7 +12,8 @@ class SingleProduct extends Component {
         this.state = {
             product: [],
             modal: '',
-            count:0 
+            count:0
+     
         };
 
     }
@@ -88,6 +90,7 @@ class SingleProduct extends Component {
         return (
             <div>
                 <Breadcrumb pageName="Single Product" />
+               
                 <div class="main-content-wrapper">
                     <div class="single-products-area section-padding">
                         {/* Single Product Start */}
