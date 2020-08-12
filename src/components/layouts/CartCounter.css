@@ -9,7 +9,7 @@
 	right: 0;
 	margin: auto;
 	width: 320px;
-	height: auto;
+	height: 100%;
 	-webkit-transform: translate3d(0%, 0, 0);
 	-ms-transform: translate3d(0%, 0, 0);
 	-o-transform: translate3d(0%, 0, 0);
@@ -42,6 +42,7 @@
 .modal-content {
 	border-radius: 0;
 	border: none;
+	/* top: 77px; */
 }
 
 .modal-header {

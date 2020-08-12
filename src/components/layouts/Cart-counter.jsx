@@ -42,6 +42,11 @@ class Cartcounter extends Component {
                     aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
+                        <div className="modal-header">
+
+<h1><i className="fa fa-shopping-bag" style={{ color: '#f5a623' }} aria-hidden="true"></i> 15-Item</h1>
+</div>
+<hr/>
                             <div className="modal-body">
                                 <ul className="dropdown-cart" role="menu">
                                     <li>
