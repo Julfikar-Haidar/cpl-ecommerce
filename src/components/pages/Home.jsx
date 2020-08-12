@@ -27,28 +27,61 @@ class Home extends Component {
 
     
         $('.js-tanding-product-1').owlCarousel({
-            items: 3,
-            loop:false,
-            nav: true,
-            dots: false,
-            autoplay: false,
-            autoplayTimeout: 5000,
-            navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
-            responsive:{
-                0:{
-                    items:1,
-                },
-                480:{
-                    items:2,
-                },
-                600:{
-                    items:2,
-                },
-                992:{
-                    items:4,
-                }
-            }
-        });
+		items: 3,
+	    loop:false,
+	    nav: true,
+	    dots: false,
+	    autoplay: false,
+	    autoplayTimeout: 5000,
+	    navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
+	    responsive:{
+	        0:{
+	            items:1,
+	        },
+	        480:{
+	            items:2,
+	        },
+	        600:{
+	            items:2,
+	        },
+	        992:{
+	            items:4,
+	        }
+    	}
+	});
+
+
+	/**********************
+	*Related Product Carousel 2 Activation
+	***********************/
+
+	$('.js-related-product').owlCarousel({
+		items: 4,
+		margin: 30,
+	    loop:false,
+	    nav: true,
+	    dots: false,
+	    autoplay: false,
+	    autoplayTimeout: 5000,
+	    navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
+	    responsive:{
+	        0:{
+	            items:1,
+	        },
+	        576:{
+	            items:2,
+	        },
+	        768:{
+	            items:3,
+	        },
+	        992:{
+	            items:4,
+	        },
+	        1200:{
+	            items:4,
+	        }
+    	}
+	});
 
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             var currentID = e.target.getAttribute('href');
@@ -59,29 +92,20 @@ class Home extends Component {
       
       }
 
-    cartAdd=(item)=> {
-        let productlist = JSON.parse(localStorage.getItem('myProduct')) || []
-        console.log('get this', productlist);
-
-        let getPrice = item.price;
-        console.log('get price', getPrice);
-
-        let test = productlist.push(item);
-        console.log('product number',test);
-
-        console.log('price',item.price )
-        console.log("productlist",productlist.length, typeof(productlist.length));
-
+    cartAdd=(item)=>{
+        let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
+        
+         productlist.push(item)
+         
+         console.log("productlist",productlist.length, typeof(productlist.length));
          this.setState({
             productListCount: productlist.length,
-            amount: getPrice
+            // amount: getPrice
            
         })
         //  console.log('data conyhbt',this.state.productListCount)
         //  console.log(' product price',this.state.amount)
         localStorage.setItem('myProduct', JSON.stringify(productlist))
-         
-        
     }
 
    
@@ -89,7 +113,7 @@ class Home extends Component {
     render() { 
         let { products,productListCount,amount} = this.state
         // console.log('productListCount',productListCount);
-        // console.log('product amount',amount);
+        
         return ( 
             <div>
                 {/* Main Wrapper Start */}
@@ -126,44 +150,39 @@ class Home extends Component {
                                     {/* Product Tab Content Start */}
                                     <div className="tab-content zeref-ptab-content" id="pills-tabContent">
                                         <div className="tab-pane zeref-tab-pane show active" id="apples" role="tabpanel" aria-labelledby="apples-tab">
+                                        
                                             {/* Women Product Area Start */}
                                             <div className="row">
                                                 <div className="zeref-tproduct-carousel zeref-tproduct-carousel-area owl-carousel js-tanding-product-1">
                                                     {/* Product Box Start */}  
-                                                    <div className="row">
-                                                    {
-                                                        this.state.products.map((item,index)=>
-                                                        
-                                                            <div className="col-lg-6 col-sm-12">    
-                                                                <div className="product-grid5">
-                                                                    <div className="product-image5">
-                                                                        <a href="# /">
-                                                                            <img className="pic-1" alt="product image" src="assets/img/fashion/product/1.jpg" />
-                                                                            <img className="pic-2" alt="product image" src="assets/img/fashion/product/2.jpg" />
-                                                                        </a>
-                                                                        <ul className="social">
-                                                                            <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
-                                                                            <li><a href="# /" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
-                                                                            <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
-                                                                        </ul>
-                                                                        <a href="#" className="select-options" onClick={()=>this.cartAdd(item)}><i className="fa fa-shopping-cart"></i> Add to cart</a>
-                                                                    </div>
-                                                                    <div className="product-content">
-                                                                        <h3 className="title"><a href="#">{item.name}</a></h3>
-                                                                        <div className="price">{item.price}TK</div>
+                                                        {
+                                                            this.state.products.map((item,index)=>  
+                                                                <div className="col-lg-12 col-sm-12">  
+                                                            
+                                                                    <div className="product-grid5">
+                                                                        <div className="product-image5">
+                                                                            <a href="# /">
+                                                                                <img className="pic-1" alt="product image" src="assets/img/fashion/product/1.jpg" />
+                                                                                <img className="pic-2" alt="product image" src="assets/img/fashion/product/2.jpg" />
+                                                                            </a>
+                                                                            <ul className="social">
+                                                                                <li><a href="wishlist.html" data-tip="Add to Wishlist"><i className="fa fa fa-heart"></i></a></li>
+                                                                                <li><a href="# /" data-tip="Quick View" data-toggle="modal" data-target="#productModal"><i className="fa fa-eye"></i></a></li>
+                                                                                <li><a href="single-product.html" data-tip="Product Details"><i className="fa fa fa-link"></i></a></li>
+                                                                            </ul>
+                                                                            <a href="#" className="select-options" onClick={()=>this.cartAdd(item)}><i className="fa fa-shopping-cart"></i> Add to cart</a>
+                                                                        </div>
+                                                                        <div className="product-content">
+                                                                            <h3 className="title"><a href="#">{item.name}</a></h3>
+                                                                            <div className="price">{item.price}TK</div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                           
-                                                        </div>
-                                                        )  
-                                                       
-                                                    }
-                                                    </div>  
+                                                            )  
+                                                        }
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                           
-                                        
                                         {/* Product Tab Content End */}
                                     </div>
                                 </div>
