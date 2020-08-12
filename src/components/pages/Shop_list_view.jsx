@@ -9,7 +9,10 @@ class Shop_list_view extends Component {
         super(props)
         this.state = {
             items: [],
-            isLoaded: false
+            isLoaded: false,
+            products: [],
+            productListCount: 0,
+            amount: 0
         }
     }
 
@@ -23,16 +26,40 @@ class Shop_list_view extends Component {
                 })
 
             })
+
+            const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
+            console.log('test', productCollect);
+            console.log('check length', productCollect.length);
+            
+            this.setState({
+                productListCount:productCollect.length
+    
+            })
+    }
+    cartAdd=(product)=>{
+        let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
+        productlist.push(product)
+        this.setState({
+            productListCount: productlist.length,
+            // amount: getPrice
+        })
+         console.log('data conyhbt',this.state.productListCount)
+         console.log(' product price',this.state.amount)
+        localStorage.setItem('myProduct', JSON.stringify(productlist))
     }
 
 
     render() {
+        let { products,productListCount,amount} = this.state
         var {isLoaded, items} = this.state;
         const imageName = '/assets/img/fashion/product/1.jpg';
-        console.log(items);
+       
         return (
-            <div><Breadcrumb pageName="Product List"/>
-            <Cartcounter  />
+            
+            <div>
+            <Cartcounter productListCount={productListCount} amount={amount} />
+            
+            <Breadcrumb pageName="Product List"/>
                 <div className="main-content-wrapper">
                     <div className="shop-area section-padding">
                         <div className="container">
@@ -97,7 +124,7 @@ class Shop_list_view extends Component {
                                                                             <div className="col-md-4">
                                                                                 <div className="zeref-box-image">
                                                                                     <img
-                                                                                        src= {product.imageUrl}
+                                                                                        src={product.imageUrl}
                                                                                         alt="product image"
                                                                                         className="primary_image"/>
                                                                                     <img
@@ -119,12 +146,10 @@ class Shop_list_view extends Component {
                                                                                     <p className="zeref-box-price">
                                                                                         <span
                                                                                             className="sale-price">{product.price}TK</span>
-                                                                                        <span
-                                                                                            className="regular-price">{product.price}</span>
+                                                                                        <span className="regular-price">{product.price}</span>
                                                                                     </p>
                                                                                     <p className="zeref-box-descript">{product.description}</p>
-                                                                                        <a href="cart.html"
-                                                                                       className="btn add-to-cart btn-style-2"><i
+                                                                                        <a href="#" className="btn add-to-cart btn-style-2" onClick={()=>this.cartAdd(product)}><i
                                                                                         className="fa fa-shopping-cart"></i></a>
                                                                                 </div>
                                                                             </div>

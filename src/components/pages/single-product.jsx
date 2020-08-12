@@ -3,6 +3,7 @@ import Breadcrumb from '../layouts/Breadcrumb'
 import Modal from 'react-bootstrap4-modal';
 import Cartcounter from '../layouts/Cart-counter'
 import axios from 'axios'
+// import Cartcounter from '../layouts/Cart-counter'
 class SingleProduct extends Component {
     
     constructor(props) {
@@ -30,6 +31,15 @@ class SingleProduct extends Component {
             })
             .catch(function (error) {
                 console.log (error);
+            })
+
+            const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
+            console.log('test', productCollect);
+            console.log('check length', productCollect.length);
+
+            this.setState({
+                productListCount:productCollect.length
+    
             })
     }
     
@@ -63,7 +73,6 @@ class SingleProduct extends Component {
 
     cartAdd(item) {
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
-
         if(this.state.count>0){
             productlist.push(item)
             this.setState({
@@ -77,15 +86,9 @@ class SingleProduct extends Component {
                 modal: 'emptyValue'
             })
         }
-
-         
-         
-        //  console.log('length',this.state.productListCount)
+        // console.log('length',this.state.productListCount)
          console.log('price',productlist)
         
-
-        
-         
     }
 
     /* Close modal method start */
@@ -97,13 +100,6 @@ class SingleProduct extends Component {
     }
     /* Close modal method end */
 
-// stockCheck(){
-
-// }  
-
-
-
-    state = {}
     render() {
         let { products,productListCount} = this.state
 
@@ -111,7 +107,11 @@ class SingleProduct extends Component {
             <div>
                 <Breadcrumb pageName="Single Product" />
                 <Cartcounter productListCount={productListCount}  />
+                
                 <h1>Cart count {productListCount}</h1>
+
+
+
                 <div class="main-content-wrapper">
                     <div class="single-products-area section-padding">
                         {/* Single Product Start */}
