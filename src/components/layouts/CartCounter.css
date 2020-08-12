@@ -16,13 +16,13 @@
 	transform: translate3d(0%, 0, 0);
 }
 
-.modal.left .modal-content {
+.modal.left .modal_cus_content {
 	height: 100%;
 	overflow-y: auto;
 
 }
 
-.modal.right .modal-body {
+.modal.right .modal_custom_body {
 	padding: 15px 15px 80px;
 }
 
@@ -39,13 +39,12 @@
 }
 
 /* ----- MODAL STYLE ----- */
-.modal-content {
+.modal_cus_content {
 	border-radius: 0;
 	border: none;
-	/* top: 77px; */
 }
 
-.modal-header {
+.modal_custom_header {
 	border-bottom-color: #eeeeee;
 	background-color: #fafafa;
 }
@@ -67,31 +66,14 @@
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-/* ----- v CAN BE DELETED v ----- */
-
-
-/* .demo {
-	padding-top: 60px;
-	padding-bottom: 110px;
-}
-
-.btn-demo {
-	/* margin: 15px; */
-	/* padding: 10px 15px;
-	border-radius: 0;
-	font-size: 16px;
-	background-color: #ffffff;
-} */
 
 .btn-demo:focus {
 	outline: 0;
-} */
+} 
 
 
 /* custom design cart  */
-dl, ol, ul {
-    list-style: none;
-}
+
 ul.dropdown-cart{
 	min-width:250px;
 	list-style: none!important;
@@ -131,5 +113,7 @@ ul.dropdown-cart li .item-right{
     float:right;
 }
 ul.dropdown-cart li .item-right button{
-    margin-top:14px;
+	/* margin-top:14px; */
+	color: red;
+	background-color: transparent;
 }

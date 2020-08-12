@@ -33,7 +33,7 @@ class Cartcounter extends Component {
 
                     </div>
                     <div className="cproduct-amount" style={{ backgroundColor: '#fff' }}>
-                        <p style={{ marginBottom: 0 }}>$ 2,889</p>
+                        <p style={{ marginBottom: 0 }}>$ {this.props.total_amount}</p>
                     </div>
                 </div>
 
@@ -41,13 +41,13 @@ class Cartcounter extends Component {
                 <div className="modal left fade" id="exampleModal" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                        <div className="modal-header">
+                        <div className="modal-content modal_cus_content">
+                        <div className="modal-header modal_custom_header">
 
 <h1><i className="fa fa-shopping-bag" style={{ color: '#f5a623' }} aria-hidden="true"></i> 15-Item</h1>
 </div>
 <hr/>
-                            <div className="modal-body">
+                            <div className="modal-body modal_custom_body">
                                 <ul className="dropdown-cart" role="menu">
                                     <li>
                                         <span className="item">
