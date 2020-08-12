@@ -25,6 +25,15 @@ class Home extends Component {
             console.log(error);
         })
 
+        const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
+        console.log('test', productCollect);
+        console.log('check length', productCollect.length);
+        
+        this.setState({
+            productListCount:productCollect.length
+
+        })
+
     
         $('.js-tanding-product-1').owlCarousel({
 		items: 3,
@@ -55,33 +64,33 @@ class Home extends Component {
 	*Related Product Carousel 2 Activation
 	***********************/
 
-	$('.js-related-product').owlCarousel({
-		items: 4,
-		margin: 30,
-	    loop:false,
-	    nav: true,
-	    dots: false,
-	    autoplay: false,
-	    autoplayTimeout: 5000,
-	    navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
-	    responsive:{
-	        0:{
-	            items:1,
-	        },
-	        576:{
-	            items:2,
-	        },
-	        768:{
-	            items:3,
-	        },
-	        992:{
-	            items:4,
-	        },
-	        1200:{
-	            items:4,
-	        }
-    	}
-	});
+        $('.js-related-product').owlCarousel({
+            items: 4,
+            margin: 30,
+            loop:false,
+            nav: true,
+            dots: false,
+            autoplay: false,
+            autoplayTimeout: 5000,
+            navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
+            responsive:{
+                0:{
+                    items:1,
+                },
+                576:{
+                    items:2,
+                },
+                768:{
+                    items:3,
+                },
+                992:{
+                    items:4,
+                },
+                1200:{
+                    items:4,
+                }
+            }
+        });
 
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             var currentID = e.target.getAttribute('href');
@@ -90,18 +99,16 @@ class Home extends Component {
         });
 
       
-      }
+    }
 
     cartAdd=(item)=>{
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
         
          productlist.push(item)
-         
          console.log("productlist",productlist.length, typeof(productlist.length));
          this.setState({
             productListCount: productlist.length,
             // amount: getPrice
-           
         })
         //  console.log('data conyhbt',this.state.productListCount)
         //  console.log(' product price',this.state.amount)
@@ -157,7 +164,7 @@ class Home extends Component {
                                                     {/* Product Box Start */}  
                                                         {
                                                             this.state.products.map((item,index)=>  
-                                                                <div className="col-lg-12 col-sm-12">  
+                                                                <div className="col-lg-4 col-sm-12">  
                                                             
                                                                     <div className="product-grid5">
                                                                         <div className="product-image5">

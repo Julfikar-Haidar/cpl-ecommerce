@@ -26,17 +26,25 @@ class Shop_list_view extends Component {
                 })
 
             })
+
+            const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
+            console.log('test', productCollect);
+            console.log('check length', productCollect.length);
+            
+            this.setState({
+                productListCount:productCollect.length
+    
+            })
     }
     cartAdd=(product)=>{
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
-        
         productlist.push(product)
         this.setState({
             productListCount: productlist.length,
             // amount: getPrice
         })
-        //  console.log('data conyhbt',this.state.productListCount)
-        //  console.log(' product price',this.state.amount)
+         console.log('data conyhbt',this.state.productListCount)
+         console.log(' product price',this.state.amount)
         localStorage.setItem('myProduct', JSON.stringify(productlist))
     }
 
@@ -52,7 +60,6 @@ class Shop_list_view extends Component {
             <Cartcounter productListCount={productListCount} amount={amount} />
             
             <Breadcrumb pageName="Product List"/>
-            
                 <div className="main-content-wrapper">
                     <div className="shop-area section-padding">
                         <div className="container">

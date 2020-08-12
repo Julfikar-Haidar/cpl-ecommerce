@@ -32,6 +32,15 @@ class SingleProduct extends Component {
             .catch(function (error) {
                 console.log (error);
             })
+
+            const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
+            console.log('test', productCollect);
+            console.log('check length', productCollect.length);
+
+            this.setState({
+                productListCount:productCollect.length
+    
+            })
     }
     
 
@@ -64,7 +73,6 @@ class SingleProduct extends Component {
 
     cartAdd(item) {
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
-
         if(this.state.count>0){
             productlist.push(item)
             this.setState({
@@ -78,15 +86,9 @@ class SingleProduct extends Component {
                 modal: 'emptyValue'
             })
         }
-
-         
-         
-        //  console.log('length',this.state.productListCount)
+        // console.log('length',this.state.productListCount)
          console.log('price',productlist)
         
-
-        
-         
     }
 
     /* Close modal method start */
@@ -98,13 +100,6 @@ class SingleProduct extends Component {
     }
     /* Close modal method end */
 
-// stockCheck(){
-
-// }  
-
-
-
-    state = {}
     render() {
         let { products,productListCount} = this.state
 
