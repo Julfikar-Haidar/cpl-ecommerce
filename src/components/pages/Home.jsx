@@ -10,7 +10,7 @@ class Home extends Component {
         this.state = { 
             products: [],
             productListCount: 0,
-            amount: 0
+            total_amount: 0
         };
         
       }
@@ -102,32 +102,55 @@ class Home extends Component {
     }
 
     cartAdd=(item)=>{
+        let total_price = 0
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
         
          productlist.push(item)
          console.log("productlist",productlist.length, typeof(productlist.length));
+
+         productlist.map(function (productlist) {
+            total_price += +parseFloat(productlist.price);
+            console.log('price 39',total_price);
+          })
+
          this.setState({
             productListCount: productlist.length,
+
+            total_amount: total_price
+           
+         })
+         console.log('data conyhbt',this.state.productListCount)
+         console.log(' product price 43 line',this.state.total_amount)
+         localStorage.setItem('myProduct', JSON.stringify(productlist))
+         
+        
+
             // amount: getPrice
         })
         //  console.log('data conyhbt',this.state.productListCount)
         //  console.log(' product price',this.state.amount)
         localStorage.setItem('myProduct', JSON.stringify(productlist))
+
     }
 
    
 
     render() { 
-        let { products,productListCount,amount} = this.state
+        let { products,productListCount,total_amount} = this.state
         // console.log('productListCount',productListCount);
-        
+
+        console.log('product amount',total_amount);
+
         return ( 
             <div>
                 {/* Main Wrapper Start */}
 
                 {/* Page Content */}
                 {/* Banner area Start */}
-                <Cartcounter productListCount={productListCount} amount={amount} />
+
+                <Cartcounter productListCount={productListCount} total_amount={total_amount}/>
+
+
 
                 <Banner/>
                 
@@ -141,6 +164,7 @@ class Home extends Component {
                                 <div className="section-title text-center mb-50">
                                     <h2>New Collections <i className="fa fa-shopping-cart"></i></h2>
                                     <h1>Cart count {productListCount}</h1>
+                                     <h2>cart price {total_amount}</h2>
                                 </div>
                             </div>
                         </div>
