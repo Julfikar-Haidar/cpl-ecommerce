@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Breadcrumb from '../layouts/Breadcrumb'
 import Modal from 'react-bootstrap4-modal';
+import Cartcounter from '../layouts/Cart-counter'
 import axios from 'axios'
+// import Cartcounter from '../layouts/Cart-counter'
 class SingleProduct extends Component {
     
     constructor(props) {
@@ -11,7 +13,10 @@ class SingleProduct extends Component {
         this.state = {
             product: [],
             modal: '',
-            count:0 
+            count:0,
+            productListCount: 0,
+            productPrice:0
+           
         };
 
     }
@@ -26,6 +31,15 @@ class SingleProduct extends Component {
             })
             .catch(function (error) {
                 console.log (error);
+            })
+
+            const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
+            console.log('test', productCollect);
+            console.log('check length', productCollect.length);
+
+            this.setState({
+                productListCount:productCollect.length
+    
             })
     }
     
@@ -58,12 +72,23 @@ class SingleProduct extends Component {
     }
 
     cartAdd(item) {
-        let productlist =JSON.parse(localStorage.getItem('cartitem')) || []
+        let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
+        if(this.state.count>0){
+            productlist.push(item)
+            this.setState({
+            productListCount: productlist.length,
+        })
+        localStorage.setItem('myProduct', JSON.stringify(productlist))
 
-         productlist.push(item,this.state.count)
-        //  productlist.push(this.state.count)
-         localStorage.setItem('cartitem', JSON.stringify(productlist))
-         console.log(this.state.count)
+        }
+        else{
+            this.setState({
+                modal: 'emptyValue'
+            })
+        }
+        // console.log('length',this.state.productListCount)
+         console.log('price',productlist)
+        
     }
 
     /* Close modal method start */
@@ -71,23 +96,22 @@ class SingleProduct extends Component {
         this.setState({
             modal: ''
         })
-        this.props.history.push('/shop-list');
+        this.props.history.push('/single-product/:id');
     }
     /* Close modal method end */
 
-// stockCheck(){
-
-// }  
-
-
-
-    state = {}
     render() {
-        // console.log(this.props)
+        let { products,productListCount} = this.state
 
         return (
             <div>
                 <Breadcrumb pageName="Single Product" />
+                <Cartcounter productListCount={productListCount}  />
+                
+                <h1>Cart count {productListCount}</h1>
+
+
+
                 <div class="main-content-wrapper">
                     <div class="single-products-area section-padding">
                         {/* Single Product Start */}
@@ -184,6 +208,14 @@ class SingleProduct extends Component {
                         <Modal className="register-success-modal" visible={this.state.modal === 'StockOut' ? true : false}>
                             <div className="alert alert-success user-success-message">
                                             <strong>Available Quantity For '{this.state.product.name}' : {this.state.product.quantity}</strong>
+                                <button type="button" className="close success-close" data-dismiss="modal" aria-label="Close" onClick={() => this.closeModal()}>
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </Modal>
+                        <Modal className="register-success-modal" visible={this.state.modal === 'emptyValue' ? true : false}>
+                            <div className="alert alert-success user-success-message">
+                                            <strong>Empty Quantity Field</strong>
                                 <button type="button" className="close success-close" data-dismiss="modal" aria-label="Close" onClick={() => this.closeModal()}>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
