@@ -120,6 +120,17 @@ class Home extends Component {
          console.log('data conyhbt',this.state.productListCount)
          console.log('product price 43 line',this.state.total_amount)
          localStorage.setItem('myProduct', JSON.stringify(productlist))
+
+         
+        
+
+            // amount: getPrice
+       
+        //  console.log('data conyhbt',this.state.productListCount)
+        //  console.log(' product price',this.state.amount)
+        localStorage.setItem('myProduct', JSON.stringify(productlist))
+
+
     }
 
    

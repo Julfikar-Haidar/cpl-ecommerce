@@ -6,7 +6,7 @@ class Cartcounter extends Component {
         constructor(props) {
         super(props);
         this.state = { 
-            show: false,
+            // show: false,
             cartProduct: [],
             productCount: props.productListCount
             
@@ -26,24 +26,24 @@ class Cartcounter extends Component {
 
     // }
 
-    showHide = () => {
-        const { show } = this.state
-        alert('hi')
-        this.setState({
-            show: !show
-        })
-    }
+    // showHide = () => {
+    //     const { show } = this.state
+    //     alert('hi')
+    //     this.setState({
+    //         show: !show
+    //     })
+    // }
 
     render() { 
         console.log('propscount',this.props.productListCount)
         return (
             <React.Fragment>
-                <div className="cart-counter shadow" style={{position:'fixed', right:0,  textAlign:'center', backgroundColor:'#7f7f7f',}}>
+                <div data-toggle="modal" data-target="#exampleModal" className="cart-counter shadow" style={{position:'fixed', right:0,  textAlign:'center', backgroundColor:'#7f7f7f',}}>
                     <div className="cart-counter-inner" style={{padding: 10}}>
                         <i className="fa fa-shopping-bag" style={{color: '#f5a623'}} aria-hidden="true"></i>
-                        <p onClick={ () => this.showHide()} className="cart-item" style={{marginBottom:0,color: '#f5a623',
+                        <p className="cart-item" style={{marginBottom:0,color: '#f5a623',
                             fontWeight: 700}}>Items-{this.props.productListCount}</p>
-                        <a href="">{this.state.show && <Box/>}</a>
+                        {/* <a href="">{this.state.show && <Box/>}</a> */}
                     </div>
 
                     <div className="cproduct-amount" style={{ backgroundColor: '#fff' }}>
