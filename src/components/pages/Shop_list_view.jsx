@@ -47,6 +47,9 @@ class Shop_list_view extends Component {
          console.log(' product price',this.state.amount)
         localStorage.setItem('myProduct', JSON.stringify(productlist))
     }
+    handleDelete = () => {
+        console.log('Event handler called');
+    };
 
 
     render() {
@@ -57,7 +60,7 @@ class Shop_list_view extends Component {
         return (
             
             <div>
-            <Cartcounter productListCount={productListCount} amount={amount} />
+            <Cartcounter productListCount={productListCount} onClick={this.handleDelete} amount={amount}/>
             
             <Breadcrumb pageName="Product List"/>
                 <div className="main-content-wrapper">

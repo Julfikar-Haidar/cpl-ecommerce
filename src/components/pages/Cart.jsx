@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Breadcrumb from '../layouts/Breadcrumb'
+import Breadcrumb from '../layouts/Breadcrumb';
+import {Link} from 'react-router-dom';
 
 class Cart extends Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class Cart extends Component {
     }
 
     render() {
+
         const { cartProduct } = this.state
 
         if (cartProduct != null) {
@@ -63,14 +65,20 @@ class Cart extends Component {
                                                                             <a href="single-product.html"><img src="assets/img/fashion/product/1.jpg" alt="product" /></a>
                                                                         </td>
                                                                         <td className="cart-product-price"><h3><a href="#">{product_item.name}</a></h3></td>
-                                                                <td><strong>${product_item.price}</strong></td>
+                                                                        <td><strong>${product_item.price}</strong></td>
                                                                         <td>
                                                                             <div className="quantity">
                                                                                 <input type="number" className="quantity-input" name="qty" id="qty1" value="1" />
-                                                                                <div className="dec qtybutton"><i className="fa fa-angle-down"></i></div><div className="inc qtybutton"><i className="fa fa-angle-up"></i></div></div>
+                                                                                <div className="dec qtybutton">
+                                                                                    <i className="fa fa-angle-down"></i>
+                                                                                </div>
+                                                                                <div className="inc qtybutton">
+                                                                                    <i className="fa fa-angle-up"></i>
+                                                                                </div>
+                                                                            </div>
                                                                         </td>
                                                                         <td><strong>$16.00</strong></td>
-                                                                        <td><a href="#"><i className="fa fa-trash remove"></i></a></td>
+                                                                        <td><Link onClick={this.props.onDelete}><i className="fa fa-trash remove"></i></Link></td>
                                                                     </tr>
 
                                                                 ))}
