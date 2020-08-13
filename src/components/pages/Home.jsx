@@ -126,7 +126,7 @@ class Home extends Component {
         
 
             // amount: getPrice
-        })
+       
         //  console.log('data conyhbt',this.state.productListCount)
         //  console.log(' product price',this.state.amount)
         localStorage.setItem('myProduct', JSON.stringify(productlist))
