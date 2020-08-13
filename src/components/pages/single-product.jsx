@@ -15,13 +15,15 @@ class SingleProduct extends Component {
             modal: '',
             count:0,
             productListCount: 0,
-            productPrice:0
-           
+            productPrice:0,
+            total_amount: 0,
+            buyQty: 0
         };
 
     }
 
     componentDidMount() {
+        let total_price = 0
         axios.get('https://nodejs-backend-apis.herokuapp.com/api/product/' + this.props.match.params.id)
             .then(response => {
                 this.setState({ product: response.data.data });
@@ -37,10 +39,18 @@ class SingleProduct extends Component {
             console.log('test', productCollect);
             console.log('check length', productCollect.length);
 
-            this.setState({
-                productListCount:productCollect.length
-    
+            productCollect.map(function (productlist) {
+                total_price += +parseFloat(productlist.price);
+                console.log('price 39',total_price);
             })
+            
+            this.setState({
+                productListCount: productCollect.length,
+                total_amount: total_price,
+                
+            })
+
+           
     }
     
 
@@ -71,13 +81,28 @@ class SingleProduct extends Component {
         }
     }
 
+    /**********************
+	*product add in cart box 
+	***********************/
     cartAdd(item) {
+        let total_price = 0
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
         if(this.state.count>0){
             productlist.push(item)
+
+            productlist.map(function (productlist) {
+                total_price += +parseFloat(productlist.price);
+                console.log('price 39',total_price);
+            })
+            
+            // cart_quantity = this.state.count*item.price
             this.setState({
-            productListCount: productlist.length,
-        })
+                productListCount: productlist.length,
+                total_amount: total_price,
+                // buyQty:cart_quantity,
+                count: 0
+            })
+         
         localStorage.setItem('myProduct', JSON.stringify(productlist))
 
         }
@@ -101,12 +126,12 @@ class SingleProduct extends Component {
     /* Close modal method end */
 
     render() {
-        let { products,productListCount} = this.state
-
+        let { products,productListCount,total_amount,buyQty} = this.state
+console.log('128 quantity', buyQty);
         return (
             <div>
                 <Breadcrumb pageName="Single Product" />
-                <Cartcounter productListCount={productListCount}  />
+                <Cartcounter productListCount={productListCount}  total_amount={total_amount}/>
                 
                 <h1>Cart count {productListCount}</h1>
 

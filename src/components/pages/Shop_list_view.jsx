@@ -12,11 +12,12 @@ class Shop_list_view extends Component {
             isLoaded: false,
             products: [],
             productListCount: 0,
-            amount: 0
+            total_amount: 0
         }
     }
 
     componentDidMount() {
+        let total_price = 0
         fetch('https://nodejs-backend-apis.herokuapp.com/api/product')
             .then(res => res.json())
             .then(jul => {
@@ -30,34 +31,54 @@ class Shop_list_view extends Component {
             const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
             console.log('test', productCollect);
             console.log('check length', productCollect.length);
-            
-            this.setState({
-                productListCount:productCollect.length
+           
+            productCollect.map(function (productlist) {
+                total_price += +parseFloat(productlist.price);
+                console.log('price 39',total_price);
+            })
     
+            this.setState({
+                productListCount: productCollect.length,
+                total_amount: total_price
             })
     }
+
+    /**********************
+	*product add in cart box 
+	***********************/
     cartAdd=(product)=>{
+        let total_price = 0 
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
         productlist.push(product)
+
+        productlist.map(function (productlist) {
+            total_price += +parseFloat(productlist.price);
+            console.log('price 39',total_price);
+        })
+
         this.setState({
             productListCount: productlist.length,
-            // amount: getPrice
+            total_amount: total_price
         })
+      
          console.log('data conyhbt',this.state.productListCount)
-         console.log(' product price',this.state.amount)
+         console.log(' product price',this.state.total_amount)
         localStorage.setItem('myProduct', JSON.stringify(productlist))
     }
+    handleDelete = () => {
+        console.log('Event handler called');
+    };
 
 
     render() {
-        let { products,productListCount,amount} = this.state
+        let { products,productListCount,total_amount} = this.state
         var {isLoaded, items} = this.state;
         const imageName = '/assets/img/fashion/product/1.jpg';
        
         return (
             
             <div>
-            <Cartcounter productListCount={productListCount} amount={amount} />
+            <Cartcounter productListCount={productListCount} onClick={this.handleDelete} total_amount={total_amount}/>
             
             <Breadcrumb pageName="Product List"/>
                 <div className="main-content-wrapper">

@@ -8,7 +8,9 @@ class Cartcounter extends Component {
         this.state = { 
             // show: false,
             cartProduct: [],
-            productCount: props.productListCount
+            productCount: props.productListCount,
+            total_amount: props.total_amount,
+            
             
         }
       
@@ -35,7 +37,7 @@ class Cartcounter extends Component {
     // }
 
     render() { 
-        console.log('propscount',this.props.productListCount)
+        console.log('propscount',this.props.productListCount,this.props.total_amount)
         return (
             <React.Fragment>
                 <div data-toggle="modal" data-target="#exampleModal" className="cart-counter shadow" style={{position:'fixed', right:0,  textAlign:'center', backgroundColor:'#7f7f7f',}}>
@@ -56,15 +58,12 @@ class Cartcounter extends Component {
                 <div className="modal left fade" id="exampleModal" tabindex="" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div className="modal-dialog" role="document">
-
                         <div className="modal-content modal_cus_content">
-                        <div className="modal-header modal_custom_header">
-
-<h1><i className="fa fa-shopping-bag" style={{ color: '#f5a623' }} aria-hidden="true"></i> 15-Item</h1>
-</div>
-<hr/>
+                            <div className="modal-header modal_custom_header">
+                                <h1><i className="fa fa-shopping-bag" style={{ color: '#f5a623' }} aria-hidden="true"></i> 15-Item</h1>
+                            </div>
+                            <hr/>
                             <div className="modal-body modal_custom_body">
-                       
                                 <ul className="dropdown-cart" role="menu">
                                     <li>
                                         <span className="item">

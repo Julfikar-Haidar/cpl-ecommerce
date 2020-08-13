@@ -16,6 +16,7 @@ class Home extends Component {
       }
 
       componentDidMount(){
+          let total_price = 0
         axios.get('https://nodejs-backend-apis.herokuapp.com/api/product')
           .then(response => {
             this.setState({ products: response.data.data });
@@ -28,6 +29,16 @@ class Home extends Component {
         const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
         console.log('test', productCollect);
         console.log('check length', productCollect.length);
+
+        productCollect.map(function (productlist) {
+            total_price += +parseFloat(productlist.price);
+            console.log('price 39',total_price);
+        })
+
+        this.setState({
+            productListCount: productCollect.length,
+            total_amount: total_price
+        })
         
         this.setState({
             productListCount:productCollect.length
@@ -64,43 +75,46 @@ class Home extends Component {
 	*Related Product Carousel 2 Activation
 	***********************/
 
-        $('.js-related-product').owlCarousel({
-            items: 4,
-            margin: 30,
-            loop:false,
-            nav: true,
-            dots: false,
-            autoplay: false,
-            autoplayTimeout: 5000,
-            navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
-            responsive:{
-                0:{
-                    items:1,
-                },
-                576:{
-                    items:2,
-                },
-                768:{
-                    items:3,
-                },
-                992:{
-                    items:4,
-                },
-                1200:{
-                    items:4,
-                }
+    $('.js-related-product').owlCarousel({
+        items: 4,
+        margin: 30,
+        loop:false,
+        nav: true,
+        dots: false,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        navText: ['<i class="fa fa-angle-left">', '<i class="fa fa-angle-right">'],    
+        responsive:{
+            0:{
+                items:1,
+            },
+            576:{
+                items:2,
+            },
+            768:{
+                items:3,
+            },
+            992:{
+                items:4,
+            },
+            1200:{
+                items:4,
             }
-        });
+        }
+    });
 
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            var currentID = e.target.getAttribute('href');
-            $(currentID).find('.owl-item').trigger('refresh.owl.carousel');
-            $(currentID).find('.owl-item').resize();
-        });
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var currentID = e.target.getAttribute('href');
+        $(currentID).find('.owl-item').trigger('refresh.owl.carousel');
+        $(currentID).find('.owl-item').resize();
+    });
 
       
     }
 
+/**********************
+	*product add in cart box 
+	***********************/
     cartAdd=(item)=>{
         let total_price = 0
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
@@ -111,16 +125,14 @@ class Home extends Component {
          productlist.map(function (productlist) {
             total_price += +parseFloat(productlist.price);
             console.log('price 39',total_price);
-          })
+        })
 
-         this.setState({
+        this.setState({
             productListCount: productlist.length,
-
             total_amount: total_price
-           
-         })
+        })
          console.log('data conyhbt',this.state.productListCount)
-         console.log(' product price 43 line',this.state.total_amount)
+         console.log('product price 43 line',this.state.total_amount)
          localStorage.setItem('myProduct', JSON.stringify(productlist))
          
         
@@ -129,7 +141,7 @@ class Home extends Component {
        
         //  console.log('data conyhbt',this.state.productListCount)
         //  console.log(' product price',this.state.amount)
-        localStorage.setItem('myProduct', JSON.stringify(productlist))
+        // localStorage.setItem('myProduct', JSON.stringify(productlist))
 
     }
 
@@ -138,7 +150,6 @@ class Home extends Component {
     render() { 
         let { products,productListCount,total_amount} = this.state
         // console.log('productListCount',productListCount);
-
         console.log('product amount',total_amount);
 
         return ( 
@@ -149,9 +160,6 @@ class Home extends Component {
                 {/* Banner area Start */}
 
                 <Cartcounter productListCount={productListCount} total_amount={total_amount}/>
-
-
-
                 <Banner/>
                 
                 {/* Banner area End */}
