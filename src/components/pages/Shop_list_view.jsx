@@ -47,9 +47,8 @@ class Shop_list_view extends Component {
          console.log(' product price',this.state.amount)
         localStorage.setItem('myProduct', JSON.stringify(productlist))
     }
-    handleDelete = () => {
-        console.log('Event handler called');
-    };
+
+   
 
 
     render() {
@@ -60,7 +59,7 @@ class Shop_list_view extends Component {
         return (
             
             <div>
-            <Cartcounter productListCount={productListCount} onClick={this.handleDelete} amount={amount}/>
+            <Cartcounter productListCount={productListCount} amount={amount}/>
             
             <Breadcrumb pageName="Product List"/>
                 <div className="main-content-wrapper">
@@ -120,9 +119,7 @@ class Shop_list_view extends Component {
                                                         {items.map((product, index) => {
                                                             return (
                                                                 <div>
-                                                                    <div
-                                                                        className="product-box product-box--list variable-product"
-                                                                        key="index">
+                                                                    <div className="product-box product-box--list variable-product" key="index">
                                                                         <div className="row">
                                                                             <div className="col-md-4">
                                                                                 <div className="zeref-box-image">
