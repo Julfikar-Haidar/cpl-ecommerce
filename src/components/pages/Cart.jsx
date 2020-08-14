@@ -34,18 +34,13 @@ class Cart extends Component {
         // console.log('id testing',cartIdTest);
 
         console.log('test',cartProduct);
-
         this.setState({ cartProduct: cartProduct });
-
         localStorage.setItem('myProduct', JSON.stringify(cartProduct))
 
     };
 
     render() {
-
-        
         const { cartProduct } = this.state
-        
         if (cartProduct != null) {
             return (
                 <div>
@@ -71,7 +66,6 @@ class Cart extends Component {
                                                                     <th>remove</th>
                                                                 </tr>
                                                             </thead>
-
                                                             <tbody>
                                                                 {cartProduct.map((product_item, index) => (
                                                                     <tr>

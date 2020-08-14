@@ -15,7 +15,7 @@ class SingleProduct extends Component {
             modal: '',
             count:0,
             productListCount: 0,
-            productPrice:0
+            productPrice:''
            
         };
 
@@ -107,11 +107,7 @@ class SingleProduct extends Component {
             <div>
                 <Breadcrumb pageName="Single Product" />
                 <Cartcounter productListCount={productListCount}  />
-                
                 <h1>Cart count {productListCount}</h1>
-
-
-
                 <div class="main-content-wrapper">
                     <div class="single-products-area section-padding">
                         {/* Single Product Start */}
