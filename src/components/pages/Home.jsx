@@ -16,6 +16,7 @@ class Home extends Component {
       }
 
       componentDidMount(){
+          let total_price = 0
         axios.get('https://nodejs-backend-apis.herokuapp.com/api/product')
           .then(response => {
             this.setState({ products: response.data.data });
@@ -28,6 +29,16 @@ class Home extends Component {
         const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
         console.log('test', productCollect);
         console.log('check length', productCollect.length);
+
+        productCollect.map(function (productlist) {
+            total_price += +parseFloat(productlist.price);
+            console.log('price 39',total_price);
+        })
+
+        this.setState({
+            productListCount: productCollect.length,
+            total_amount: total_price
+        })
         
         this.setState({
             productListCount:productCollect.length
@@ -101,6 +112,9 @@ class Home extends Component {
       
     }
 
+/**********************
+	*product add in cart box 
+	***********************/
     cartAdd=(item)=>{
         let total_price = 0
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
@@ -120,7 +134,6 @@ class Home extends Component {
          console.log('data conyhbt',this.state.productListCount)
          console.log('product price 43 line',this.state.total_amount)
          localStorage.setItem('myProduct', JSON.stringify(productlist))
-
          
         
 
@@ -128,8 +141,7 @@ class Home extends Component {
        
         //  console.log('data conyhbt',this.state.productListCount)
         //  console.log(' product price',this.state.amount)
-        localStorage.setItem('myProduct', JSON.stringify(productlist))
-
+        // localStorage.setItem('myProduct', JSON.stringify(productlist))
 
     }
 

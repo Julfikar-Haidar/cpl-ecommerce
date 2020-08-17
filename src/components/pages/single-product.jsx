@@ -15,20 +15,25 @@ class SingleProduct extends Component {
             modal: '',
             count:0,
             productListCount: 0,
+
             productPrice:'',
             total_amount:0
            
+
         };
 
     }
 
     componentDidMount() {
+        let total_price = 0
         axios.get('https://nodejs-backend-apis.herokuapp.com/api/product/' + this.props.match.params.id)
             .then(response => {
                 this.setState({ 
                     product: response.data.data,
+
                     productPrice:response.data.data.price
                 });
+
 
             })
             .catch(function (error) {
@@ -40,12 +45,19 @@ class SingleProduct extends Component {
             const quantity = JSON.parse(window.localStorage.getItem('Quantity')) || []
             
 
+            productCollect.map(function (productlist) {
+                total_price += +parseFloat(productlist.price);
+                console.log('price 39',total_price);
+            })
+            
             this.setState({
+
                 productListCount:productCollect.length,
                 total_amount: price 
     
             })
             
+
     }
     
 
@@ -76,7 +88,11 @@ class SingleProduct extends Component {
         }
     }
 
+    /**********************
+	*product add in cart box 
+	***********************/
     cartAdd(item) {
+
         let total_price 
         
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
@@ -99,6 +115,7 @@ class SingleProduct extends Component {
 
         localStorage.setItem('Quantity', this.state.count)
         localStorage.setItem('totalPrice',total_price)
+
         localStorage.setItem('myProduct', JSON.stringify(productlist))
         
 
@@ -123,12 +140,14 @@ class SingleProduct extends Component {
     /* Close modal method end */
 
     render() {
+
         let { product,productListCount, total_amount} = this.state
 
         return (
             <div>
                 <Breadcrumb pageName="Single Product" />
                 <Cartcounter productListCount={productListCount} total_amount={total_amount} />
+
                 
                 <h1>Cart count {productListCount}</h1>
 

@@ -8,7 +8,9 @@ class Cartcounter extends Component {
         this.state = { 
             // show: false,
             cartProduct: [],
-            productCount: props.productListCount
+            productCount: props.productListCount,
+            total_amount: props.total_amount,
+            
             
         }
       
@@ -35,7 +37,9 @@ class Cartcounter extends Component {
     // }
 
     render() { 
-        // console.log('propscount',this.props.productListCount)
+
+        console.log('propscount',this.props.productListCount,this.props.total_amount)
+
         return (
             <React.Fragment>
                 <div data-toggle="modal" data-target="#exampleModal" className="cart-counter shadow" style={{position:'fixed', right:0,  textAlign:'center', backgroundColor:'#7f7f7f',}}>
