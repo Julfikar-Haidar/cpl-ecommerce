@@ -17,7 +17,8 @@ class SingleProduct extends Component {
             productListCount: 0,
             productPrice:0,
             total_amount: 0,
-            buyQty: 0
+            singleProductPrice: 0
+            
         };
 
     }
@@ -26,9 +27,12 @@ class SingleProduct extends Component {
         let total_price = 0
         axios.get('https://nodejs-backend-apis.herokuapp.com/api/product/' + this.props.match.params.id)
             .then(response => {
-                this.setState({ product: response.data.data });
+                this.setState({ 
+                    product: response.data.data,
+                });
                 console.log(response.data.data)
                 console.log(this.state.product.quantity)
+                console.log('35',this.state.product.singleProductPrice)
 
             })
             .catch(function (error) {
@@ -86,23 +90,27 @@ class SingleProduct extends Component {
 	***********************/
     cartAdd(item) {
         let total_price = 0
+        let customer_qun
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
         if(this.state.count>0){
             productlist.push(item)
-
-            productlist.map(function (productlist) {
-                total_price += +parseFloat(productlist.price);
-                console.log('price 39',total_price);
+            // productlist.map(function (productlist) {
+            //     total_price += +parseFloat(productlist.price);
+            //     console.log('price 39',total_price);
+            // })
+            this.state.product.map(product=>{
+               price = products.quantity * products.price
             })
-            
-            // cart_quantity = this.state.count*item.price
+            // customer_qun = item.price* this.state.count
+            // total_price = total_price + customer_qun
             this.setState({
                 productListCount: productlist.length,
-                total_amount: total_price,
-                // buyQty:cart_quantity,
+                total_amount: price,
                 count: 0
             })
          
+        localStorage.setItem('Quantity', this.state.count)
+        localStorage.setItem('Total amount 108 line', this.state.total_amount)
         localStorage.setItem('myProduct', JSON.stringify(productlist))
 
         }

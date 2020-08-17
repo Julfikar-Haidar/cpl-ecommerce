@@ -65,9 +65,8 @@ class Shop_list_view extends Component {
          console.log(' product price',this.state.total_amount)
         localStorage.setItem('myProduct', JSON.stringify(productlist))
     }
-    handleDelete = () => {
-        console.log('Event handler called');
-    };
+
+   
 
 
     render() {
@@ -138,9 +137,7 @@ class Shop_list_view extends Component {
                                                         {items.map((product, index) => {
                                                             return (
                                                                 <div>
-                                                                    <div
-                                                                        className="product-box product-box--list variable-product"
-                                                                        key="index">
+                                                                    <div className="product-box product-box--list variable-product" key="index">
                                                                         <div className="row">
                                                                             <div className="col-md-4">
                                                                                 <div className="zeref-box-image">
