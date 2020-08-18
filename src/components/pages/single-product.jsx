@@ -17,7 +17,7 @@ class SingleProduct extends Component {
             productListCount: 0,
 
             productPrice:'',
-            total_amount:0
+            total_amount: 0
            
 
         };
@@ -41,8 +41,9 @@ class SingleProduct extends Component {
             })
 
             const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
-            const price = JSON.parse(window.localStorage.getItem('totalPrice')) || []
-            const quantity = JSON.parse(window.localStorage.getItem('Quantity')) || []
+            const price = window.localStorage.getItem('totalPrice') 
+            const getTotal = window.localStorage.getItem('getTotal') 
+            const quantity = window.localStorage.getItem('Quantity') 
             
 
             productCollect.map(function (productlist) {
@@ -53,8 +54,7 @@ class SingleProduct extends Component {
             this.setState({
 
                 productListCount:productCollect.length,
-                total_amount: price 
-    
+                total_amount: price ,
             })
             
 
@@ -93,32 +93,50 @@ class SingleProduct extends Component {
 	***********************/
     cartAdd(item) {
 
-        let total_price 
+        let total_price = 0
         
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
+        const existingItem = productlist.find(({ id }) => id === item.id);
         if(this.state.count>0){
-            productlist.push(item)
+            console.log('100',item.id);
+            if(existingItem){
+              alert('hi')
+            // let getTotal
+       
+            //   console.log('106',quantity);
+                total_price= (item.price * this.state.count) + this.state.total_amount
+                console.log('107',((item.price * this.state.count) + (this.state.total_amount)));
+                this.setState({  
+                    total_amount : total_price,
+                    count:0
+             })
+             localStorage.setItem('Quantity', this.state.count)
+            localStorage.setItem('totalPrice',total_price)
+            localStorage.setItem('getTotal',this.state.total_amount)
+    
+            localStorage.setItem('myProduct', JSON.stringify(productlist))
+            }else{
+
+                productlist.push(item)
             
-            total_price = this.state.productPrice * this.state.count
-            total_price= total_price + this.state.total_amount
-
-            this.setState({  
-               productListCount: productlist.length,
-               total_amount : total_price
-        })
-
-        // productlist.map(function (productlist) {
-        //     console.log('price 39',productlist.id);
+                total_price = (item.price * this.state.count) + this.state.total_amount
+                
+    
+                this.setState({  
+                   productListCount: productlist.length,
+                   total_amount : total_price,
+                   count:0
+            })
+    
+           
+            console.log('price 39',productlist.id);
+    
+            localStorage.setItem('Quantity', this.state.count)
+            localStorage.setItem('totalPrice',total_price)
+    
+            localStorage.setItem('myProduct', JSON.stringify(productlist))
             
-        // })
-        console.log('price 39',productlist.id);
-
-        localStorage.setItem('Quantity', this.state.count)
-        localStorage.setItem('totalPrice',total_price)
-
-        localStorage.setItem('myProduct', JSON.stringify(productlist))
-        
-
+            }
         }
         else{
             this.setState({

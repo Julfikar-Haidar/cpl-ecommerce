@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 const $ = window.$;
 
 var divStyle = {
-    backgroundImage: "url(" + "https://dummyimage.com/840x500/e81733/fff" + ")",
+    backgroundImage: "url(" + "https://dummyimage.com/840x500/e01444/15ff00&text=Cloud+Production+LTD" + ")",
     WebkitTransition: 'all', // note the capital 'W' here
     msTransition: 'all' // 'ms' is the only lowercase vendor prefix
 }
