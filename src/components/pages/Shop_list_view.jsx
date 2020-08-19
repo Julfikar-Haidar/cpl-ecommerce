@@ -29,17 +29,19 @@ class Shop_list_view extends Component {
             })
 
             const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
-            console.log('test', productCollect);
-            console.log('check length', productCollect.length);
-           
-            productCollect.map(function (productlist) {
-                total_price += +parseFloat(productlist.price);
-                console.log('price 39',total_price);
+            let totalPrice
+            totalPrice =Number(window.localStorage.getItem('totalPrice') ) 
+            this.setState({
+                total_amount: totalPrice 
             })
+           
+            // productCollect.map(function (productlist) {
+            //     total_price += +parseFloat(productlist.price);
+            //     console.log('price 39',total_price);
+            // })
     
             this.setState({
                 productListCount: productCollect.length,
-                total_amount: total_price
             })
     }
 
@@ -49,20 +51,42 @@ class Shop_list_view extends Component {
     cartAdd=(product)=>{
         let total_price = 0 
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
-        productlist.push(product)
+        const existingItem = productlist.find(({ id }) => id === product.id);
+        console.log('53 exist',existingItem);
+        if(existingItem){
+            // productlist.push(product)
+            // productlist.map(function (productlist) {
+            //     total_price += +parseFloat(productlist.price);
+            //     console.log('price 39',total_price);
+            // })
+            total_price= product.price  + this.state.total_amount
 
-        productlist.map(function (productlist) {
-            total_price += +parseFloat(productlist.price);
-            console.log('price 39',total_price);
-        })
+    
+            this.setState({
+              
+                total_amount: total_price
+            })
+
+        }else{
+            productlist.push(product)
+            total_price = product.price  + this.state.total_amount
+            console.log('69',total_price);
+        // productlist.map(function (productlist) {
+        //     total_price += +parseFloat(productlist.price);
+        //     console.log('price 39',total_price);
+        // })
 
         this.setState({
             productListCount: productlist.length,
             total_amount: total_price
         })
+
+        }
+        
       
          console.log('data conyhbt',this.state.productListCount)
          console.log(' product price',this.state.total_amount)
+        localStorage.setItem('totalPrice',total_price)
         localStorage.setItem('myProduct', JSON.stringify(productlist))
     }
 
@@ -72,13 +96,13 @@ class Shop_list_view extends Component {
     render() {
         let { products,productListCount,total_amount} = this.state
         var {isLoaded, items} = this.state;
+        console.log('75',total_amount);
         const imageName = '/assets/img/fashion/product/1.jpg';
        
         return (
             
             <div>
             <Cartcounter productListCount={productListCount} onClick={this.handleDelete} total_amount={total_amount}/>
-            
             <Breadcrumb pageName="Product List"/>
                 <div className="main-content-wrapper">
                     <div className="shop-area section-padding">
