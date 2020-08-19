@@ -27,17 +27,10 @@ class Home extends Component {
         })
 
         const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
-        console.log('test', productCollect);
-        console.log('check length', productCollect.length);
-
-        productCollect.map(function (productlist) {
-            total_price += +parseFloat(productlist.price);
-            console.log('price 39',total_price);
-        })
-
+        let totalPrice
+        totalPrice =Number(window.localStorage.getItem('totalPrice') ) 
         this.setState({
-            productListCount: productCollect.length,
-            total_amount: total_price
+            total_amount: totalPrice 
         })
         
         this.setState({
@@ -116,34 +109,43 @@ class Home extends Component {
 	*product add in cart box 
 	***********************/
     cartAdd=(item)=>{
-        let total_price = 0
+        let total_price = 0 
         let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
-        
-         productlist.push(item)
-         console.log("productlist",productlist.length, typeof(productlist.length));
+        const existingItem = productlist.find(({ id }) => id === item.id);
+        console.log('53 exist',existingItem);
+        if(existingItem){
+            
+            total_price= item.price  + this.state.total_amount
 
-         productlist.map(function (productlist) {
-            total_price += +parseFloat(productlist.price);
-            console.log('price 39',total_price);
-        })
+    
+            this.setState({
+              
+                total_amount: total_price
+            })
+
+        }else{
+            productlist.push(item)
+            total_price = item.price  + this.state.total_amount
+            console.log('69',total_price);
+        // productlist.map(function (productlist) {
+        //     total_price += +parseFloat(productlist.price);
+        //     console.log('price 39',total_price);
+        // })
 
         this.setState({
             productListCount: productlist.length,
             total_amount: total_price
         })
-         console.log('data conyhbt',this.state.productListCount)
-         console.log('product price 43 line',this.state.total_amount)
-         localStorage.setItem('myProduct', JSON.stringify(productlist))
-         
+
+        }
         
-
-            // amount: getPrice
-       
-        //  console.log('data conyhbt',this.state.productListCount)
-        //  console.log(' product price',this.state.amount)
-        // localStorage.setItem('myProduct', JSON.stringify(productlist))
-
+      
+         console.log('data conyhbt',this.state.productListCount)
+         console.log(' product price',this.state.total_amount)
+        localStorage.setItem('totalPrice',total_price)
+        localStorage.setItem('myProduct', JSON.stringify(productlist))
     }
+
 
    
 

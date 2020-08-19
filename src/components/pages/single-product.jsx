@@ -41,7 +41,11 @@ class SingleProduct extends Component {
             })
 
             const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
-            const price = window.localStorage.getItem('totalPrice') 
+            let totalPrice
+            totalPrice =Number(window.localStorage.getItem('totalPrice') ) 
+            this.setState({
+                total_amount: totalPrice 
+            })
             const getTotal = window.localStorage.getItem('getTotal') 
             const quantity = window.localStorage.getItem('Quantity') 
             
@@ -54,7 +58,7 @@ class SingleProduct extends Component {
             this.setState({
 
                 productListCount:productCollect.length,
-                total_amount: price ,
+                
             })
             
 
@@ -106,6 +110,11 @@ class SingleProduct extends Component {
             //   console.log('106',quantity);
                 total_price= (item.price * this.state.count) + this.state.total_amount
                 console.log('107',((item.price * this.state.count) + (this.state.total_amount)));
+                // let v1,v2
+                // v1 = item.price * this.state.count
+                // console.log('114 v1',v1 , typeof v1);
+                // v2 = v1+ this.state.total_amount
+                // console.log('116 v2 ',v2, typeof v2);
                 this.setState({  
                     total_amount : total_price,
                     count:0
