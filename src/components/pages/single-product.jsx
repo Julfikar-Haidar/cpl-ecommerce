@@ -5,7 +5,7 @@ import Cartcounter from '../layouts/Cart-counter'
 import axios from 'axios'
 // import Cartcounter from '../layouts/Cart-counter'
 class SingleProduct extends Component {
-    
+
     constructor(props) {
         super(props);
         // this.StockCheck = this.StockCheck.bind(this);
@@ -13,12 +13,14 @@ class SingleProduct extends Component {
         this.state = {
             product: [],
             modal: '',
-            count:0,
+            count: 0,
             productListCount: 0,
 
-            productPrice:'',
-            total_amount: 0
-           
+            productPrice: '',
+            total_amount: 0,
+            total_qty: 0,
+
+
 
         };
 
@@ -28,42 +30,39 @@ class SingleProduct extends Component {
         let total_price = 0
         axios.get('https://nodejs-backend-apis.herokuapp.com/api/product/' + this.props.match.params.id)
             .then(response => {
-                this.setState({ 
+                this.setState({
                     product: response.data.data,
-
-                    productPrice:response.data.data.price
                 });
 
 
             })
             .catch(function (error) {
-                console.log (error);
+                console.log(error);
             })
 
-            const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
-            let totalPrice
-            totalPrice =Number(window.localStorage.getItem('totalPrice') ) 
-            this.setState({
-                total_amount: totalPrice 
-            })
-            const getTotal = window.localStorage.getItem('getTotal') 
-            const quantity = window.localStorage.getItem('Quantity') 
-            
+        const productCollect = JSON.parse(window.localStorage.getItem('myProduct')) || []
+        let totalPrice
+        totalPrice = Number(window.localStorage.getItem('totalPrice'))
+        this.setState({
+            total_amount: totalPrice
+        })
+        const getTotal = window.localStorage.getItem('getTotal')
+        const quantity = window.localStorage.getItem('Quantity')
 
-            productCollect.map(function (productlist) {
-                total_price += +parseFloat(productlist.price);
-                console.log('price 39',total_price);
-            })
-            
-            this.setState({
+        productCollect.map(function (productlist) {
+            total_price += +parseFloat(productlist.price);
+            console.log('price 39', total_price);
+        })
 
-                productListCount:productCollect.length,
-                
-            })
-            
+        this.setState({
+
+            productListCount: productCollect.length,
+
+        })
+
 
     }
-    
+
 
 
     increment() {
@@ -98,63 +97,85 @@ class SingleProduct extends Component {
     cartAdd(item) {
 
         let total_price = 0
-        
-        let productlist =JSON.parse(localStorage.getItem('myProduct')) || []
+
+        let productlist = JSON.parse(localStorage.getItem('myProduct')) || []
         const existingItem = productlist.find(({ id }) => id === item.id);
-        if(this.state.count>0){
-            console.log('100',item.id);
-            if(existingItem){
-              alert('hi')
-            // let getTotal
-       
-            //   console.log('106',quantity);
-                total_price= (item.price * this.state.count) + this.state.total_amount
-                console.log('107',((item.price * this.state.count) + (this.state.total_amount)));
+
+        let filteredDataSource = productlist.filter((item) => {
+            if (item.id === existingItem) {
+                alert('new item')
+                // item.id = 12345;
+            } else {
+                alert('hey there')
+                item.qty = item.quantity - this.state.count;
+                console.log('item 111', item.qty);
+                this.setState({
+                    total_qty: item.qty,
+                })
+                console.log('totat_qty 117',this.state.total_qty);
+            }
+
+            return item;
+        });
+        console.log('filteredDataSource', filteredDataSource);
+
+        if (this.state.count > 0) {
+            console.log('100', item.id);
+            if (existingItem) {
+                alert('hi')
+
+
+
+                total_price = (item.price * this.state.count) + this.state.total_amount
+                console.log('107', ((item.price * this.state.count) + (this.state.total_amount)));
                 // let v1,v2
                 // v1 = item.price * this.state.count
                 // console.log('114 v1',v1 , typeof v1);
                 // v2 = v1+ this.state.total_amount
                 // console.log('116 v2 ',v2, typeof v2);
-                this.setState({  
-                    total_amount : total_price,
-                    count:0
-             })
-             localStorage.setItem('Quantity', this.state.count)
-            localStorage.setItem('totalPrice',total_price)
-            localStorage.setItem('getTotal',this.state.total_amount)
-    
-            localStorage.setItem('myProduct', JSON.stringify(productlist))
-            }else{
+                this.setState({
+                    total_amount: total_price,
+                    count: 0
+                })
+                localStorage.setItem('Quantity', this.state.count)
+                localStorage.setItem('totalPrice', total_price)
+                localStorage.setItem('getTotal', this.state.total_amount)
+
+
+                localStorage.setItem('myProduct', JSON.stringify(productlist))
+            } else {
 
                 productlist.push(item)
-            
+
+
+
                 total_price = (item.price * this.state.count) + this.state.total_amount
-                
-    
-                this.setState({  
-                   productListCount: productlist.length,
-                   total_amount : total_price,
-                   count:0
-            })
-    
-           
-            console.log('price 39',productlist.id);
-    
-            localStorage.setItem('Quantity', this.state.count)
-            localStorage.setItem('totalPrice',total_price)
-    
-            localStorage.setItem('myProduct', JSON.stringify(productlist))
-            
+
+
+                this.setState({
+                    productListCount: productlist.length,
+                    total_amount: total_price,
+                    count: 0
+                })
+
+
+                console.log('price 39', productlist.id);
+
+                localStorage.setItem('Quantity', this.state.count)
+                localStorage.setItem('totalPrice', total_price)
+
+                localStorage.setItem('myProduct', JSON.stringify(productlist))
+
             }
         }
-        else{
+        else {
             this.setState({
                 modal: 'emptyValue'
             })
         }
         // console.log('length',this.state.productListCount)
-         console.log('price',productlist)
-        
+        console.log('price', productlist)
+
     }
 
     /* Close modal method start */
@@ -168,14 +189,14 @@ class SingleProduct extends Component {
 
     render() {
 
-        let { product,productListCount, total_amount} = this.state
+        let { product, productListCount, total_amount } = this.state
 
         return (
             <div>
                 <Breadcrumb pageName="Single Product" />
                 <Cartcounter productListCount={productListCount} total_amount={total_amount} />
 
-                
+
                 <h1>Cart count {productListCount}</h1>
 
 
@@ -253,7 +274,7 @@ class SingleProduct extends Component {
                                                     <div class="inc qtybutton" onClick={() => this.increment()} ><i class="fa fa-angle-up"></i></div>
                                                 </div>
                                             </div>
-                                            <a href="#" class="btn" onClick={()=>this.cartAdd(this.state.product)}>Add to cart</a>
+                                            <a href="#" class="btn" onClick={() => this.cartAdd(this.state.product)}>Add to cart</a>
 
                                             <div class="social-share pt--20">
                                                 <span>Share:</span>
@@ -275,7 +296,7 @@ class SingleProduct extends Component {
                         {/* Login successfull Modal Start*/}
                         <Modal className="register-success-modal" visible={this.state.modal === 'StockOut' ? true : false}>
                             <div className="alert alert-success user-success-message">
-                                            <strong>Available Quantity For '{this.state.product.name}' : {this.state.product.quantity}</strong>
+                                <strong>Available Quantity For '{this.state.product.name}' : {this.state.product.quantity}</strong>
                                 <button type="button" className="close success-close" data-dismiss="modal" aria-label="Close" onClick={() => this.closeModal()}>
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -283,7 +304,7 @@ class SingleProduct extends Component {
                         </Modal>
                         <Modal className="register-success-modal" visible={this.state.modal === 'emptyValue' ? true : false}>
                             <div className="alert alert-success user-success-message">
-                                            <strong>Empty Quantity Field</strong>
+                                <strong>Empty Quantity Field</strong>
                                 <button type="button" className="close success-close" data-dismiss="modal" aria-label="Close" onClick={() => this.closeModal()}>
                                     <span aria-hidden="true">&times;</span>
                                 </button>

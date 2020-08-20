@@ -6,7 +6,8 @@ class Cart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cartProduct: []
+            cartProduct: [],
+            per_productPrice:0
 
         }
 
@@ -15,9 +16,13 @@ class Cart extends Component {
     componentDidMount() {
         // console.log('11 line print');
         const productCollect = JSON.parse(window.localStorage.getItem('myProduct'))
-        // console.log('22', productCollect);
+
+        let per_productPrice = window.localStorage.getItem('per_productPrice')
+        let quantity = window.localStorage.getItem('Quantity')
+        console.log('20', per_productPrice,quantity);
         this.setState({
-            cartProduct: productCollect
+            cartProduct: productCollect,
+            per_productPrice:per_productPrice
 
         })
 
@@ -44,7 +49,7 @@ class Cart extends Component {
     render() {
 
         
-        const { cartProduct } = this.state
+        const { cartProduct ,per_productPrice} = this.state
         
         if (cartProduct != null) {
             return (
@@ -91,7 +96,7 @@ class Cart extends Component {
                                                                                 </div>
                                                                             </div>
                                                                         </td>
-                                                                        <td><strong>$16.00</strong></td>
+                                                                        <td><strong>{per_productPrice}</strong></td>
                                                                         <td><button  onClick={()=>this.handleDelete(product_item.id)}>
                                                                             <i className="fa fa-trash remove"></i>
                                                                             </button>
