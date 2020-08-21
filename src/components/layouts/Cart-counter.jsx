@@ -38,7 +38,7 @@ class Cartcounter extends Component {
 
     render() { 
 
-        console.log('propscount',this.props.productListCount,this.props.total_amount)
+        // console.log('propscount',this.props.productListCount,this.props.total_amount)
 
         return (
             <React.Fragment>

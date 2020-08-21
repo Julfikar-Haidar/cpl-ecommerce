@@ -79,6 +79,7 @@ class Cart extends Component {
 
                                                             <tbody>
                                                                 {cartProduct.map((product_item, index) => (
+                                                                    
                                                                     <tr>
                                                                         <td>
                                                                             <a href="single-product.html"><img src="assets/img/fashion/product/1.jpg" alt="product" /></a>
@@ -87,7 +88,7 @@ class Cart extends Component {
                                                                         <td><strong>${product_item.price}</strong></td>
                                                                         <td>
                                                                             <div className="quantity">
-                                                                                <input type="number" className="quantity-input" name="qty" id="qty1" value="1" />
+                                                                                <input type="number" className="quantity-input" name="qty" id="qty1" value={product_item.buyqty}/>
                                                                                 <div className="dec qtybutton">
                                                                                     <i className="fa fa-angle-down"></i>
                                                                                 </div>
@@ -96,7 +97,7 @@ class Cart extends Component {
                                                                                 </div>
                                                                             </div>
                                                                         </td>
-                                                                        <td><strong>{per_productPrice}</strong></td>
+                                                                        <td><strong>{product_item.buyprice}</strong></td>
                                                                         <td><button  onClick={()=>this.handleDelete(product_item.id)}>
                                                                             <i className="fa fa-trash remove"></i>
                                                                             </button>
