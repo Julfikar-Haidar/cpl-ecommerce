@@ -127,10 +127,6 @@ class Home extends Component {
             productlist.push(item)
             total_price = item.price  + this.state.total_amount
             console.log('69',total_price);
-        // productlist.map(function (productlist) {
-        //     total_price += +parseFloat(productlist.price);
-        //     console.log('price 39',total_price);
-        // })
 
         this.setState({
             productListCount: productlist.length,
