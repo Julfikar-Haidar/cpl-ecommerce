@@ -106,7 +106,7 @@ class SingleProduct extends Component {
             console.log('100', item.id);
             if (existingItem) {
                 alert('hi')
-
+                let totalBuyQty = 0
                 total_price = (item.price * this.state.count) + this.state.total_amount
                 existingItem.qty = existingItem.quantity - this.state.count;
                 existingItem.buyqty = existingItem.buyqty + this.state.count 
