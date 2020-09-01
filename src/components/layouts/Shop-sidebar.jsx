@@ -5,9 +5,10 @@ class ShopSidebar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: []
+            items: [],
             // isLoaded: false
-            
+            search: null,
+            isChecked: true,
 
         }
     }
@@ -16,7 +17,6 @@ class ShopSidebar extends Component {
         .then(res => res.json())
         .then(response => {
             this.setState({
-                // isLoaded: true,
                 items: response.data
             });
             console.log('console',response.data);
@@ -27,11 +27,30 @@ class ShopSidebar extends Component {
        
     }
    
+    searchKeyword(key){
+
+        this.setState({
+            isChecked: !this.state.isChecked,
+          })
+          console.log(this.state.isChecked);
+
+        if(this.state.isChecked){
+            fetch(" https://nodejs-backend-apis.herokuapp.com/api/product?category="+key).then((data) => {
+            data.json().then((resp) => {
+                console.log("filter data found ",resp);
+            })
+        })
+        }else{
+            console.log('No search data found',key); 
+        
+        }
+      
+    }
  
     render() {
         var { items } = this.state;
         // var items = this.state;
-        console.log('check items',items);
+        // console.log('check items',items);
       
         return ( 
             <div>
@@ -46,39 +65,56 @@ class ShopSidebar extends Component {
                             <ul className="search-filter-list">
                           
                                     <li className="custom-checkbox">
-                                    <input type="checkbox" name="bookandboardgame" id="bookandboardgame" className="zeref-checkbox" />
+                                    <input type="checkbox" name="bookandboardgame" id="bookandboardgame" className="zeref-checkbox"
+                                     onClick={(event) => this.searchKeyword(event.target.value)} value="Electronics"
+                                     />
                                     <label htmlFor="bookandboardgame" className="zeref-checkbox-label">Electronics</label>
                                 </li>
                                 <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="1" className="zeref-checkbox" />
+                                    <input type="checkbox" name="babydols" id="1" className="zeref-checkbox" 
+                                     onClick={(event) => this.searchKeyword(event.target.value)} value="Gadgets"
+                                     />
                                     <label htmlFor="1" className="zeref-checkbox-label">Gadgets</label>
                                 </li>
                                 <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="2" className="zeref-checkbox" />
+                                    <input type="checkbox" name="babydols" id="2" className="zeref-checkbox" 
+                                     onClick={(e) => this.searchKeyword(e.target.value)} value="Industrial" 
+                                     />
                                     <label htmlFor="2" className="zeref-checkbox-label">Industrial</label>
                                 </li>
                                 <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="3" className="zeref-checkbox" />
+                                    <input type="checkbox" name="babydols" id="3" className="zeref-checkbox" 
+                                     onClick={(event) => this.searchKeyword(event.target.value)} value="Games" />
                                     <label htmlFor="3" className="zeref-checkbox-label">Games</label>
                                 </li>
                                 <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="4" className="zeref-checkbox" />
+                                    <input type="checkbox" name="babydols" id="4" className="zeref-checkbox" 
+                                     onClick={(event) => this.searchKeyword(event.target.value)} value="Beauty"
+                                     />
                                     <label htmlFor="4" className="zeref-checkbox-label">Beauty</label>
                                 </li>
                                 <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="5" className="zeref-checkbox" />
-                                    <label htmlFor="5" className="zeref-checkbox-label">Smartphones</label>
+                                    <input type="checkbox" name="babydols" id="5" className="zeref-checkbox" 
+                                    onClick={(event) => this.searchKeyword(event.target.value)} value="Smartphones"
+                                    />
+                                    <label htmlFor="5" className="zeref-checkbox-label" >Smartphones</label>
                                 </li>
                                 <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="6" className="zeref-checkbox" />
+                                    <input type="checkbox" name="babydols" id="6" className="zeref-checkbox" 
+                                     onClick={(event) => this.searchKeyword(event.target.value)} value="Automotive"
+                                     />
                                     <label htmlFor="6" className="zeref-checkbox-label">Automotive</label>
                                 </li>
                                 <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="7" className="zeref-checkbox" />
+                                    <input type="checkbox" name="babydols" id="7" className="zeref-checkbox"
+                                     onClick={(event) => this.searchKeyword(event.target.value)} value="Music" 
+                                    />
                                     <label htmlFor="7" className="zeref-checkbox-label">Music</label>
                                 </li>
                                 <li className="custom-checkbox">
-                                    <input type="checkbox" name="babydols" id="8" className="zeref-checkbox" />
+                                    <input type="checkbox" name="babydols" id="8" className="zeref-checkbox"
+                                     onClick={(event) => this.searchKeyword(event.target.value)} value="Tools"
+                                      />
                                     <label htmlFor="8" className="zeref-checkbox-label">Tools</label>
                                 </li>
                                     

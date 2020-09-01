@@ -132,19 +132,19 @@ class SingleProduct extends Component {
             console.log('100', item.id);
             if (existingItem) {
                 alert('hi')
-
+                let totalBuyQty = 0
                 total_price = (item.price * this.state.count) + this.state.total_amount
                 console.log('107', ((item.price * this.state.count) + (this.state.total_amount)));
                 // console.log('existing qty',this.state.single_item_qty)
                 existingItem.qty = existingItem.quantity - this.state.count;
-                existingItem.buyqty = (existingItem.quantity-existingItem.qty) + this.state.buy_qty_hold
+                // existingItem.buyqty = (existingItem.quantity-existingItem.qty) 
+                existingItem.buyqty = existingItem.buyqty + this.state.count
                 existingItem.buyprice= existingItem.buyqty*existingItem.price+this.state.total_amount
                 // item.qty = this.state.single_item_qty-this.state.count
                 console.log('139',this.state.buy_qty_hold)
                 
                 this.setState({
-                    total_amount: total_price,
-                    buy_qty_hold: existingItem.buyqty
+                    total_amount: total_price
                 })
 
                 localStorage.setItem('Quantity', this.state.count)

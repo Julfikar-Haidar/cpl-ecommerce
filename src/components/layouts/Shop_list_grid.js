@@ -12,7 +12,7 @@ class Shop_list_grid extends Component {
         axios.get('https://nodejs-backend-apis.herokuapp.com/api/product')
             .then(response => {
                 this.setState({ products: response.data.data });
-                console.log(response.data.data)
+                // console.log(response.data.data)
             })
             .catch(function (error) {
                 console.log(error);
